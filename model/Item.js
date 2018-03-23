@@ -19,6 +19,13 @@ class Item {
         return this._status;
     }
 
+    set label(label) {
+        this._label = label;
+    }
+    get label() {
+        return this._label;
+    }
+
     set description(description) {
         this._description = description;
     }

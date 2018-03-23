@@ -8,9 +8,9 @@ class ItemDao {
 
     stubList() {
         return [
-            { id:1, status: "INBOX", description: "Item 01", points: 5, percent: 0, statusHistory: [ {status: "INBOX", moved: "2018-01-01T08:00:00"} ] },
-            { id:2, status: "INBOX", description: "Item 02", points: 5, percent: 0, statusHistory: [ {status: "INBOX", moved: "2018-01-01T08:00:00"} ] },
-            { id:3, status: "INBOX", description: "Item 03", points: 5, percent: 0, statusHistory: [ {status: "INBOX", moved: "2018-01-03T08:00:00"} ] },
+            { id:1, status: "INBOX", label: "Label 01", description: "Item 01", points: 5, percent: 0, statusHistory: [ {status: "INBOX", moved: "2018-01-01T08:00:00"} ] },
+            { id:2, status: "INBOX", label: "Label 02", description: "Item 02", points: 5, percent: 0, statusHistory: [ {status: "INBOX", moved: "2018-01-01T08:00:00"} ] },
+            { id:3, status: "INBOX", label: "Label 03", description: "Item 03", points: 5, percent: 0, statusHistory: [ {status: "INBOX", moved: "2018-01-03T08:00:00"} ] },
 
             { id:4, status: "TO DO", description: "Item 04", points: 5, percent: 0, statusHistory: [ {status: "INBOX", moved: "2018-01-04T08:00:00"}, 
                                                                                                      {status: "TO DO", moved: "2018-01-22T08:00:00"} ] },
