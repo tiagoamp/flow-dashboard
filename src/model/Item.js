@@ -1,4 +1,4 @@
-class Item {
+export class Item {
 
     constructor() {
         this._statusHistory = [];  // stack
@@ -57,5 +57,3 @@ class Item {
     }
 
 }
-
-module.exports = Item;
