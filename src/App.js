@@ -4,6 +4,7 @@ import './css/flowdashboard.css';
 
 import { ItemDao } from './dao/ItemDao';
 import KanbanList from './components/KanbanList';
+import {CFDChart} from './components/CFDChart';
 
 
 class App extends Component {
@@ -28,7 +29,10 @@ class App extends Component {
 
       <div className="row">
 
-          <div className="chartbox col-xs-12 col-md-3">Chart 01</div>
+          <div className="chartbox col-xs-12 col-md-3">
+            Chart 01
+            <CFDChart />
+          </div>
 
           <div className="chartbox col-xs-12 col-md-3">Chart 02</div>
 
