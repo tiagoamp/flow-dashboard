@@ -3,13 +3,6 @@ import {Line} from 'react-chartjs-2';
 
 export class CFDChart extends Component {
 
-    static defaultProps = {
-        displayTitle:true,
-        displayLegend: true,
-        legendPosition:'right',
-        location:'City'
-      }
-
     render() {
 
         let chartData = { 
@@ -18,7 +11,7 @@ export class CFDChart extends Component {
               {
                 label:'Population 1',
                 data:[617594, 181045, 153060, 106519, 105162, 95072],
-                backgroundColor:['rgba(0, 99, 132, 0.7)']
+                backgroundColor:['rgba(0, 99, 132, 0.7)']                
               },
               {
                 label:'Population 2',
@@ -32,7 +25,7 @@ export class CFDChart extends Component {
             <div className="chart">
                 
                 <Line
-                    data={chartData}
+                    data={chartData} 
                     options={
                         {
                             title:{
@@ -42,10 +35,13 @@ export class CFDChart extends Component {
                             },
                             legend: {
                                 display:true,
-                                position:'right'
+                                position:'bottom'
+                            }, 
+                            tooltips: {
+                                enabled: true
                             }
                         }
-                    }
+                    } 
                     />
 
 
