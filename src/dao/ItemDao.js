@@ -1,21 +1,29 @@
 export class ItemDao {
 
     getAll() {        
-        return this.stubList();
+        return this._stubList();
     }
 
-    stubList() {
+    getStatusList() {
+        return this._stubStatusList();
+    }
+
+    _stubStatusList() {
+        return ['INBOX','TO DO','DOING','BLOCKED','DONE','RELEASED'];
+    }
+
+    _stubList() {
         return [
             { id:1, status: "INBOX", label: "Label 01", description: "Item 01", points: 5, percent: 0, statusHistory: [ {status: "INBOX", moved: "2018-01-01T08:00:00"} ] },
             { id:2, status: "INBOX", label: "Label 02", description: "Item 02", statusHistory: [ {status: "INBOX", moved: "2018-01-01T08:00:00"} ] },
             { id:3, status: "INBOX", label: "Label 03", description: "Item 03", points: 5, percent: 0, statusHistory: [ {status: "INBOX", moved: "2018-01-03T08:00:00"} ] },
 
-            { id:4, status: "TO DO", description: "Item 04", points: 5, percent: 0, statusHistory: [ {status: "INBOX", moved: "2018-01-04T08:00:00"}, 
+            { id:4, status: "TO DO", description: "Item 04 description", points: 5, percent: 0, statusHistory: [ {status: "INBOX", moved: "2018-01-04T08:00:00"}, 
                                                                                                      {status: "TO DO", moved: "2018-01-22T08:00:00"} ] },
             { id:5, status: "TO DO", description: "Item 05", points: 5, percent: 0, statusHistory: [ {status: "INBOX", moved: "2018-01-05T08:00:00"}, 
                                                                                                      {status: "TO DO", moved: "2018-01-23T08:00:00"} ] },
 
-            { id:6, status: "DOING", description: "Item 06", points: 5, percent: 0, statusHistory: [ {status: "INBOX", moved: "2018-01-07T08:00:00"}, 
+            { id:6, status: "DOING", description: "Item 06 description", points: 5, percent: 0, statusHistory: [ {status: "INBOX", moved: "2018-01-07T08:00:00"}, 
                                                                                                      {status: "TO DO", moved: "2018-01-20T08:00:00"}, 
                                                                                                      {status: "DOING", moved: "2018-02-06T08:00:00"} ] },
 
