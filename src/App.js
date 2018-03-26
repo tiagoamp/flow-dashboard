@@ -30,8 +30,9 @@ class App extends Component {
       <div className="row">
 
           <div className="chartbox col-xs-12 col-md-3">
-            Chart 01
+
             <CFDChart />
+
           </div>
 
           <div className="chartbox col-xs-12 col-md-3">Chart 02</div>

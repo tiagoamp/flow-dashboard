@@ -24,7 +24,7 @@ export class CFDChart extends Component {
         return (
             <div className="chart">
                 
-                <Line
+                <Line 
                     data={chartData} 
                     options={
                         {
@@ -42,7 +42,9 @@ export class CFDChart extends Component {
                             }
                         }
                     } 
-                    />
+                    height={500} 
+                    width={700}
+                />
 
 
             </div>
