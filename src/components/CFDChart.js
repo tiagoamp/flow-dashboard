@@ -10,12 +10,12 @@ export class CFDChart extends Component {
             datasets: [
               {
                 label:'Population 1',
-                data:[617594, 181045, 153060, 106519, 105162, 95072],
+                data:[10, 100, 250, 500, 800, 1000],
                 backgroundColor:['rgba(0, 99, 132, 0.7)']                
               },
               {
                 label:'Population 2',
-                data:[95000, 105000, 153000, 500000, 106000, 617000],
+                data:[80, 190, 450, 700, 1000, 1689],
                 backgroundColor:['rgba(0, 255, 0, 0.7)']
               }
             ]
@@ -30,8 +30,8 @@ export class CFDChart extends Component {
                         {
                             title:{
                                 display:true,
-                                text:'Largest Cities In WHATEVER',
-                                fontSize:25
+                                text:'Cumulative Flow Diagram (CFD)',
+                                fontSize:16
                             },
                             legend: {
                                 display:true,
@@ -43,7 +43,7 @@ export class CFDChart extends Component {
                         }
                     } 
                     height={500} 
-                    width={700}
+                    width={650}
                 />
 
 
