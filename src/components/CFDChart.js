@@ -8,15 +8,12 @@ export class CFDChart extends Component {
         this._xlabels = '';
         this._datasets = [];
     }
-    
-    componentWillMount() {
-        const items = this.props.items;
-        const statuses = this.props.statuses;
 
+    _getLabels(items) {
         const xLabels = [];
-        
+
         items.forEach(function(item) {
-            item.statusHistory.forEach(function(history) {
+            item.statusHistory.forEach((history) => {
                 if (!xLabels.includes(history.moved.toLocaleDateString())) {
                     xLabels.push(history.moved.toLocaleDateString());
                 }                
@@ -32,75 +29,71 @@ export class CFDChart extends Component {
         };
 
         xLabels.sort(dateSortAsc);
-        console.log(xLabels);
-        this._xlabels = xLabels;
-        
-        let dataStatus = Array(statuses.length);
-        for(let i=0; i<dataStatus.length; i++) {
-            dataStatus[i] = Array(xLabels.length).fill(0);    
+        return xLabels;
+    }
+
+    _initStatusArrayWithZeros(arr) {
+        for(let i=0; i<arr.length; i++) {
+            arr[i] = Array(this._xlabels.length).fill(0);    
         }
-        
-        for (let i=0; i<xLabels.length; i++) {
-            const dateX = xLabels[i];
-            items.forEach(function(item) {
-                item.statusHistory.forEach(function(history) {
-                    if (history.moved.toLocaleDateString() === dateX) {
-                        
+        return arr;
+    }
+
+    _loadData(items, statuses) {
+        let arr = Array(statuses.length);
+        arr = this._initStatusArrayWithZeros(arr);
+
+        for (let i=0; i<this._xlabels.length; i++) {
+            const dateX = this._xlabels[i];
+            items.forEach( (item) => {
+                item.statusHistory.forEach( (history) => {
+                    if (history.moved.toLocaleDateString() === dateX) {                        
                         for (let j=0; j<statuses.length; j++) {
                             if (history.status === statuses[j]) {
-                                dataStatus[j][i] = dataStatus[j][i] + 1;
+                                arr[j][i] = arr[j][i] + 1;
                             }    
                         }
-
                     }
                 });
             });
         }
+        return arr;
+    }
 
-        // cumulative
-        for(let i=dataStatus.length-1; i>0; i--) {
-            for(let j=0; j<xLabels.length; j++) {
-                dataStatus[i-1][j] = dataStatus[i-1][j] + dataStatus[i][j];
+    _calculateCumulativeValues(arr) {
+        for(let i=arr.length-1; i>0; i--) {
+            for(let j=0; j<this._xlabels.length; j++) {
+                arr[i-1][j] = arr[i-1][j] + arr[i][j];
             }
         }
+        return arr;
+    }
 
-        console.log(dataStatus);
+    _createDatasetsObjs(arr, statuses) {
+        const colors = ['rgba(102, 204, 255, 0.7)', 'rgba(102, 153, 204, 0.7)', 'rgba(000, 153, 204, 0.7)', 
+                         'rgba(204, 102, 102, 0.7)', 'rgba(102, 204, 153, 0.7)', 'rgba(218, 226, 130, 0.7)'];
 
-        this._datasets.push( {
-            label:'Released',
-            data:dataStatus[5],
-            backgroundColor:['rgba(218, 226, 130, 0.7)'] 
-        } );
+        for(let i=arr.length-1; i>=0; i--) {
+            this._datasets.push( {
+                label:statuses[i],
+                data:arr[i],
+                backgroundColor:colors[i] 
+            } );    
+        }        
+    }
 
-        this._datasets.push( {
-            label:'Done',
-            data:dataStatus[4],
-            backgroundColor:['rgba(102, 204, 153, 0.7)'] 
-        } );
+    
+    componentWillMount() {
+        const items = this.props.items;
+        const statuses = this.props.statuses;
 
-        this._datasets.push( {
-            label:'Blocked',
-            data:dataStatus[3],
-            backgroundColor:['rgba(204, 102, 102, 0.7)'] 
-        } );
+        this._xlabels = this._getLabels(items);
+        
+        let dataPerStatus = this._loadData(items, statuses);
+        
+        dataPerStatus = this._calculateCumulativeValues(dataPerStatus);
 
-        this._datasets.push( {
-            label:'Doing',
-            data:dataStatus[2],
-            backgroundColor:['rgba(000, 153, 204, 0.7)']             
-        } );
-
-        this._datasets.push( {
-            label:'To Do',
-            data:dataStatus[1],
-            backgroundColor:['rgba(102, 153, 204, 0.7)'] 
-        } );
-
-        this._datasets.push( {
-            label:'Inbox',
-            data:dataStatus[0],
-            backgroundColor:['rgba(102, 204, 255, 0.7)'] 
-        } );
+        this._createDatasetsObjs(dataPerStatus, statuses);
 
     }
 
