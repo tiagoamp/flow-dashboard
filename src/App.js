@@ -23,7 +23,6 @@ class App extends Component {
 
     render() {
         return (
-
         
   <div className="container-fluid">
 
@@ -31,7 +30,7 @@ class App extends Component {
 
           <div className="chartbox col-xs-12 col-md-3">
 
-            <CFDChart />
+            <CFDChart items={this.state.itemsList} statuses={this.state.statusList} />
 
           </div>
 

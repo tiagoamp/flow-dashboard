@@ -1,4 +1,4 @@
-class StatusHistory {
+export class StatusHistory {
 
     set status(status) {
         this._status = status;
@@ -15,5 +15,3 @@ class StatusHistory {
     }
 
 }
-
-module.exports = StatusHistory;
