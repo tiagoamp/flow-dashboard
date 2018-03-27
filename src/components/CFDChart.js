@@ -17,6 +17,11 @@ export class CFDChart extends Component {
                 label:'Population 2',
                 data:[80, 190, 450, 700, 1000, 1689],
                 backgroundColor:['rgba(0, 255, 0, 0.7)']
+              },
+              {
+                label:'Population 3',
+                data:[100, 300, 650, 900, 1300, 2000],
+                backgroundColor:['rgba(255, 0, 0, 0.7)']
               }
             ]
           };
