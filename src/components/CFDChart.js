@@ -126,8 +126,8 @@ export class CFDChart extends Component {
                             }
                         }
                     } 
-                    height={500} 
-                    width={700}
+                    height={60} 
+                    width={300}
                 />
 
             </div>

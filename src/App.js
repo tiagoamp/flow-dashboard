@@ -28,17 +28,11 @@ class App extends Component {
 
       <div className="row">
 
-          <div className="chartbox col-xs-12 col-md-3">
+          <div className="chartbox col-xs-12">
 
             <CFDChart items={this.state.itemsList} statuses={this.state.statusList} />
 
           </div>
-
-          <div className="chartbox col-xs-12 col-md-3">Chart 02</div>
-
-          <div className="chartbox col-xs-12 col-md-3">Chart 03</div>
-
-          <div className="chartbox col-xs-12 col-md-3">Chart 04</div>
 
       </div>
 
