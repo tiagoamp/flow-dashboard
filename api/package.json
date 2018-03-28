@@ -1,0 +1,22 @@
+{
+  "name": "flow-dashboard-api",
+  "version": "1.0.0",
+  "description": "Flow Dashboard API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "api",
+    "flow",
+    "kanban"
+  ],
+  "author": "tiagoamp",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "consign": "^0.1.6",
+    "express": "^4.16.3",
+    "mysql": "^2.15.0"
+  }
+}

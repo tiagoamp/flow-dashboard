@@ -64,3 +64,30 @@ export class ItemDao {
     }
   
 }
+
+/*
+
+DDL: 
+
+mysql> CREATE TABLE ITEMS ( 
+    -> ID INT(11) NOT NULL AUTO_INCREMENT,
+    -> STATUS VARCHAR(40), 
+    -> LABEL VARCHAR(40), 
+    -> DESCRIPTION VARCHAR(255), 
+    -> POINTS INT(5), 
+    -> PERCENT INT(3), 
+    -> PRIMARY KEY(ID)
+    -> );
+
+mysql> CREATE TABLE ITEMS_HISTORY (
+    -> ID_HISTORY INT(11) NOT NULL AUTO_INCREMENT, 
+    -> STATUS VARCHAR(40),
+    -> LABEL VARCHAR(40),
+    -> DESCRIPTION VARCHAR(255), 
+    -> POINTS INT(5), 
+    -> PERCENT INT(3), 
+    -> ID_ITEM INT(11), 
+    -> PRIMARY KEY(ID_HISTORY)
+    -> );
+
+*/
