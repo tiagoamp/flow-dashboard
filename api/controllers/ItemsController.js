@@ -30,7 +30,17 @@ module.exports = function(app) {
                 item.id = result.insertId;
                 console.log('Item created: id = ' + item.id);    
                 res.location('/items/' + item.id);
-                res.status(201).json(item);
+
+                const resp = {
+                    item: item, 
+                    links: [
+                        { href: "/items/" + item.id, rel:"self", method:"GET" },
+                        { href: "/items/" + item.id, rel:"update", method:"PUT" }, 
+                        { href: "/items/" + item.id, rel:"delete", method:"DELETE" }
+                    ]
+                };
+
+                res.status(201).json(resp);
             } ) 
             .catch( (err) => {
                 console.log("Failed: " + err);
@@ -52,7 +62,17 @@ module.exports = function(app) {
         promise
             .then( (result) => {
                 console.log('Item updated: id = ' + item.id);
-                res.send(item);
+
+                const resp = {
+                    item: item, 
+                    links: [ 
+                        { href: "/items/" + item.id, rel:"self", method:"GET" },
+                        { href: "/items/" + item.id, rel:"update", method:"PUT" }, 
+                        { href: "/items/" + item.id, rel:"delete", method:"DELETE" }
+                    ]
+                };
+
+                res.send(resp);
             } ) 
             .catch( (err) => {
                 console.log("Failed: " + err);
