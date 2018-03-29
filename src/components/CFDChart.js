@@ -43,14 +43,16 @@ export class CFDChart extends Component {
         let arr = Array(statuses.length);
         arr = this._initStatusArrayWithZeros(arr);
 
-        for (let i=0; i<this._xlabels.length; i++) {
-            const dateX = this._xlabels[i];
+        for (let l=0; l<this._xlabels.length; l++) {
+            const dateX = this._xlabels[l];
             items.forEach( (item) => {
                 item.statusHistory.forEach( (history) => {
                     if (history.moved.toLocaleDateString() === dateX) {                        
-                        for (let j=0; j<statuses.length; j++) {
-                            if (history.status === statuses[j]) {
-                                arr[j][i] = arr[j][i] + 1;
+                        for (let s=0; s<statuses.length; s++) {
+                            if (history.status === statuses[s]) {
+                                //arr[s][l] = arr[s][l] + 1;
+                                const newValue = arr[s][l] + 1;
+                                arr[s].fill(newValue, l);
                             }    
                         }
                     }
