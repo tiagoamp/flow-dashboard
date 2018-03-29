@@ -6,7 +6,18 @@ module.exports = function(app) {
         res.send('OK');
     });
 
-    app.post('/items/item', function(req,res) {
+    app.post('/items', function(req,res) {
+        // validations
+        req.assert("status","Status must not be empty!").notEmpty();
+        req.assert("description","Description must not be empty!").notEmpty();
+
+        let validErrors = req.validationErrors();
+        if (validErrors) {
+            console.log('Validation errors: ' + JSON.stringify(validErrors));
+            res.status(400).send(validErrors);
+            return;
+        }
+
         let item = req.body;
         console.log('Request process for: ' + JSON.stringify(item));
 
@@ -16,13 +27,14 @@ module.exports = function(app) {
         let promise = itemDao.save(item);
         promise
             .then( (result) => {
-                console.log('Item created!');    
                 item.id = result.insertId;
-                
-                res.json(item);
+                console.log('Item created: id = ' + item.id);    
+                res.location('/items/' + item.id);
+                res.status(201).json(item);
             } ) 
             .catch( (err) => {
                 console.log("Failed: " + err);
+                res.status(500).send(err);
             } );       
     });
 
@@ -44,6 +56,7 @@ module.exports = function(app) {
             } ) 
             .catch( (err) => {
                 console.log("Failed: " + err);
+                res.send(err);
             } );       
     });
 
