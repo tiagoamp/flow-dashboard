@@ -38,7 +38,49 @@ module.exports = function(app) {
             } );       
     });
 
-    app.post('/items/{id}', function(req,res) {
+    app.put('/items/:id', function(req,res) {
+        let id = req.params.id;
+
+        let item = req.body;
+        item.id = id;
+        console.log('Request process for: ' + JSON.stringify(item));
+
+        var connection = app.persistence.ConnectionFactory();
+        var itemDao = new app.persistence.ItemDao(connection);
+
+        let promise = itemDao.update(item);
+        promise
+            .then( (result) => {
+                console.log('Item updated: id = ' + item.id);
+                res.send(item);
+            } ) 
+            .catch( (err) => {
+                console.log("Failed: " + err);
+                res.status(500).send(err);
+            } );
+    });
+
+    app.delete('/items/:id', function(req,res) {
+        let id = req.params.id;
+
+        console.log('Request process for: ' + id);
+
+        var connection = app.persistence.ConnectionFactory();
+        var itemDao = new app.persistence.ItemDao(connection);
+
+        let promise = itemDao.delete(id);
+        promise
+            .then( (result) => {
+                console.log('Item deleted: id = ' + id);
+                res.status(204).send();
+            } ) 
+            .catch( (err) => {
+                console.log("Failed: " + err);
+                res.status(500).send(err);
+            } );
+    });
+
+    app.post('/items/:id', function(req,res) {
         let itemHistory = req.body;
         console.log('Request process for: ' + JSON.stringify(itemHistory));
 
