@@ -1,9 +1,45 @@
 module.exports = function(app) {
 
     app.get('/items', function(req, res) {
-        console.log('Teste');
-        console.log(new Date());
-        res.send('OK');
+        var connection = app.persistence.ConnectionFactory();
+        var itemDao = new app.persistence.ItemDao(connection);
+
+        let promise = itemDao.findAll();
+        promise
+            .then( (result) => {
+                res.json(result);
+            } ) 
+            .catch( (err) => {
+                console.log("Failed: " + err);
+                res.status(500).send(err);
+            } );
+    });
+
+    app.get('/items/:id', function(req, res) {
+        let id = req.params.id;
+
+        console.log('Request process for GET id: ' + JSON.stringify(id));
+
+        var connection = app.persistence.ConnectionFactory();
+        var itemDao = new app.persistence.ItemDao(connection);
+
+        let promise = itemDao.findById(id);
+        promise
+            .then( (result) => {
+                const resp = {
+                    item: result, 
+                    links: [ 
+                        { href: "/items/" + id, rel:"self", method:"GET" },
+                        { href: "/items/" + id, rel:"update", method:"PUT" }, 
+                        { href: "/items/" + id, rel:"delete", method:"DELETE" }
+                    ]
+                };
+                res.json(resp);
+            } ) 
+            .catch( (err) => {
+                console.log("Failed: " + err);
+                res.status(500).send(err);
+            } );
     });
 
     app.post('/items', function(req,res) {
@@ -72,7 +108,7 @@ module.exports = function(app) {
                     ]
                 };
 
-                res.send(resp);
+                res.json(resp);
             } ) 
             .catch( (err) => {
                 console.log("Failed: " + err);
@@ -98,28 +134,6 @@ module.exports = function(app) {
                 console.log("Failed: " + err);
                 res.status(500).send(err);
             } );
-    });
-
-    app.post('/items/:id', function(req,res) {
-        let itemHistory = req.body;
-        console.log('Request process for: ' + JSON.stringify(itemHistory));
-
-        var connection = app.persistence.ConnectionFactory();
-        var itemDao = new app.persistence.ItemDao(connection);
-
-        // TODO: SETAR ID NO HISTORY !!!!
-
-        let promise = itemDao.saveHistory(itemHistory);
-        promise
-            .then( (result) => {
-                console.log('Items history created!');    
-                
-                res.json(item);
-            } ) 
-            .catch( (err) => {
-                console.log("Failed: " + err);
-                res.send(err);
-            } );       
     });
 
 }
