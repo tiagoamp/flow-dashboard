@@ -72,7 +72,7 @@ module.exports = function(app) {
         console.log('Request process for: ' + JSON.stringify(itemHistory));
 
         var connection = app.persistence.ConnectionFactory();
-        var itemHistoryDao = new app.persistence.ItemDao(connection);
+        var itemHistoryDao = new app.persistence.ItemHistoryDao(connection);
 
         let promise = itemHistoryDao.update(itemHistory);
         promise
@@ -103,7 +103,7 @@ module.exports = function(app) {
         console.log('Request process for: ' + idHistory);
 
         var connection = app.persistence.ConnectionFactory();
-        var itemHistoryDao = new app.persistence.ItemDao(connection);
+        var itemHistoryDao = new app.persistence.ItemHistoryDao(connection);
 
         let promise = itemHistoryDao.delete(idHistory);
         promise
