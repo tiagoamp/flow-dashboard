@@ -52,17 +52,6 @@ ItemDao.prototype.findAll = function () {
     );
 }
 
-
-ItemDao.prototype.saveHistory = function(history) {
-    return new Promise( (resolve,reject) => {
-        this._connection.query('INSERT INTO ITEMS_HISTORY SET ?', history, function(err,result) {
-                if (err) reject("Database error: " + err);
-                resolve(result);
-            });
-        }
-    );    
-}
-
 module.exports = function(){
     return ItemDao;
 };
