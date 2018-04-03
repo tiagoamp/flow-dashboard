@@ -52,7 +52,7 @@ module.exports = function(app) {
 
             itemHistoryDao.findByItemId(id)
                 .then( (result) => {
-                    itemComplete.history = result;
+                    itemComplete.item.history = result;
                 } )
 
         ])
