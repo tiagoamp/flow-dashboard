@@ -1,9 +1,9 @@
 module.exports = function(app) {
 
     app.get('/items', function(req, res) {
-        var connection = app.persistence.ConnectionFactory();
-        var itemDao = new app.persistence.ItemDao(connection);
-
+        const connection = app.persistence.ConnectionFactory();
+        const itemDao = new app.persistence.ItemDao(connection);
+        
         let promise = itemDao.findAll();
         promise
             .then( (result) => {
@@ -20,26 +20,36 @@ module.exports = function(app) {
 
         console.log('Request process for GET id: ' + JSON.stringify(id));
 
-        var connection = app.persistence.ConnectionFactory();
-        var itemDao = new app.persistence.ItemDao(connection);
+        const connection = app.persistence.ConnectionFactory();
+        const itemDao = new app.persistence.ItemDao(connection);
+        const itemHistoryDao = new app.persistence.ItemHistoryDao(connection);
 
-        let promise = itemDao.findById(id);
-        promise
-            .then( (result) => {
-                const resp = {
-                    item: result, 
-                    links: [ 
-                        { href: "/items/" + id, rel:"self", method:"GET" },
-                        { href: "/items/" + id, rel:"update", method:"PUT" }, 
-                        { href: "/items/" + id, rel:"delete", method:"DELETE" }
-                    ]
-                };
-                res.json(resp);
-            } ) 
-            .catch( (err) => {
-                console.log("Failed: " + err);
-                res.status(500).send(err);
-            } );
+        let itemComplete;
+
+        Promise.all([
+            itemDao.findById(id)
+                .then( (result) => {
+                    const itemRetrieved = result[0];
+                    console.log('itemretrieved = ' + JSON.stringify(itemRetrieved));
+                    itemComplete = {
+                        item: itemRetrieved, 
+                        links: [ 
+                            { href: "/items/" + id, rel:"self", method:"GET" },
+                            { href: "/items/" + id, rel:"update", method:"PUT" }, 
+                            { href: "/items/" + id, rel:"delete", method:"DELETE" }
+                        ]
+                    };
+                } ),
+            itemHistoryDao.findByItemId(id)
+                .then( (result) => {
+                    itemComplete.history = result;
+                } ) 
+        ])
+        .then(finalResult => {
+            console.log("Item complete = " + JSON.stringify(itemComplete));
+            res.json(itemComplete);
+        });
+
     });
 
     app.post('/items', function(req,res) {
