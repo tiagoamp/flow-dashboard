@@ -5,29 +5,40 @@ module.exports = function(app) {
         const itemDao = new app.persistence.ItemDao(connection);
         const itemHistoryDao = new app.persistence.ItemHistoryDao(connection);
 
-        let itemsComplete = [];
-                 
-        itemDao.findAll()
-            .then( (result) => {
+        let promiseItems = new Promise( (resolve, reject) => {
+            itemDao.findAll(function(err, result) {
+                if (err) reject("Database error: " + err);
+                resolve(result);
+            });
+        });
+
+        promiseItems.then(
+            (result) => {
                 
                 const allHistPromises = Promise.all(
-                    result.map(item => itemHistoryDao.findByItemId(item.ID)
-                        .then( (result) => {
+
+                    result.map(item => new Promise( (resolve,reject) => {
+                        itemHistoryDao.findByItemId(item.ID, function(err, result) {
+                            if (err) reject("Database error: " + err);
                             item.history = result;
-                            itemsComplete.push(item);
-                        } ))                    
+                            resolve(item);                        
+                            })} 
+                        )
+                    )
                 );
 
                 allHistPromises
                 .then( (finalResult) => {
-                    res.json(itemsComplete);
+                    console.log(finalResult);
+                    res.json(finalResult);
                 })
                 .catch((err) => {
                     console.log("Failed: " + err);
                     res.status(500).send(err);
                 });
 
-            });    
+            }
+        );
                    
     });
 
@@ -40,23 +51,37 @@ module.exports = function(app) {
         const itemDao = new app.persistence.ItemDao(connection);
         const itemHistoryDao = new app.persistence.ItemHistoryDao(connection);
 
-        let itemComplete = {};
-
         Promise.all([
 
-            itemDao.findById(id)
-                .then( (result) => {
+            new Promise( (resolve,reject) => {
+                itemDao.findById(id, function(err, result) {
+                    if (err) reject("Database error: " + err);
                     const itemRetrieved = result[0];
-                    itemComplete.item = itemRetrieved;
-                } ),
+                    resolve(itemRetrieved);
+                });
+            }),
 
-            itemHistoryDao.findByItemId(id)
-                .then( (result) => {
-                    itemComplete.item.history = result;
-                } )
+            new Promise( (resolve,reject) => {
+                itemHistoryDao.findByItemId(id, function(err, result) {
+                    if (err) reject("Database error: " + err);
+                    const history = result;
+                    resolve(history);
+                });
+            }),
 
         ])
-        .then(finalResult => {            
+        .then(finalResult => {  
+            const itemComplete = {};
+            itemComplete.item = {};
+
+            finalResult.forEach( res => {
+                if (Array.isArray(res)) {
+                    itemComplete.item.history = res;
+                } else {
+                    itemComplete.item = res;
+                }
+            });
+
             itemComplete.links = [ 
                 { href: "/items/" + id, rel:"self", method:"GET" },
                 { href: "/items/" + id, rel:"update", method:"PUT" }, 

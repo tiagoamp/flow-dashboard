@@ -42,14 +42,8 @@ ItemHistoryDao.prototype.findByIdHistory = function (idHistory) {
     );    
 }
 
-ItemHistoryDao.prototype.findByItemId = function (idItem) {
-    return new Promise( (resolve,reject) => {
-        this._connection.query('SELECT * FROM ITEMS_HISTORY WHERE id = ?', idItem, function(err,result) {
-                if (err) reject("Database error: " + err);
-                resolve(result);
-            });
-        }
-    );    
+ItemHistoryDao.prototype.findByItemId = function (idItem, callback) {
+    this._connection.query('SELECT * FROM ITEMS_HISTORY WHERE id = ?', idItem, callback);    
 }
 
 ItemHistoryDao.prototype.findAll = function () {

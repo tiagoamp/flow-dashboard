@@ -32,24 +32,12 @@ ItemDao.prototype.delete = function(id) {
     );    
 }
 
-ItemDao.prototype.findById = function (id) {
-    return new Promise( (resolve,reject) => {
-        this._connection.query('SELECT * FROM ITEMS WHERE id = ?', id, function(err,result) {
-                if (err) reject("Database error: " + err);
-                resolve(result);
-            });
-        }
-    );    
+ItemDao.prototype.findById = function (id,callback) {
+    this._connection.query('SELECT * FROM ITEMS WHERE id = ?', id, callback);    
 }
 
-ItemDao.prototype.findAll = function () {
-    return new Promise( (resolve,reject) => {
-        this._connection.query('SELECT * FROM ITEMS', function(err,result) {
-                if (err) reject("Database error: " + err);
-                resolve(result);
-            });
-        }
-    );
+ItemDao.prototype.findAll = function (callback) {
+    this._connection.query('SELECT * FROM ITEMS', callback);
 }
 
 module.exports = function(){
