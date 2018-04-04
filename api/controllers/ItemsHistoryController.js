@@ -6,7 +6,13 @@ module.exports = function(app) {
         var connection = app.persistence.ConnectionFactory();
         var itemHistoryDao = new app.persistence.ItemHistoryDao(connection);
 
-        let promise = itemHistoryDao.findByItemId(id);
+        let promise = new Promise( (resolve,reject) => {
+            itemHistoryDao.findByItemId(id, function(err,result) {
+                if (err) reject("Database error: " + err);
+                resolve(result);
+            });    
+        });
+                
         promise
             .then( (result) => {
                 res.json(result);
@@ -38,7 +44,13 @@ module.exports = function(app) {
 
         history.id = id;
 
-        let promise = itemHistoryDao.save(history);
+        let promise = new Promise( (resolve,reject) => {
+            itemHistoryDao.save(history, function(err,result) {
+                if (err) reject("Database error: " + err);
+                resolve(result);
+            });    
+        }); 
+        
         promise
             .then( (result) => {
                 history.id_history = result.insertId;
@@ -74,11 +86,15 @@ module.exports = function(app) {
         var connection = app.persistence.ConnectionFactory();
         var itemHistoryDao = new app.persistence.ItemHistoryDao(connection);
 
-        let promise = itemHistoryDao.update(itemHistory);
+        let promise = new Promise( (resolve,reject) => {
+            itemHistoryDao.update(itemHistory, function(err,result) {
+                console.log('Item History updated: id = ' + itemHistory.id_history);
+                resolve(result);
+            });    
+        }); 
+        
         promise
             .then( (result) => {
-                console.log('Item History updated: id = ' + itemHistory.id_history);
-
                 const resp = {
                     history: itemHistory, 
                     links: [
@@ -105,10 +121,15 @@ module.exports = function(app) {
         var connection = app.persistence.ConnectionFactory();
         var itemHistoryDao = new app.persistence.ItemHistoryDao(connection);
 
-        let promise = itemHistoryDao.delete(idHistory);
-        promise
-            .then( (result) => {
+        let promise = new Promise( (resolve,reject) => {
+            itemHistoryDao.delete(idHistory, function(err,result) {
                 console.log('Item History deleted: id = ' + idHistory);
+                resolve(result);
+            });    
+        });
+        
+        promise
+            .then( (result) => {                
                 res.status(204).send();
             } ) 
             .catch( (err) => {

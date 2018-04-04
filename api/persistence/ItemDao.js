@@ -2,34 +2,16 @@ function ItemDao(connection) {
     this._connection = connection;
 }
 
-ItemDao.prototype.save = function(item) {
-    return new Promise( (resolve,reject) => {
-        this._connection.query('INSERT INTO ITEMS SET ?', item, function(err,result) {
-                if (err) reject("Database error: " + err);
-                resolve(result);
-            });
-        }
-    );    
+ItemDao.prototype.save = function(item, callback) {
+    this._connection.query('INSERT INTO ITEMS SET ?', item, callback);    
 }
 
-ItemDao.prototype.update = function(item) {
-    return new Promise( (resolve,reject) => {
-        this._connection.query('UPDATE ITEMS SET ? WHERE id = ?', [item, item.id], function(err,result) {
-                if (err) reject("Database error: " + err);
-                resolve(result);
-            });
-        }
-    );    
+ItemDao.prototype.update = function(item,callback) {
+    this._connection.query('UPDATE ITEMS SET ? WHERE id = ?', [item, item.id], callback);
 }
 
-ItemDao.prototype.delete = function(id) {
-    return new Promise( (resolve,reject) => {
-        this._connection.query('DELETE FROM ITEMS WHERE id = ?', id, function(err,result) {
-                if (err) reject("Database error: " + err);
-                resolve(result);
-            });
-        }
-    );    
+ItemDao.prototype.delete = function(id,callback) {
+    this._connection.query('DELETE FROM ITEMS WHERE id = ?', id, callback);
 }
 
 ItemDao.prototype.findById = function (id,callback) {

@@ -28,14 +28,14 @@ module.exports = function(app) {
                 );
 
                 allHistPromises
-                .then( (finalResult) => {
-                    console.log(finalResult);
-                    res.json(finalResult);
-                })
-                .catch((err) => {
-                    console.log("Failed: " + err);
-                    res.status(500).send(err);
-                });
+                    .then( (finalResult) => {
+                        console.log(finalResult);
+                        res.json(finalResult);
+                    })
+                    .catch((err) => {
+                        console.log("Failed: " + err);
+                        res.status(500).send(err);
+                    });
 
             }
         );
@@ -115,28 +115,36 @@ module.exports = function(app) {
         var connection = app.persistence.ConnectionFactory();
         var itemDao = new app.persistence.ItemDao(connection);
 
-        let promise = itemDao.save(item);
-        promise
-            .then( (result) => {
+        let promise = new Promise( (resolve,reject) => {
+            itemDao.save(item, function(err,result) {
                 item.id = result.insertId;
                 console.log('Item created: id = ' + item.id);    
-                res.location('/items/' + item.id);
+                resolve(item);
+            });
+        });
 
-                const resp = {
-                    item: item, 
-                    links: [
-                        { href: "/items/" + item.id, rel:"self", method:"GET" },
-                        { href: "/items/" + item.id, rel:"update", method:"PUT" }, 
-                        { href: "/items/" + item.id, rel:"delete", method:"DELETE" }
-                    ]
-                };
+        promise
+            .then(
+                (result) => {
+                    res.location('/items/' + item.id);
 
-                res.status(201).json(resp);
-            } ) 
+                    const resp = {
+                        item: item, 
+                        links: [
+                            { href: "/items/" + item.id, rel:"self", method:"GET" },
+                            { href: "/items/" + item.id, rel:"update", method:"PUT" }, 
+                            { href: "/items/" + item.id, rel:"delete", method:"DELETE" }
+                        ]
+                    };
+
+                    res.status(201).json(resp);
+                }
+            )
             .catch( (err) => {
                 console.log("Failed: " + err);
                 res.status(500).send(err);
-            } );       
+            });
+     
     });
 
     app.put('/items/:id', function(req,res) {
@@ -149,11 +157,15 @@ module.exports = function(app) {
         var connection = app.persistence.ConnectionFactory();
         var itemDao = new app.persistence.ItemDao(connection);
 
-        let promise = itemDao.update(item);
+        let promise = new Promise( (resolve,reject) => {
+            itemDao.update(item, function(err,result) {
+                console.log('Item updated: id = ' + item.id);
+                resolve(item);
+            });
+        });
+        
         promise
             .then( (result) => {
-                console.log('Item updated: id = ' + item.id);
-
                 const resp = {
                     item: item, 
                     links: [ 
@@ -179,10 +191,15 @@ module.exports = function(app) {
         var connection = app.persistence.ConnectionFactory();
         var itemDao = new app.persistence.ItemDao(connection);
 
-        let promise = itemDao.delete(id);
+        let promise = new Promise( (resolve,reject) => {
+            itemDao.delete(id, function(err,result) {
+                console.log('Item deleted: id = ' + id);
+                resolve(result);
+            }); 
+        });
+                
         promise
             .then( (result) => {
-                console.log('Item deleted: id = ' + id);
                 res.status(204).send();
             } ) 
             .catch( (err) => {
