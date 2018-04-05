@@ -43,7 +43,7 @@ export default class KanbanList extends Component {
                         {
                             this.props.itemsList.map(function(item) {
                                 return (
-                                    <ItemDysplay item={item} key={item.id} />
+                                    <ItemDysplay item={item} key={item.ID} />
                                 );
                             })
                         }

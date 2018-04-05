@@ -8,10 +8,10 @@ export default class ItemDysplay extends Component {
             <article className="kanban-entry">
                 <div className="kanban-entry-inner">
                     <div className="kanban-label">
-                        <h2>{this.props.item.label != null ? this.props.item.label : ''}</h2>
-                        <p>{this.props.item.description}</p>
-                        <span className="badge">{this.props.item.points != null ? this.props.item.points : ''}</span> 
-                        <span className="badge">{this.props.item.percent != null ? this.props.item.percent : ''}</span>
+                        <h2>{this.props.item.LABEL != null ? this.props.item.LABEL : ''}</h2>
+                        <p>{this.props.item.DESCRIPTION}</p>
+                        <span className="badge">{this.props.item.POINTS != null ? this.props.item.POINTS : ''}</span> 
+                        <span className="badge">{this.props.item.PERCENT != null ? this.props.item.PERCENT : ''}</span>
                     </div>
                 </div>
             </article>

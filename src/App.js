@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/flowdashboard.css';
+import $ from 'jquery';
 
-import { ItemDao } from './dao/ItemDao';
+import { FlowApiService } from './service/FlowApiService';
 import KanbanList from './components/KanbanList';
 import {CFDChart} from './components/CFDChart';
 
@@ -11,14 +12,21 @@ class App extends Component {
 
     constructor() {
         super();
-        this._dao = new ItemDao();
+        this._service = new FlowApiService();
         this.state = { itemsList: [], statusList: [] };        
     }
 
     componentWillMount() {
-        const items = this._dao.getAll();
-        const statuses = this._dao.getStatusList();
-        this.setState( {itemsList: items, statusList: statuses} );
+
+        const statuses = this._service.getStatusList();
+
+        $.ajax({
+            url: "http://localhost:3001/items",
+            dataType: 'json',
+            success: function(resp) {
+                this.setState( {itemsList: resp, statusList: statuses} );
+            }.bind(this)
+        });        
     }
 
     render() {
@@ -41,7 +49,7 @@ class App extends Component {
         {
             this.state.statusList.map(function(status) {
                 return (
-                    <KanbanList label={status} itemsList={this.state.itemsList.filter((item) => item.status === status)} key={status} />
+                    <KanbanList label={status} itemsList={this.state.itemsList.filter((item) => item.STATUS === status)} key={status} />
                 );
             }.bind(this))
         }       

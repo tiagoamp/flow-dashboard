@@ -7,15 +7,18 @@ export class CFDChart extends Component {
         super();
         this._xlabels = '';
         this._datasets = [];
+
+        this.loadDataForChart.bind(this);
     }
 
     _getLabels(items) {
         const xLabels = [];
 
         items.forEach(function(item) {
-            item.statusHistory.forEach((history) => {
-                if (!xLabels.includes(history.moved.toLocaleDateString())) {
-                    xLabels.push(history.moved.toLocaleDateString());
+            item.history.forEach((history) => {
+                const dt = new Date(history.MOVED);
+                if (!xLabels.includes(dt.toLocaleDateString())) {
+                    xLabels.push(dt.toLocaleDateString());                    
                 }                
             });
         });
@@ -46,11 +49,11 @@ export class CFDChart extends Component {
         for (let l=0; l<this._xlabels.length; l++) {
             const dateX = this._xlabels[l];
             items.forEach( (item) => {
-                item.statusHistory.forEach( (history) => {
-                    if (history.moved.toLocaleDateString() === dateX) {                        
+                item.history.forEach( (history) => {
+                    const dt = new Date(history.MOVED);
+                    if (dt.toLocaleDateString() === dateX) {                        
                         for (let s=0; s<statuses.length; s++) {
-                            if (history.status === statuses[s]) {
-                                //arr[s][l] = arr[s][l] + 1;
+                            if (history.STATUS === statuses[s]) {
                                 const newValue = arr[s][l] + 1;
                                 arr[s].fill(newValue, l);
                             }    
@@ -84,8 +87,7 @@ export class CFDChart extends Component {
         }        
     }
 
-    
-    componentWillMount() {
+    loadDataForChart() {
         const items = this.props.items;
         const statuses = this.props.statuses;
 
@@ -95,12 +97,13 @@ export class CFDChart extends Component {
         
         dataPerStatus = this._calculateCumulativeValues(dataPerStatus);
 
-        this._createDatasetsObjs(dataPerStatus, statuses);
-
+        this._createDatasetsObjs(dataPerStatus, statuses); 
     }
 
     render() {        
-        
+
+        this.loadDataForChart();
+
         let chartData = { 
             labels: this._xlabels,            
             datasets:               
