@@ -1,3 +1,5 @@
+var logger = require('../service/logger.js');
+
 module.exports = function(app) {
 
     app.get('/items', function(req, res) {
@@ -29,11 +31,14 @@ module.exports = function(app) {
 
                 allHistPromises
                     .then( (finalResult) => {
-                        console.log(finalResult);
+                        logger.debug("GET items: " + JSON.stringify(finalResult));
+                        console.log("GET items: " + JSON.stringify(finalResult));
                         res.json(finalResult);
                     })
                     .catch((err) => {
-                        console.log("Failed: " + err);
+                        console.log("Failed: " + JSON.stringify(err));
+                        logger.error("Failed: " + JSON.stringify(err));
+                        ("GET items: " + JSON.stringify(finalResult));
                         res.status(500).send(err);
                     });
 
@@ -45,7 +50,8 @@ module.exports = function(app) {
     app.get('/items/:id', function(req, res) {
         let id = req.params.id;
 
-        console.log('Request process for GET id: ' + JSON.stringify(id));
+        console.log('Request process for GET id: ' + id);
+        logger.info('Request process for GET id: ' + id);
 
         const connection = app.persistence.ConnectionFactory();
         const itemDao = new app.persistence.ItemDao(connection);
@@ -87,11 +93,13 @@ module.exports = function(app) {
                 { href: "/items/" + id, rel:"update", method:"PUT" }, 
                 { href: "/items/" + id, rel:"delete", method:"DELETE" }
                 ];
-            console.log("Item complete = " + JSON.stringify(itemComplete));
+            console.log("Item by id = " + JSON.stringify(itemComplete));
+            logger.debug("Item by id: " + JSON.stringify(itemComplete));
             res.json(itemComplete);
         })
         .catch( (err) => {
-            console.log("Failed: " + err);
+            console.log("Failed: " + JSON.stringify(err));
+            logger.error("Failed: " + JSON.stringify(err));
             res.status(500).send(err);
         } );
 
@@ -105,20 +113,23 @@ module.exports = function(app) {
         let validErrors = req.validationErrors();
         if (validErrors) {
             console.log('Validation errors: ' + JSON.stringify(validErrors));
+            logger.info('Validation errors: ' + JSON.stringify(validErrors));
             res.status(400).send(validErrors);
             return;
         }
 
         let item = req.body;
-        console.log('Request process for: ' + JSON.stringify(item));
+        console.log('Request POST process for: ' + JSON.stringify(item));
+        logger.info('Request POST process for: ' + JSON.stringify(item));
 
         var connection = app.persistence.ConnectionFactory();
         var itemDao = new app.persistence.ItemDao(connection);
 
         let promise = new Promise( (resolve,reject) => {
             itemDao.save(item, function(err,result) {
-                item.id = result.insertId;
                 console.log('Item created: id = ' + item.id);    
+                logger.info('Item created: id = ' + item.id);    
+                item.id = result.insertId;
                 resolve(item);
             });
         });
@@ -141,7 +152,8 @@ module.exports = function(app) {
                 }
             )
             .catch( (err) => {
-                console.log("Failed: " + err);
+                console.log("Failed: " + JSON.stringify(err));
+                logger.error("Failed: " + JSON.stringify(err));
                 res.status(500).send(err);
             });
      
@@ -152,7 +164,8 @@ module.exports = function(app) {
 
         let item = req.body;
         item.id = id;
-        console.log('Request process for: ' + JSON.stringify(item));
+        console.log('Request PUT process for: ' + JSON.stringify(item));
+        logger.info('Request PUT process for: ' + JSON.stringify(item));
 
         var connection = app.persistence.ConnectionFactory();
         var itemDao = new app.persistence.ItemDao(connection);
@@ -160,6 +173,7 @@ module.exports = function(app) {
         let promise = new Promise( (resolve,reject) => {
             itemDao.update(item, function(err,result) {
                 console.log('Item updated: id = ' + item.id);
+                logger.info('Item updated: id = ' + item.id);
                 resolve(item);
             });
         });
@@ -178,7 +192,8 @@ module.exports = function(app) {
                 res.json(resp);
             } ) 
             .catch( (err) => {
-                console.log("Failed: " + err);
+                console.log("Failed: " + JSON.stringify(err));
+                logger.error("Failed: " + JSON.stringify(err));
                 res.status(500).send(err);
             } );
     });
@@ -186,7 +201,8 @@ module.exports = function(app) {
     app.delete('/items/:id', function(req,res) {
         let id = req.params.id;
 
-        console.log('Request process for: ' + id);
+        console.log('Request DELETE process for: ' + id);
+        logger.info('Request DELETE process for: ' + id);
 
         var connection = app.persistence.ConnectionFactory();
         var itemDao = new app.persistence.ItemDao(connection);
@@ -194,6 +210,7 @@ module.exports = function(app) {
         let promise = new Promise( (resolve,reject) => {
             itemDao.delete(id, function(err,result) {
                 console.log('Item deleted: id = ' + id);
+                logger.info('Item deleted: id = ' + id);
                 resolve(result);
             }); 
         });
@@ -203,7 +220,8 @@ module.exports = function(app) {
                 res.status(204).send();
             } ) 
             .catch( (err) => {
-                console.log("Failed: " + err);
+                console.log("Failed: " + JSON.stringify(err));
+                logger.error("Failed: " + JSON.stringify(err));
                 res.status(500).send(err);
             } );
     });

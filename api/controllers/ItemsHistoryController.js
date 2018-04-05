@@ -1,3 +1,6 @@
+var logger = require('../service/logger.js');
+
+
 module.exports = function(app) {
 
     app.get('/items/:id/history', function(req, res) {
@@ -15,10 +18,12 @@ module.exports = function(app) {
                 
         promise
             .then( (result) => {
+                logger.info('GET item history: ' + JSON.stringify(result));
                 res.json(result);
             } ) 
             .catch( (err) => {
-                console.log("Failed: " + err);
+                console.log("Failed: " + JSON.stringify(err));
+                logger.error("Failed: " + JSON.stringify(err));
                 res.status(500).send(err);
             } );
     });
@@ -32,12 +37,14 @@ module.exports = function(app) {
         let validErrors = req.validationErrors();
         if (validErrors) {
             console.log('Validation errors: ' + JSON.stringify(validErrors));
+            logger.info('Validation errors: ' + JSON.stringify(validErrors));
             res.status(400).send(validErrors);
             return;
         }
 
         const history = req.body;
-        console.log('Request process for: ' + JSON.stringify(history));
+        console.log('Request POST process for history: ' + JSON.stringify(history));
+        logger.info('Request POST process for history: ' + JSON.stringify(history));
 
         var connection = app.persistence.ConnectionFactory();
         var itemHistoryDao = new app.persistence.ItemHistoryDao(connection);
@@ -55,6 +62,8 @@ module.exports = function(app) {
             .then( (result) => {
                 history.id_history = result.insertId;
                 console.log('Item History created: id = ' + history.id_history);    
+                logger.info('Item History created: id = ' + history.id_history);    
+                
                 res.location('/items/' + id + 'history/' + history.id_history);
 
                 const resp = {
@@ -69,7 +78,8 @@ module.exports = function(app) {
                 res.status(201).json(resp);
             } ) 
             .catch( (err) => {
-                console.log("Failed: " + err);
+                console.log("Failed: " + JSON.stringify(err));
+                logger.error("Failed: " + JSON.stringify(err));
                 res.status(500).send(err);
             } );       
     });
@@ -81,7 +91,8 @@ module.exports = function(app) {
         let itemHistory = req.body;
         itemHistory.id_history = idHistory;
         itemHistory.id = id;
-        console.log('Request process for: ' + JSON.stringify(itemHistory));
+        console.log('Request PUT process for: ' + JSON.stringify(itemHistory));
+        logger.info('Request PUT process for: ' + JSON.stringify(itemHistory));
 
         var connection = app.persistence.ConnectionFactory();
         var itemHistoryDao = new app.persistence.ItemHistoryDao(connection);
@@ -89,6 +100,7 @@ module.exports = function(app) {
         let promise = new Promise( (resolve,reject) => {
             itemHistoryDao.update(itemHistory, function(err,result) {
                 console.log('Item History updated: id = ' + itemHistory.id_history);
+                logger.info('Item History updated: id = ' + itemHistory.id_history);
                 resolve(result);
             });    
         }); 
@@ -107,7 +119,8 @@ module.exports = function(app) {
                 res.json(resp);
             } ) 
             .catch( (err) => {
-                console.log("Failed: " + err);
+                console.log("Failed: " + JSON.stringify(err));
+                logger.error("Failed: " + JSON.stringify(err));
                 res.status(500).send(err);
             } );
     });
@@ -116,7 +129,7 @@ module.exports = function(app) {
         const id = req.params.id;
         const idHistory = req.params.idHistory;
 
-        console.log('Request process for: ' + idHistory);
+        console.log('Request DELETE process for: ' + idHistory);
 
         var connection = app.persistence.ConnectionFactory();
         var itemHistoryDao = new app.persistence.ItemHistoryDao(connection);
@@ -124,6 +137,7 @@ module.exports = function(app) {
         let promise = new Promise( (resolve,reject) => {
             itemHistoryDao.delete(idHistory, function(err,result) {
                 console.log('Item History deleted: id = ' + idHistory);
+                logger.info('Item History deleted: id = ' + idHistory);
                 resolve(result);
             });    
         });
@@ -133,7 +147,8 @@ module.exports = function(app) {
                 res.status(204).send();
             } ) 
             .catch( (err) => {
-                console.log("Failed: " + err);
+                console.log("Failed: " + JSON.stringify(err));
+                logger.error("Failed: " + JSON.stringify(err));
                 res.status(500).send(err);
             } );
     });
