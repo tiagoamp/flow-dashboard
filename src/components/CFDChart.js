@@ -7,8 +7,6 @@ export class CFDChart extends Component {
         super();
         this._xlabels = '';
         this._datasets = [];
-
-        this.loadDataForChart.bind(this);
     }
 
     _getLabels(items) {
@@ -87,7 +85,7 @@ export class CFDChart extends Component {
         }        
     }
 
-    loadDataForChart() {
+    componentWillMount() {
         const items = this.props.items;
         const statuses = this.props.statuses;
 
@@ -101,8 +99,6 @@ export class CFDChart extends Component {
     }
 
     render() {        
-
-        this.loadDataForChart();
 
         let chartData = { 
             labels: this._xlabels,            

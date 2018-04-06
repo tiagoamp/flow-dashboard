@@ -38,7 +38,11 @@ class App extends Component {
 
           <div className="chartbox col-xs-12">
 
-            <CFDChart items={this.state.itemsList} statuses={this.state.statusList} />
+            {this.state.itemsList.length > 0 ? (
+                <CFDChart items={this.state.itemsList} statuses={this.state.statusList} />
+            ) : (
+                'Loading data...'
+            )}
 
           </div>
 
