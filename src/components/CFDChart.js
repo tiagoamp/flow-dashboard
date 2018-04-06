@@ -5,7 +5,7 @@ export class CFDChart extends Component {
 
     constructor() {
         super();
-        this._xlabels = '';
+        this._xlabels = [];
         this._datasets = [];
     }
 
@@ -43,30 +43,60 @@ export class CFDChart extends Component {
     _loadData(items, statuses) {
         let arr = Array(statuses.length);
         arr = this._initStatusArrayWithZeros(arr);
+        
+
+        const allHistory = [];
+        items.forEach( (item) => { 
+            item.history.forEach( (history) => allHistory.push(history) );
+        });
 
         for (let l=0; l<this._xlabels.length; l++) {
             const dateX = this._xlabels[l];
+
+            let labelHistories = allHistory.filter( (history) => {
+                return new Date(history.MOVED).toLocaleDateString() === dateX;
+            });
+
+            // tentar montar tabela de qtidades por label !!!
+            for (let s=0; s < statuses.length; s++) {
+                labelHistories.forEach( (history) => {
+                    if (history.STATUS === statuses[s]) {
+
+                        // !!! diminuir do status anterior qdo mover !!!
+
+                        arr[s][l] = arr[s][l] + 1; // qto cresceu
+
+                    }
+                });
+            }
+
+        }
+
+
+        /*for (let l=0; l<this._xlabels.length; l++) {
+            const dateX = this._xlabels[l];
             items.forEach( (item) => {
                 item.history.forEach( (history) => {
-                    const dt = new Date(history.MOVED);
-                    if (dt.toLocaleDateString() === dateX) {                        
+                    const dtHist = new Date(history.MOVED);
+                    if (dtHist.toLocaleDateString() === dateX) {                        
                         for (let s=0; s<statuses.length; s++) {
                             if (history.STATUS === statuses[s]) {
                                 const newValue = arr[s][l] + 1;
                                 arr[s].fill(newValue, l);
+                                //arr[s][l] = newValue;
                             }    
                         }
                     }
                 });
             });
-        }
+        }*/
         return arr;
     }
 
     _calculateCumulativeValues(arr) {
-        for(let i=arr.length-1; i>0; i--) {
-            for(let j=0; j<this._xlabels.length; j++) {
-                arr[i-1][j] = arr[i-1][j] + arr[i][j];
+        for(let s=arr.length-1; s>0; s--) {
+            for(let l=0; l<this._xlabels.length; l++) {
+                arr[s-1][l] = arr[s-1][l] + arr[s][l];
             }
         }
         return arr;
@@ -88,12 +118,12 @@ export class CFDChart extends Component {
     componentWillMount() {
         const items = this.props.items;
         const statuses = this.props.statuses;
-
+        
         this._xlabels = this._getLabels(items);
         
         let dataPerStatus = this._loadData(items, statuses);
         
-        dataPerStatus = this._calculateCumulativeValues(dataPerStatus);
+        //dataPerStatus = this._calculateCumulativeValues(dataPerStatus);
 
         this._createDatasetsObjs(dataPerStatus, statuses); 
     }
