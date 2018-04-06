@@ -13,7 +13,7 @@ export class FlowApiService {
     }
 
     getStatusList() {
-        return ['INBOX','TO DO','DOING','DONE','RELEASED'];       
+        return ['INBOX','TO DO','DOING','BLOCKED','DONE','RELEASED'];       
     }
 
 }
