@@ -127,9 +127,9 @@ module.exports = function(app) {
 
         let promise = new Promise( (resolve,reject) => {
             itemDao.save(item, function(err,result) {
-                console.log('Item created: id = ' + item.id);    
-                logger.info('Item created: id = ' + item.id);    
                 item.id = result.insertId;
+                console.log('Item created: id = ' + item.id);    
+                logger.info('Item created: id = ' + item.id);                    
                 resolve(item);
             });
         });
@@ -181,11 +181,11 @@ module.exports = function(app) {
         promise
             .then( (result) => {
                 const resp = {
-                    item: item, 
+                    item: result, 
                     links: [ 
-                        { href: "/items/" + item.id, rel:"self", method:"GET" },
-                        { href: "/items/" + item.id, rel:"update", method:"PUT" }, 
-                        { href: "/items/" + item.id, rel:"delete", method:"DELETE" }
+                        { href: "/items/" + item.ID, rel:"self", method:"GET" },
+                        { href: "/items/" + item.ID, rel:"update", method:"PUT" }, 
+                        { href: "/items/" + item.ID, rel:"delete", method:"DELETE" }
                     ]
                 };
 

@@ -110,9 +110,9 @@ module.exports = function(app) {
                 const resp = {
                     history: itemHistory, 
                     links: [
-                        { href: '/items/' + id + '/history/' + history.id_history, rel:"self", method:"GET" },
-                        { href: '/items/' + id + '/history/' + history.id_history, rel:"update", method:"PUT" }, 
-                        { href: '/items/' + id + '/history/' + history.id_history, rel:"delete", method:"DELETE" }
+                        { href: '/items/' + id + '/history/' + idHistory, rel:"self", method:"GET" },
+                        { href: '/items/' + id + '/history/' + idHistory, rel:"update", method:"PUT" }, 
+                        { href: '/items/' + id + '/history/' + idHistory, rel:"delete", method:"DELETE" }
                     ]
                 };
 

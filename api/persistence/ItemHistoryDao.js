@@ -6,8 +6,8 @@ ItemHistoryDao.prototype.save = function(history,callback) {
     this._connection.query('INSERT INTO ITEMS_HISTORY SET ?', history, callback);    
 }
 
-ItemHistoryDao.prototype.update = function(item, callback) {
-    this._connection.query('UPDATE ITEMS_HISTORY SET ? WHERE ID_HISTORY = ?', [history, history.id_history], callback);    
+ItemHistoryDao.prototype.update = function(history, callback) {
+    this._connection.query('UPDATE ITEMS_HISTORY SET ? WHERE id_history = ?', [history, history.id_history], callback);    
 }
 
 ItemHistoryDao.prototype.delete = function(idHistory,callback) {
