@@ -44,52 +44,37 @@ export class CFDChart extends Component {
         let arr = Array(statuses.length);
         arr = this._initStatusArrayWithZeros(arr);
         
+        items.forEach( item => {
+            for (let i=0; i< item.history.length; i++) {  // recent history first                
+                const hist = item.history[i];
+                const isInitialState = hist.STATUS === statuses[0];
+                const prevHist = isInitialState ? null : item.history[i-1];                
 
-        const allHistory = [];
-        items.forEach( (item) => { 
-            item.history.forEach( (history) => allHistory.push(history) );
+                for (let l=0; l<this._xlabels.length; l++) {
+                    const dateX = this._xlabels[l];
+                    const histDateStr = new Date(hist.MOVED).toLocaleDateString();
+                    if (histDateStr === dateX) {
+                        for (let s=0; s < statuses.length; s++) {
+                            if (hist.STATUS === statuses[s]) {   // add to current status
+                                arr[s][l] = arr[s][l] + 1;                                                             
+                            }
+                            if (!isInitialState && prevHist.STATUS === statuses[s]) { // subtract from previous status 
+                                arr[s][l] = arr[s][l] - 1;  
+                            }
+                        }                                                
+                    }
+                }
+            };
         });
+        
 
-        for (let l=0; l<this._xlabels.length; l++) {
-            const dateX = this._xlabels[l];
-
-            let labelHistories = allHistory.filter( (history) => {
-                return new Date(history.MOVED).toLocaleDateString() === dateX;
-            });
-
-            // tentar montar tabela de qtidades por label !!!
-            for (let s=0; s < statuses.length; s++) {
-                labelHistories.forEach( (history) => {
-                    if (history.STATUS === statuses[s]) {
-
-                        // !!! diminuir do status anterior qdo mover !!!
-
-                        arr[s][l] = arr[s][l] + 1; // qto cresceu
-
-                    }
-                });
+        // somando com anterior
+        for (let s=0; s < statuses.length; s++) {
+            for (let l=1; l<this._xlabels.length; l++) {
+                arr[s][l] = arr[s][l] + arr[s][l-1];
             }
-
         }
-
-
-        /*for (let l=0; l<this._xlabels.length; l++) {
-            const dateX = this._xlabels[l];
-            items.forEach( (item) => {
-                item.history.forEach( (history) => {
-                    const dtHist = new Date(history.MOVED);
-                    if (dtHist.toLocaleDateString() === dateX) {                        
-                        for (let s=0; s<statuses.length; s++) {
-                            if (history.STATUS === statuses[s]) {
-                                const newValue = arr[s][l] + 1;
-                                arr[s].fill(newValue, l);
-                                //arr[s][l] = newValue;
-                            }    
-                        }
-                    }
-                });
-            });
-        }*/
+        
         return arr;
     }
 
@@ -123,7 +108,7 @@ export class CFDChart extends Component {
         
         let dataPerStatus = this._loadData(items, statuses);
         
-        //dataPerStatus = this._calculateCumulativeValues(dataPerStatus);
+        dataPerStatus = this._calculateCumulativeValues(dataPerStatus);
 
         this._createDatasetsObjs(dataPerStatus, statuses); 
     }
