@@ -67,18 +67,16 @@ export class CFDChart extends Component {
             };
         });
         
-
-        // somando com anterior
-        for (let s=0; s < statuses.length; s++) {
-            for (let l=1; l<this._xlabels.length; l++) {
-                arr[s][l] = arr[s][l] + arr[s][l-1];
-            }
-        }
-        
         return arr;
     }
 
     _calculateCumulativeValues(arr) {
+        for (let s=0; s < arr.length; s++) {
+            for (let l=1; l<this._xlabels.length; l++) {
+                arr[s][l] = arr[s][l] + arr[s][l-1];
+            }
+        }
+
         for(let s=arr.length-1; s>0; s--) {
             for(let l=0; l<this._xlabels.length; l++) {
                 arr[s-1][l] = arr[s-1][l] + arr[s][l];
