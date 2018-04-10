@@ -25,3 +25,29 @@ ItemDao.prototype.findAll = function (callback) {
 module.exports = function(){
     return ItemDao;
 };
+
+
+
+/*
+
+DDL: 
+
+CREATE TABLE ITEMS ( 
+      ID INT(11) NOT NULL AUTO_INCREMENT,
+      STATUS VARCHAR(40), 
+      LABEL VARCHAR(40), 
+      DESCRIPTION VARCHAR(255), 
+      POINTS INT(5), 
+      PERCENT INT(3), 
+      PRIMARY KEY(ID)
+      );
+
+CREATE TABLE ITEMS_HISTORY (
+      ID_HISTORY INT(11) NOT NULL AUTO_INCREMENT, 
+      STATUS VARCHAR(40),    
+      ID INT(11), 
+      MOVED DATE,
+      PRIMARY KEY(ID_HISTORY)
+      );
+
+*/
