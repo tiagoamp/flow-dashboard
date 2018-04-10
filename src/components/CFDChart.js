@@ -5,12 +5,11 @@ export class CFDChart extends Component {
 
     constructor() {
         super();
-        this._xlabels = [];
-        this._datasets = [];
+        this.state = { xlabels: [], datasets: [] };                
     }
 
-    _getLabels(items) {
-        const xLabels = [];
+    _fillLabels(items) {
+        const xLabels = this.state.xlabels;
 
         items.forEach(function(item) {
             item.history.forEach((history) => {
@@ -30,12 +29,12 @@ export class CFDChart extends Component {
         };
 
         xLabels.sort(dateSortAsc);
-        return xLabels;
+        this.setState( { xlabels: xLabels } );
     }
 
     _initStatusArrayWithZeros(arr) {
         for(let i=0; i<arr.length; i++) {
-            arr[i] = Array(this._xlabels.length).fill(0);    
+            arr[i] = Array(this.state.xlabels.length).fill(0);    
         }
         return arr;
     }
@@ -50,8 +49,8 @@ export class CFDChart extends Component {
                 const isInitialState = hist.STATUS === statuses[0];
                 const prevHist = isInitialState ? null : item.history[i-1];                
 
-                for (let l=0; l<this._xlabels.length; l++) {
-                    const dateX = this._xlabels[l];
+                for (let l=0; l<this.state.xlabels.length; l++) {
+                    const dateX = this.state.xlabels[l];
                     const histDateStr = new Date(hist.MOVED).toLocaleDateString();
                     if (histDateStr === dateX) {
                         for (let s=0; s < statuses.length; s++) {
@@ -72,13 +71,13 @@ export class CFDChart extends Component {
 
     _calculateCumulativeValues(arr) {
         for (let s=0; s < arr.length; s++) {
-            for (let l=1; l<this._xlabels.length; l++) {
+            for (let l=1; l<this.state.xlabels.length; l++) {
                 arr[s][l] = arr[s][l] + arr[s][l-1];
             }
         }
 
         for(let s=arr.length-1; s>0; s--) {
-            for(let l=0; l<this._xlabels.length; l++) {
+            for(let l=0; l<this.state.xlabels.length; l++) {
                 arr[s-1][l] = arr[s-1][l] + arr[s][l];
             }
         }
@@ -89,20 +88,23 @@ export class CFDChart extends Component {
         const colors = ['rgba(102, 204, 255, 0.7)', 'rgba(102, 153, 204, 0.7)', 'rgba(000, 153, 204, 0.7)', 
                          'rgba(204, 102, 102, 0.7)', 'rgba(102, 204, 153, 0.7)', 'rgba(218, 226, 130, 0.7)'];
 
+        const datasets = this.state.datasets;
+
         for(let i=arr.length-1; i>=0; i--) {
-            this._datasets.push( {
+            datasets.push( {
                 label:statuses[i],
                 data:arr[i],
                 backgroundColor:colors[i] 
             } );    
-        }        
+        }
+        this.setState( { datasets: datasets } );        
     }
 
     componentWillMount() {
         const items = this.props.items;
         const statuses = this.props.statuses;
         
-        this._xlabels = this._getLabels(items);
+        this._fillLabels(items);
         
         let dataPerStatus = this._loadData(items, statuses);
         
@@ -114,9 +116,9 @@ export class CFDChart extends Component {
     render() {        
 
         let chartData = { 
-            labels: this._xlabels,            
+            labels: this.state.xlabels,
             datasets:               
-              this._datasets            
+              this.state.datasets
           };
 
         return (

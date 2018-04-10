@@ -3,7 +3,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './css/flowdashboard.css';
 import $ from 'jquery';
 
-import { FlowApiService } from './service/FlowApiService';
 import KanbanList from './components/KanbanList';
 import {CFDChart} from './components/CFDChart';
 
@@ -12,13 +11,12 @@ class App extends Component {
 
     constructor() {
         super();
-        this._service = new FlowApiService();
         this.state = { itemsList: [], statusList: [] };        
     }
 
     componentWillMount() {
 
-        const statuses = this._service.getStatusList();
+        const statuses = ['INBOX','TO DO','DOING','BLOCKED','DONE','RELEASED'];
 
         $.ajax({
             url: "http://localhost:3001/items",
@@ -26,7 +24,8 @@ class App extends Component {
             success: function(resp) {
                 this.setState( {itemsList: resp, statusList: statuses} );
             }.bind(this)
-        });        
+        }); 
+
     }
 
     render() {
@@ -45,7 +44,7 @@ class App extends Component {
             )}
 
           </div>
-
+ 
       </div>
 
       <div className="row">
