@@ -8,3 +8,7 @@ Data should be stored in MySQL database.
 
 - REST api ==> command "node index.js" to start.
 - Web (React) ==> command "npm install" and "npm start".
+
+Screenshot (example):
+
+<img src="screenshot.png" alt="screenshot" />
