@@ -2,7 +2,7 @@
 
 Application to visualize the activities flow through kanban.
 
-Dysplays a web page with a Cumulative Flow Diagram and a Kanban status: "INBOX, TO DO, DOING, DONE, RELEASED".
+Displays a web page with a Cumulative Flow Diagram and a Kanban status: "INBOX, TO DO, DOING, DONE, RELEASED".
 
 Data should be stored in MySQL database.
 
