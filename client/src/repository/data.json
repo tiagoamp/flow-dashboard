@@ -19,7 +19,7 @@
         },
         {
             "id": "002", "label": "Label 02", "description": "Item nr 02",
-            "status": "INBOX", "size": 10,
+            "status": "INBOX", "size": "M",
             "statusHistory": [
                 { "status": "INBOX", "date": "2020-01-01" }
             ]

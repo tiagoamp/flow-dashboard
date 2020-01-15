@@ -40,3 +40,15 @@
 .kanban-item-card span {
     margin: 3px 0px;
 }
+
+.badge {
+    display: inline-block;
+    min-width: 0.5rem; /* rem unit */
+    width: 0.9rem;
+    padding: 0.2rem 0.2rem; /* rem unit */
+    border-radius: 50%;
+    font-size: 0.6rem;
+    text-align: center;
+    background: #808080;
+    color: #fefefe; 
+}

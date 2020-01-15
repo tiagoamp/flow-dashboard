@@ -30,7 +30,7 @@ function List(props) {
                         <div className='kanban-item-card' key={item.id}>
                             { item.label ? (<span>{`[ ${item.label} ]`}</span>) : null }
                             <span>{item.description}</span>
-                            { item.size ? (<span>{`${item.size}`}</span>) : null }
+                            { item.size ? (<span className='badge'>{`${item.size}`}</span>) : null }
                         </div>
                     );
                 })    
