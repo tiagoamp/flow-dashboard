@@ -3,8 +3,8 @@ var mysql = require('mysql');
 function createDBConnection() {
     return mysql.createConnection({
         host: 'localhost',
-        user: 'root', 
-        password: 'admin', 
+        user: 'tiagoamp', 
+        password: '2056', 
         database: 'flowdb'
     });
 }
