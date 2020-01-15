@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header';
+import Kanban from './components/Kanban';
 import service from './service/flowservice';
 
 class App extends Component {
@@ -12,19 +13,19 @@ class App extends Component {
 
   componentDidMount() {
     const info = service.getProjectInfo();
-    this.setState( {projName: info.project,  statusList: info.status, items: info.items } );
+    this.setState( {projName: info.project,  statusList: info.statusList, items: info.items } );
   }
 
   render() {
     return (
       <div className="App">
         <Header project={this.state.projName} />
-        <div>
-          CFD { this.state.statusList}
-        </div>
-        <div>
-          kanban
-        </div>
+        <main className="container">
+          <div>CFD</div>
+          <div>burndown</div>
+          <Kanban statusList={this.state.statusList} items={this.state.items} />
+        </main>
+        <footer>footer</footer>
       </div>
     );
   }

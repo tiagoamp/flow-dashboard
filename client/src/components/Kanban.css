@@ -1,0 +1,42 @@
+.kanban-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 10px 0px;
+}
+
+.kanban-list {
+    flex: 1;
+    border-style: dotted;
+    border-width: 1px;
+    border-radius: 5px;
+    margin: 0px 2px;    
+}
+
+.kanban-status-card, .kanban-item-card {
+    border-style: dotted;
+    border-width: 1px;
+    padding: 5px;
+}
+
+.kanban-status-card {
+    text-align: center;
+    text-shadow: 1px 1px white;
+    font-size: 1rem;
+    margin: 2px 2px 10px 2px;
+}
+
+.kanban-item-card {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    box-shadow: 2px 2px #888888;
+    background-color: rgba(245,245,245, 0.6);
+    font-size: 0.8rem;
+    color: #808080;
+    margin: 5px;    
+}
+
+.kanban-item-card span {
+    margin: 3px 0px;
+}

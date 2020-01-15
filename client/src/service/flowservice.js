@@ -1,13 +1,13 @@
+const data = require('../repository/data.json');
 
 const service = {
 
     getProjectInfo: () => {
         return {
-            project: "BACON",
-            status: ['INBOX, TO DO','DOING','QA','BLOCKED','DONE','RELEASED'],
-            items: []
-        }
-
+            project: data.project, 
+            statusList: data.statusList,
+            items: data.items
+        };
     }
 
 }
