@@ -50,5 +50,10 @@
     font-size: 0.6rem;
     text-align: center;
     background: #808080;
-    color: #fefefe; 
+    color: #fefefe;
+}
+
+.badge-wrapper {     
+    display: flex;
+    justify-content: flex-end;
 }

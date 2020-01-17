@@ -3,7 +3,7 @@ import './Header.css'
 
 export default function Header(props) {
     const projectName = props.project;
-    const timestamp = new Date().toLocaleString(); // TODO: locale formatter !!!
+    const timestamp = new Date().toLocaleString(); // if necessary: 'pt-BR' locale available 
     return (
         <div className='header'>
             <div className='header-brand'>
