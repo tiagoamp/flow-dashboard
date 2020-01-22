@@ -111,12 +111,13 @@ export default function CFD(props) {
     //console.log('dataSets', dataSets);
     //console.log('matrix', historyMatrix);
     //console.log('by status', matrixByStatus);
-    console.log('cumulative', cumulativeMatrix);
+    //console.log('cumulative', cumulativeMatrix);
     console.log('dataSets', dataSets);
 
     const data = { 
-        labels: [1500,1600,1700,1750,1800,1850,1900,1950,1999,2050],
-        datasets: [
+        //labels: [1500,1600,1700,1750,1800,1850,1900,1950,1999,2050],
+        labels: xLabels,
+        /*datasets: [
           { 
             data: [86,114,106,106,107,111,133,221,783,2478],
             label: "Africa",
@@ -130,9 +131,8 @@ export default function CFD(props) {
             backgroundColor: "#8e5ea2",
             fill: true
           }
-
-
-        ]
+        ]*/
+        datasets: dataSets
     };
 
     return (
