@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import CFD from './components/CFD';
 import Kanban from './components/Kanban';
 import service from './service/flowservice';
 
@@ -22,7 +23,7 @@ class App extends Component {
       <div className="App">
         <Header project={this.state.projName} />
         <main className="container">
-          <div>CFD</div>
+          <CFD statusList={this.state.statusList} items={this.state.items} />
           <div>burndown</div>
           <div>semáforo com cor e lead time (media) etc...</div>
           <Kanban statusList={this.state.statusList} items={this.state.items} />
