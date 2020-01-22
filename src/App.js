@@ -24,8 +24,10 @@ class App extends Component {
         <Header project={this.state.projName} />
         <main className="container">
           <CFD statusList={this.state.statusList} items={this.state.items} />
-          <div>burndown</div>
-          <div>semáforo com cor e lead time (media) etc...</div>
+          {
+          //TO DO: <div>burndown</div>
+          //TO DO: <div>semáforo com cor e lead time (media) etc...</div>
+          }
           <Kanban statusList={this.state.statusList} items={this.state.items} />
         </main>
         <Footer />
