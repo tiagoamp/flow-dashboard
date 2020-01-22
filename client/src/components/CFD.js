@@ -21,47 +21,72 @@ function getXlabels(items) {
 }
 
 function getHistoryMatrix(statusList, items) {
+    const dates = getXdates(items);
     const matrix = {};
-    const xdates = getXdates(items);
-
-    const emptyValues = {};
-    statusList.forEach(status => {
-        emptyValues[status] = [];
+    dates.forEach(date => {
+        matrix[date.toISOString()] = new Array(statusList.length).fill([]);
     });
-    console.log('empty', emptyValues);
 
-    for (let i=0; i<xdates.length; i++) {
-        const date = xdates[i];
-        const prevDate = i > 0 ? xdates[i-1] : null;
-        const obj = prevDate != null ? matrix.prevDate : emptyValues;
-        
-        statusList.forEach(status => {
+    for (let d=0; d<dates.length; d++) {
+        const date = dates[d];
+        const prevDate = d > 0 ? dates[d-1] : null;
+        const values = (prevDate != null) ? (matrix[prevDate.toISOString()]).slice() : new Array(statusList.length).fill([]);
+    
+        for (let s=0; s<statusList.length; s++) {
             const itemsOfThisStatusInThisDate = items.filter(item => {
-                return item.statusHistory.filter(hist => hist.status === status.name)
+                return item.statusHistory.filter(hist => hist.status === statusList[s].name)
                     .filter(hist => new Date(hist.date).getTime() === date.getTime())
                     .length > 0;
             });
             // push moved items to new status
-            obj[status].concat(itemsOfThisStatusInThisDate);
+            values[s] = values[s].concat(itemsOfThisStatusInThisDate);
             // remove items from others status
-            statusList.forEach(rmStatus => {
-                if (rmStatus.name === status.name) return;
+            for (let r=0; r<statusList.length; r++) {
+                if (r === s) continue;
                 itemsOfThisStatusInThisDate.forEach(itemToRemove => {
-                    const filtered = obj[rmStatus].filter(it => it.id !== itemToRemove.id);
-                    obj[rmStatus] = filtered;
+                    const filtered = values[r].filter(it => it.id !== itemToRemove.id);
+                    values[r] = filtered;
                 });                
-            });
-        });
-
-        matrix[date] = obj;
+            }
+        };
+        matrix[date.toISOString()] = values;
     }
     return matrix;
 }
 
-function getDataSets(statusList, items) {
-    const dataSets = statusList.map(status => {  
+function getHistoryValuesByStatus(statusList, historyMatrix) {
+    const matrix = {};
+    const keys = Object.keys(historyMatrix);    
+    for (let s=0; s<statusList.length; s++) {
+        const values = [];
+        keys.forEach(key => {
+            const arr = historyMatrix[key];
+            values.push(arr[s].length);        
+        });
+
+        matrix[statusList[s].name] = values;
+    }
+    return matrix;
+}
+
+function getCumulativeValues(matrixByStatus, statusList) {
+    const cumulative = [];    
+    let prevValues = new Array(6).fill(0);
+    for (let s=statusList.length-1; s>=0; s--) {
+        const values = matrixByStatus[statusList[s].name];
+        const arr = values.map((v,i) => v + prevValues[i]);
+        cumulative.push(arr);
+        prevValues = [...arr];
+    }
+    cumulative.reverse();
+    return cumulative;
+}
+
+function getDataSets(statusList, cumulativeMatrix) {
+    const dataSets = statusList.map((status, index) => {  
         const obj =
-            {
+            {   
+                data: cumulativeMatrix[index],
                 label: status.name, 
                 borderColor: status.color, 
                 backgroundColor: status.color, 
@@ -76,13 +101,18 @@ function getDataSets(statusList, items) {
 
 export default function CFD(props) {
     const { statusList, items } = props;
-
+    const historyMatrix = getHistoryMatrix(statusList, items);
+    const matrixByStatus = getHistoryValuesByStatus(statusList, historyMatrix);
+    const cumulativeMatrix = getCumulativeValues(matrixByStatus, statusList);
     const xLabels = getXlabels(items);
-    const dataSets = getDataSets(statusList, items);
-    const matrix = getHistoryMatrix(statusList, items);
-    console.log(xLabels);
-    console.log(dataSets);
-    console.log(matrix);
+    const dataSets = getDataSets(statusList, cumulativeMatrix);
+    
+    //console.log('xlabels', xLabels);
+    //console.log('dataSets', dataSets);
+    //console.log('matrix', historyMatrix);
+    //console.log('by status', matrixByStatus);
+    console.log('cumulative', cumulativeMatrix);
+    console.log('dataSets', dataSets);
 
     const data = { 
         labels: [1500,1600,1700,1750,1800,1850,1900,1950,1999,2050],
