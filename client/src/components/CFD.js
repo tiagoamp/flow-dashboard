@@ -78,12 +78,12 @@ function getCumulativeValues(matrixByStatus, statusList) {
         cumulative.push(arr);
         prevValues = [...arr];
     }
-    cumulative.reverse();
+    //cumulative.reverse();
     return cumulative;
 }
 
 function getDataSets(statusList, cumulativeMatrix) {
-    const dataSets = statusList.map((status, index) => {  
+    const dataSets = statusList.reverse().map((status, index) => {  
         const obj =
             {   
                 data: cumulativeMatrix[index],
@@ -114,9 +114,10 @@ export default function CFD(props) {
     //console.log('cumulative', cumulativeMatrix);
     console.log('dataSets', dataSets);
 
-    const data = { 
-        //labels: [1500,1600,1700,1750,1800,1850,1900,1950,1999,2050],
+    const data = {
         labels: xLabels,
+        datasets: dataSets 
+        //labels: [1500,1600,1700,1750,1800,1850,1900,1950,1999,2050],        
         /*datasets: [
           { 
             data: [86,114,106,106,107,111,133,221,783,2478],
@@ -131,8 +132,7 @@ export default function CFD(props) {
             backgroundColor: "#8e5ea2",
             fill: true
           }
-        ]*/
-        datasets: dataSets
+        ]*/        
     };
 
     return (
