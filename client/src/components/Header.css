@@ -1,0 +1,25 @@
+.header {
+    margin: 5px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: cornflowerblue;
+}
+
+.header-brand {
+    flex: 2;
+    font-size: 1.1rem;
+    font-weight: bold;    
+}
+
+.header-info {
+    flex: 1;
+    font-size: 0.9rem;
+    text-align: right;
+}
+
+.header-copyright {
+    font-size: 0.8rem;
+    font-style: italic;
+}
