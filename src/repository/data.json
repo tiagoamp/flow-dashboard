@@ -1,5 +1,6 @@
 {
-    "project": "DEMONSTRATION", 
+    "project": "DEMONSTRATION",
+    "holidays": [ "2020-04-21T12:00:00Z" ], 
     "statusList": [ 
         { "name": "INBOX", "color":"rgba(102, 204, 255, 0.7)"}, 
         { "name": "TO DO", "color":"rgba(102, 153, 204, 0.7)" },
@@ -19,7 +20,7 @@
         },
         {
             "id": "002", "label": "Label 02", "description": "Item nr 02",
-            "status": "INBOX", "size": "M",
+            "status": "INBOX", "size": "M", "dueDate": "2020-08-01T12:00:00Z",
             "statusHistory": [
                 { "status": "INBOX", "date": "2020-01-01T12:00:00Z" }
             ]
