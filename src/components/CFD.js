@@ -1,27 +1,17 @@
 import React from 'react'
 import { Line } from 'react-chartjs-2'
+import service from '../service/flowservice'
 import moment from 'moment'
 
 
-function getXdates(items) {
-    const statusHistoryArr = items.map(item => item.statusHistory);
-    const datesStrArrays = statusHistoryArr.map(statusArr => statusArr.map(obj => obj.date));
-    const datesStrFlatArr = datesStrArrays.reduce((acc, x) => acc.concat(x), []);
-    const onlyUnique = (value, index, self) => self.indexOf(value) === index;
-    const distinctDatesStrArr = datesStrFlatArr.filter(onlyUnique);
-    const datesArr = distinctDatesStrArr.map(str => new Date(str));
-    const sortedDates = datesArr.sort((a,b) => a - b);
-    return sortedDates;
-}
-
 function getXlabels(items) {
-    const dates = getXdates(items);
+    const dates = service.getSortedDatesFromItems(items);
     const labels = dates.map(date => moment(date).format('L'));
     return labels;
 }
 
 function getHistoryMatrix(statusList, items) {
-    const dates = getXdates(items);
+    const dates = service.getSortedDatesFromItems(items);
     const matrix = {};
     dates.forEach(date => {
         matrix[date.toISOString()] = new Array(statusList.length).fill([]);
@@ -101,19 +91,14 @@ function getDataSets(statusList, cumulativeMatrix) {
 
 export default function CFD(props) {
     const { statusList, items } = props;
+    if (items.length + statusList.length === 0)
+        return (<div>Loading</div>);
     const historyMatrix = getHistoryMatrix(statusList, items);
     const matrixByStatus = getHistoryValuesByStatus(statusList, historyMatrix);
     const cumulativeMatrix = getCumulativeValues(matrixByStatus, statusList);
     const xLabels = getXlabels(items);
     const dataSets = getDataSets(statusList, cumulativeMatrix);
     
-    //console.log('xlabels', xLabels);
-    //console.log('dataSets', dataSets);
-    //console.log('matrix', historyMatrix);
-    //console.log('by status', matrixByStatus);
-    //console.log('cumulative', cumulativeMatrix);
-    //console.log('dataSets', dataSets);
-
     const data = {
         labels: xLabels,
         datasets: dataSets            
