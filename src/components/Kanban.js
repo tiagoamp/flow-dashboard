@@ -3,6 +3,8 @@ import './Kanban.css';
 
 export default function Kanban(props) {
     const { statusList, items } = props;
+    if (items.length + statusList.length === 0)
+        return (<div>Loading</div>);
     return (
         <div className='kanban-container'>
             { 

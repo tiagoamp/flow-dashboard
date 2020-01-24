@@ -91,6 +91,8 @@ function getDataSets(statusList, cumulativeMatrix) {
 
 export default function CFD(props) {
     const { statusList, items } = props;
+    if (items.length + statusList.length === 0)
+        return (<div>Loading</div>);
     const historyMatrix = getHistoryMatrix(statusList, items);
     const matrixByStatus = getHistoryValuesByStatus(statusList, historyMatrix);
     const cumulativeMatrix = getCumulativeValues(matrixByStatus, statusList);

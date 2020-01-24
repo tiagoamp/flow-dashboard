@@ -15,8 +15,7 @@ function getBoundaryDatesFrom(items) {
 
 function isWeekendOrHoliday(date, holidays) {
     const w = moment(date).isoWeekday();
-    // saturday or sunday
-    if (w === 6 || w === 7) return true;
+    if (w === 6 || w === 7) return true;  // saturday or sunday
     const isHoliday = holidays.filter(h => h.getTime() === date.getTime()).length > 0;
     if (isHoliday) return true;
     return false;
@@ -47,75 +46,56 @@ function getDailyWorkRatio(items, workdays, method) {
         return totalSize / workdays.length;
     }        
 }
-/*
-function getWorkDatesWithMimimunDaysToAccomplishOneItem(workdays, ratio) {
-    const daysToFinishOneItem = Math.ceil(1 / ratio);
-    console.log('minimum', daysToFinishOneItem);
-    return workdays.reduce((acc, date, index) => {
-        if (index % daysToFinishOneItem === 0)
-            acc.push(date);
-    }, []);
-}
-*/
-function getXlabels(workdays) {
-    return workdays.map((d, index) => { 
-        const isMultiple = index % 7 === 0;
-        return isMultiple ? `${index+1}` : moment(d).format('L');
-    });
-}
 
-function getDataSets(workAmount, workdays, ratio) {
+function getDataSets(workAmount, workdays, ratio, items, lastStatus) {
     const dataPlanned = workdays.map((date, index) => workAmount - (ratio * index));
     const plannedSet = {
         data: dataPlanned,
         label: 'Planned', 
         borderColor: '#000000',
-        borderWidth: 2, 
+        borderWidth: 1, 
         fill: false
     };
 
-    const dataAccomplished = new Array(workdays.length).fill(5);
+    const historyItems = items.map(item => item.statusHistory) // flatmap by hand
+        .reduce((acc, arr) => acc = acc.concat(arr), []);
+    const dataAccomplished = workdays.reduce((acc,date,index) => {
+        const nrOfItemsCompleted = historyItems.filter(h => h.status === lastStatus.name)
+            .filter(h => new Date(h.date).getTime() === date.getTime())
+            .length;
+        let val;
+        if (index === 0 && nrOfItemsCompleted === 0)
+            val = items.length;
+        else 
+            val = nrOfItemsCompleted > 0 ? (acc[index-1] - nrOfItemsCompleted) : acc[index-1];
+        return acc.concat(val);
+    }, []);
+    
     const accomplishedSet = {
         data: dataAccomplished,
         label: 'Accomplished', 
         borderColor: '#0000FF',
-        borderWidth: 2, 
+        borderWidth: 1, 
         fill: false
     };
 
     const dataSets = [];
     dataSets.push(plannedSet, accomplishedSet);
     return dataSets;
-    /*
-    const dataSets = items.map(item => {
-        const obj =
-            {   
-                data: cumulativeMatrix[index],
-                label: 'planned', 
-                borderColor: '#FF0000', 
-            };
-        return obj; 
-    });
-    */    
 }
 
 
 export default function Burndown(props) {
-    const { items, holidays } = props;
+    const { items, statusList, holidays } = props;
+    if (items.length + statusList.length + holidays.length === 0)
+        return (<div>Loading</div>);
+
     const boundDates = getBoundaryDatesFrom(items);
     const workdays = getWorkDates(boundDates, holidays);
-    const xLabels = getXlabels(workdays);
+    const xLabels = workdays.map((d, index) => moment(d).format('l'));
     const dailyratio = getDailyWorkRatio(items, workdays, 'by-items-amount');
     const workAmount = items.length; // default = by-items-amount
-    const dataSets = getDataSets(workAmount, workdays, dailyratio);
-
-    console.log('bounds', boundDates);
-    console.log('workdays', workdays);
-    console.log('labels', xLabels);
-    console.log('ratio', dailyratio);
-
-
-    //return (<div>burndown</div>);
+    const dataSets = getDataSets(workAmount, workdays, dailyratio, items, statusList[statusList.length-1]);
 
     const data = {
         labels: xLabels,
