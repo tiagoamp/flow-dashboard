@@ -25,12 +25,15 @@ class App extends Component {
       <div className="App">
         <Header project={this.state.projName} />
         <main className="container">
-          <CFD statusList={[...this.state.statusList]} items={[...this.state.items]} />
-          <Burndown statusList={[...this.state.statusList]} items={[...this.state.items]} holidays={[...this.state.holidays]} />
-          {
-            //TO DO: <div>semáforo com cor e lead time (media) etc...</div>
-          }
-          <Kanban statusList={[...this.state.statusList]} items={[...this.state.items]} />
+          <div className="row01">
+            <CFD statusList={[...this.state.statusList]} items={[...this.state.items]} />
+            <Burndown statusList={[...this.state.statusList]} items={[...this.state.items]} holidays={[...this.state.holidays]} />
+            { //TO DO: <div>semáforo com cor e lead time (media) etc...</div> 
+            }
+          </div>
+          <div className="row02">
+            <Kanban statusList={[...this.state.statusList]} items={[...this.state.items]} />
+          </div>
         </main>
         <Footer />
       </div>

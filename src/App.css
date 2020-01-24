@@ -6,3 +6,23 @@
 .container {
   margin: 20px;
 }
+
+.row01 {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  border-color: red;
+  margin-bottom: 30px;
+}
+
+.cfd-chart-container {
+  flex: 2;
+}
+
+.burndown-chart-container {
+  flex: 1;
+}
+
+.kanban-container {
+
+}
