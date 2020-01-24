@@ -105,7 +105,7 @@ export default function CFD(props) {
     };
 
     return (
-        <div className='cfd-chart'>
+        <div className='cfd-chart-container'>
             <Line
                 data={data}
                 width={150}
@@ -115,7 +115,7 @@ export default function CFD(props) {
                         maintainAspectRatio: false,
                         title:{
                             display:true,
-                            text:'Cumulative Flow Diagram (CFD)',
+                            text:'Cumulative Flow Diagram',
                             fontSize:16
                         },
                         legend: {

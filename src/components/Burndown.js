@@ -52,7 +52,7 @@ function getDataSets(workAmount, workdays, ratio, items, lastStatus) {
     const plannedSet = {
         data: dataPlanned,
         label: 'Planned', 
-        borderColor: '#000000',
+        borderColor: 'rgba(0, 0, 0, 0.7)',
         borderWidth: 1, 
         fill: false
     };
@@ -74,7 +74,7 @@ function getDataSets(workAmount, workdays, ratio, items, lastStatus) {
     const accomplishedSet = {
         data: dataAccomplished,
         label: 'Accomplished', 
-        borderColor: '#0000FF',
+        borderColor: 'rgba(102, 153, 204, 0.7)',
         borderWidth: 1, 
         fill: false
     };
@@ -103,7 +103,7 @@ export default function Burndown(props) {
     };
 
     return (
-        <div className='burndown-chart'>
+        <div className='burndown-chart-container'>
             <Line
                 data={data}
                 width={150}
