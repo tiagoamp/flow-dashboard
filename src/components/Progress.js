@@ -17,12 +17,13 @@ export default function Progress(props) {
 
     return (
         <div className="progress-container">
+            <div className="backlog-title">Backlog</div>
             {
                 items.map(item => {
                     const perc = item.status === lastStatus ? 100 : (statusMult[item.status] * percentPerStatus);
                     return (
                         <div key={item.id}>
-                            <span className="progress-item-name">{item.description}</span> 
+                            <span className="progress-item-name">{item.description} </span> 
                             <ProgressBar percentage={perc} />
                         </div>
                     );
@@ -33,10 +34,12 @@ export default function Progress(props) {
 }
 
 const ProgressBar = (props) => {
-    return (
-        <div className="progress-bar">
-          <Filler percentage={props.percentage} />
-        </div>
+    return ( 
+        
+            <div className="progress-bar">
+                <Filler percentage={props.percentage} />
+            </div>
+       
       )
   }
   

@@ -30,10 +30,11 @@ class App extends Component {
           <div className="row00">
             <Progress statusList={[...this.state.statusList]} items={[...this.state.items]} />
           </div>
-          <div className="row01">
+          <div className="row01">            
             <CFD statusList={[...this.state.statusList]} items={[...this.state.items]} />
             <Burndown statusList={[...this.state.statusList]} items={[...this.state.items]} holidays={[...this.state.holidays]} />
-            { //TO DO: <div>semáforo com cor e lead time (media) etc...</div> 
+            { // 
+              //TO DO: <div>semáforo com cor e lead time (media) etc...</div> 
             }
           </div>
           <div className="row02">

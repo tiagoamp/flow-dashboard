@@ -8,6 +8,11 @@
     color: #808080;
 }
 
+.backlog-title {
+    font-size: 1.1rem;
+    color: #808080;
+}
+
 .progress-bar {
     position: relative;
     height: 10px;
@@ -15,12 +20,13 @@
     border-radius: 50px;
     /*border: 1px solid #333;*/
     border: 1px solid rgba(102, 204, 153, 0.7);
-  }
-  
-  .filler {
-    /*background: #1DA598;*/
-    background: rgba(102, 204, 153, 0.7);
-    height: 100%;
-    border-radius: inherit;
-    transition: width .2s ease-in;
-  }
+    /*display: inline-block; /* magica de deixar na mesma linha */
+}
+
+.filler {
+/*background: #1DA598;*/
+background: rgba(102, 204, 153, 0.7);
+height: 100%;
+border-radius: inherit;
+transition: width .2s ease-in;
+}
