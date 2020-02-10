@@ -5,7 +5,9 @@ import Footer from './components/Footer';
 import CFD from './components/CFD';
 import Burndown from './components/Burndown';
 import Kanban from './components/Kanban';
+import Progress from './components/Progress';
 import service from './service/flowservice';
+
 
 class App extends Component {
 
@@ -25,6 +27,9 @@ class App extends Component {
       <div className="App">
         <Header project={this.state.projName} />
         <main className="container">
+          <div className="row00">
+            <Progress statusList={[...this.state.statusList]} items={[...this.state.items]} />
+          </div>
           <div className="row01">
             <CFD statusList={[...this.state.statusList]} items={[...this.state.items]} />
             <Burndown statusList={[...this.state.statusList]} items={[...this.state.items]} holidays={[...this.state.holidays]} />

@@ -20,7 +20,7 @@ const service = {
         const datesArr = distinctDatesStrArr.map(str => new Date(str));
         const sortedDates = datesArr.sort((a,b) => a - b);
         return sortedDates;
-    }
+    },
 
 }
 
