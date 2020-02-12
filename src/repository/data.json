@@ -1,6 +1,10 @@
 {
     "project": "DEMONSTRATION",
-    "holidays": [ "2020-04-21T12:00:00Z" ], 
+    "holidays": [ "2020-04-21T12:00:00Z" ],
+    "milestones": {
+        "initDate": "2020-01-01T12:00:00Z",
+        "dueDate": "2020-08-01T12:00:00Z"
+    }, 
     "statusList": [ 
         { "name": "INBOX", "color":"rgba(102, 204, 255, 0.7)"}, 
         { "name": "TO DO", "color":"rgba(102, 153, 204, 0.7)" },

@@ -7,6 +7,7 @@ const service = {
             project: data.project, 
             holidays: data.holidays.map(h => new Date(h)),
             statusList: data.statusList,
+            milestones: data.milestones,
             items: data.items
         };
     },

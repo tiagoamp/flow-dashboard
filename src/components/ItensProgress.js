@@ -1,8 +1,8 @@
 import React from 'react'
 import './Progress.css'
+import ProgressBar from './ProgressBar'
 
-
-export default function Progress(props) {
+export default function ItensProgress(props) {
     const { statusList, items } = props;
     if (items.length + statusList.length === 0)
         return (<div>Loading</div>);
@@ -16,7 +16,7 @@ export default function Progress(props) {
     const lastStatus = statusList[statusList.length-1].name;
 
     return (
-        <div className="progress-container">
+        <div className="itens-progress-container">
             <div className="backlog-title">Backlog</div>
             {
                 items.map(item => {
@@ -32,17 +32,3 @@ export default function Progress(props) {
         </div>
     )
 }
-
-const ProgressBar = (props) => {
-    return ( 
-        
-            <div className="progress-bar">
-                <Filler percentage={props.percentage} />
-            </div>
-       
-      )
-  }
-  
-  const Filler = (props) => {
-    return <div className="filler" style={{ width: `${props.percentage}%` }} />
-  }
