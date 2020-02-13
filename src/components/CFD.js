@@ -108,8 +108,8 @@ export default function CFD(props) {
         <div className='cfd-chart-container'>
             <Line
                 data={data}
-                width={150}
-                height={300}
+                width={140}
+                height={280}
                 options={
                     { 
                         maintainAspectRatio: false,

@@ -15,11 +15,8 @@
   margin-bottom: 20px;
 }
 
-.row01 {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  margin-bottom: 30px;
+.row01, .row02 {
+  margin: 20px 0px;
 }
 
 .cfd-chart-container {
@@ -28,4 +25,26 @@
 
 .burndown-chart-container {
   flex: 1;
+}
+
+.panel-container {
+  margin: 10px 0px 0px 0px;
+}
+
+.panel-item-text {
+  font-size: 0.9rem;
+  color: #808080;
+}
+
+.panel-item-text span{
+  font-size: 0.9rem;
+  color: #808080;
+}
+
+.panel-item-text li {
+  margin: 5px 0px;
+}
+
+.panel-item-text span {
+  font-weight: lighter;
 }

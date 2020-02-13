@@ -19,7 +19,7 @@
     color: #808080;
 }
 
-.backlog-title, .progress-title {
+.backlog-title, .progress-title, .panel-title {
     font-size: 1.1rem;
     font-weight: bold;
     color: #808080;

@@ -8,6 +8,8 @@ const service = {
             holidays: data.holidays.map(h => new Date(h)),
             statusList: data.statusList,
             milestones: data.milestones,
+            actions: data.actions,
+            risks: data.risks,
             items: data.items
         };
     },

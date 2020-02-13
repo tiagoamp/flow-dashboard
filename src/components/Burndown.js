@@ -107,7 +107,7 @@ export default function Burndown(props) {
             <Line
                 data={data}
                 width={150}
-                height={250}
+                height={240}
                 options={
                     { 
                         maintainAspectRatio: false,

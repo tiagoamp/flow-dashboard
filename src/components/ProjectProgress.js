@@ -31,7 +31,7 @@ function StatusLight(props) {
     return (
         <div className='light-box'>
             <div className="light-circle" style={{backgroundColor: bgColor}}>!</div>
-            <div className="">{percDelayed} <span className="progress-item-name">% dos itens em atraso</span></div>
+            <div className="progress-item-name">{percDelayed} % dos itens de backlog em atraso</div>
         </div>
     )
 }

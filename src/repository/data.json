@@ -4,7 +4,25 @@
     "milestones": {
         "initDate": "2020-01-01T12:00:00Z",
         "dueDate": "2020-08-01T12:00:00Z"
-    }, 
+    },
+    "actions": [
+        {
+            "action": "action nr one", 
+            "requestDate": "2020-01-01T12:00:00Z", "accomplishedDate": "",
+            "accountable": "accountable dept"
+        },
+        {
+            "action": "action nr two", 
+            "requestDate": "2020-01-01T12:00:00Z", "accomplishedDate": "",
+            "accountable": "accountable dept"
+        },
+        {
+            "action": "action nr three", 
+            "requestDate": "2020-01-01T12:00:00Z", "accomplishedDate": "",
+            "accountable": "accountable dept"
+        }
+    ],
+    "risks": [ "risk nr one", "risk nr two", "risk nr three" ], 
     "statusList": [ 
         { "name": "INBOX", "color":"rgba(102, 204, 255, 0.7)"}, 
         { "name": "TO DO", "color":"rgba(102, 153, 204, 0.7)" },
