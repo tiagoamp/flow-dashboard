@@ -42,9 +42,9 @@
 }
 
 .panel-item-text li {
-  margin: 5px 0px;
+  margin: 10px 0px;
 }
 
 .panel-item-text span {
-  font-weight: lighter;
+  font-weight: bold;
 }

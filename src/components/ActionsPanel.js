@@ -12,7 +12,7 @@ export default function ActionsPanel(props) {
                 {
                     actions.map(a => {
                         return (
-                            <li key={a.action}><span className="panel-item-text-strong"> Solicitação: </span>{a.action} - 
+                            <li key={a.action}><span className="panel-item-text-strong"> Solicitação: </span>{a.action}  
                                 <br/>
                                 <span className="panel-item-text-strong"> Data da Solicitação: </span> 
                                     { moment(a.requestDate).format('L') } - 

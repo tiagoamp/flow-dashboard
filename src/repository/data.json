@@ -8,35 +8,70 @@
     },
     "actions": [
         {
-            "action": "action nr one", 
-            "requestDate": "2020-03-01T12:00:00Z", "accomplishedDate": "",
-            "accountable": "accountable dept"
+            "action": "Elaboração do DDA (Documento de Definição de Arquitetura) para o projeto (demanda via Clarity DTP.45456).", 
+            "requestDate": "2020-02-07T12:00:00Z", "accomplishedDate": "",
+            "accountable": "DIT/DIPD"
         },
         {
-            "action": "action nr two", 
-            "requestDate": "2020-01-01T12:00:00Z", "accomplishedDate": "",
-            "accountable": "accountable dept"
+            "action": "Formalização (abertura formal) do projeto (T.A. no ALM # 207449).", 
+            "requestDate": "2020-02-03T12:00:00Z", "accomplishedDate": "",
+            "accountable": "COPS/SPD3"
         },
         {
-            "action": "action nr three", 
+            "action": "Indicação de ponto focal na DIT para desimpedir tarefas relacionadas à infraestrutura (solicitado via videoconf do dia 07/02).", 
             "requestDate": "2020-01-01T12:00:00Z", "accomplishedDate": "",
-            "accountable": "accountable dept"
+            "accountable": "SURC"
+        },
+        {
+            "action": "Configuração do projeto nas ferramentas corporativas de trabalho. Pendentes = [Jenkins, Sonar, Kibana, UrbanCode, IBM-IDA, SDM]. Já Criados = [ALM, git, Clarity, PFácil]", 
+            "requestDate": "2020-02-03T12:00:00Z", "accomplishedDate": "",
+            "accountable": "DTP"
+        },
+        {
+            "action": "Disponibilização de servidor de Banco de Dados com instância configurada (dev, homolog e prod).", 
+            "requestDate": "2020-03-03T12:00:00Z", "accomplishedDate": "",
+            "accountable": "DIT"
+        },
+        {
+            "action": "Disponibilização de servidor de Aplicação c/ JBoss configurado (dev, homolog e prod).", 
+            "requestDate": "2020-03-03T12:00:00Z", "accomplishedDate": "",
+            "accountable": "DIT"
+        },
+        {
+            "action": "Integração com 'gov.br' no Serpro para autenticação do Cidadão na Web (solict. via e-mail para Serpro).", 
+            "requestDate": "2020-02-07T12:00:00Z", "accomplishedDate": "",
+            "accountable": "UDSC e DIAS"
+        },
+        {
+            "action": "Verificar solução para disponibiliação e autenticação das APIs do Consigo (provavelmente WSO2).", 
+            "requestDate": "2020-02-10T12:00:00Z", "accomplishedDate": "",
+            "accountable": "UDSC/Projeto"
+        },
+        {
+            "action": "Verificar solução para autenticação e autorização do módulo Web de Gestão do Consigo (provavelmente Gerid).", 
+            "requestDate": "2020-02-10T12:00:00Z", "accomplishedDate": "",
+            "accountable": "UDSC/Projeto"
         }
     ],
-    "risks": [ "risk nr one", "risk nr two", "risk nr three" ], 
+    "risks": [ 
+        "Não atingimento do prazo definido posto este ser menor que o necessário para atender o escopo previsto (detalhado no ALM).", 
+        "Redução da produtividade pelo uso de tecnologias do framework atual (detalhado no ALM)",
+        "Indefinição de regras de negócio podem trazer atrasos e retrabalho no desenvolvimento (detalhado no ALM)",
+        "Indisponibilidade de apoio técnico para tarefas de processo, arquitetura e implantação (detalhado no ALM)",
+        "Sucesso do projeto depende de ações que não estão sob a gestão do projeto (detalhado no ALM)"
+     ], 
     "statusList": [ 
         { "name": "INBOX", "color":"rgba(102, 204, 255, 0.7)"}, 
         { "name": "TO DO", "color":"rgba(102, 153, 204, 0.7)" },
         { "name": "DOING", "color":"rgba(000, 153, 204, 0.7)" }, 
-        { "name": "QA", "color":"rgba(95,158,160, 0.7)" },
+        { "name": "TEST", "color":"rgba(95,158,160, 0.7)" },
         { "name": "DONE", "color":"rgba(102, 204, 153, 0.7)" } 
     ],
     "items": [
         {
             "id": "01", "label": "", "description": "[API] Manutenção de Consignantes",
-            "status": "QA", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
+            "status": "DOING", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
             "statusHistory": [
-                { "status": "QA", "date": "2020-02-12T12:00:00Z" },
                 { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
                 { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
@@ -67,9 +102,8 @@
         },
         {
             "id": "05", "label": "", "description": "[API] Manutenção de Consignatários",
-            "status": "QA", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
+            "status": "DOING", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
             "statusHistory": [
-                { "status": "QA", "date": "2020-02-12T12:00:00Z" },
                 { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
                 { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }

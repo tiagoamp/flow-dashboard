@@ -106,7 +106,7 @@ export default function Burndown(props) {
         <div className='burndown-chart-container'>
             <Line
                 data={data}
-                width={150}
+                width={140}
                 height={240}
                 options={
                     { 
