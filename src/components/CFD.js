@@ -3,7 +3,6 @@ import { Line } from 'react-chartjs-2'
 import service from '../service/flowservice'
 import moment from 'moment'
 
-
 function getXlabels(items) {
     const dates = service.getSortedDatesFromItems(items);
     const labels = dates.map(date => moment(date).format('L'));

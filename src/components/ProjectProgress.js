@@ -52,11 +52,11 @@ function MilestonesProgress(props) {
     return (
         <div className="milestones-container">
             <div key="1">
-                <span className="progress-item-name">Percentual tempo decorrido do projeto </span> 
+                <span className="progress-item-name">Percentual tempo decorrido do projeto ({percOfTotalDuration}%)</span> 
                 <ProgressBar percentage={percOfTotalDuration} />
             </div>
             <div key="2">
-                <span className="progress-item-name">Percentual itens concluídos </span> 
+                <span className="progress-item-name">Percentual itens concluídos ({percOfAccomplItems}%)</span> 
                 <ProgressBar percentage={percOfAccomplItems} />
             </div>
         </div>

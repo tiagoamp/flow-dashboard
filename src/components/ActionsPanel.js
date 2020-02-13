@@ -1,9 +1,10 @@
 import React from 'react'
 import moment from 'moment'
+import 'moment/locale/pt-br';
 
 export default function ActionsPanel(props) {
     const { actions, risks } = props;
-
+    moment.locale('pt-br');
     return (
         <div className="panel-container">
             <div className="panel-title">Pendências Prioritárias</div>
@@ -11,7 +12,7 @@ export default function ActionsPanel(props) {
                 {
                     actions.map(a => {
                         return (
-                            <li><span className="panel-item-text-strong"> Solicitação: </span>{a.action} - 
+                            <li key={a.action}><span className="panel-item-text-strong"> Solicitação: </span>{a.action} - 
                                 <br/>
                                 <span className="panel-item-text-strong"> Data da Solicitação: </span> 
                                     { moment(a.requestDate).format('L') } - 
@@ -31,7 +32,7 @@ export default function ActionsPanel(props) {
                 {
                     risks.map(r => {
                         return (
-                            <li>{r}</li>
+                            <li key={r}>{r}</li>
                         );
                     })                
                 }

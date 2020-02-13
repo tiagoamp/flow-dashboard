@@ -1,14 +1,15 @@
 {
-    "project": "DEMONSTRATION",
-    "holidays": [ "2020-04-21T12:00:00Z" ],
+    "project": "Projeto CONSIGO",
+    "holidays": [ "2020-02-24T12:00:00Z","2020-02-25T12:00:00Z",
+        "2020-04-10T12:00:00Z","2020-04-21T12:00:00Z","2020-05-01T12:00:00Z" ],
     "milestones": {
-        "initDate": "2020-01-01T12:00:00Z",
-        "dueDate": "2020-08-01T12:00:00Z"
+        "initDate": "2020-02-03T12:00:00Z",
+        "dueDate": "2020-04-08T12:00:00Z"
     },
     "actions": [
         {
             "action": "action nr one", 
-            "requestDate": "2020-01-01T12:00:00Z", "accomplishedDate": "",
+            "requestDate": "2020-03-01T12:00:00Z", "accomplishedDate": "",
             "accountable": "accountable dept"
         },
         {
@@ -28,167 +29,169 @@
         { "name": "TO DO", "color":"rgba(102, 153, 204, 0.7)" },
         { "name": "DOING", "color":"rgba(000, 153, 204, 0.7)" }, 
         { "name": "QA", "color":"rgba(95,158,160, 0.7)" },
-        { "name": "BLOCKED", "color":"rgba(204, 102, 102, 0.7)" }, 
-        { "name": "DONE", "color":"rgba(102, 204, 153, 0.7)" }, 
-        { "name": "RELEASED", "color":"rgba(218, 226, 130, 0.7)"}
+        { "name": "DONE", "color":"rgba(102, 204, 153, 0.7)" } 
     ],
     "items": [
         {
-            "id": "001", "label": "Label 01", "description": "Item nr 01",
-            "status": "INBOX", "size": 10, "dueDate": "2020-08-01T12:00:00Z",
+            "id": "01", "label": "", "description": "[API] Manutenção de Consignantes",
+            "status": "QA", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
             "statusHistory": [
-                { "status": "INBOX", "date": "2020-01-01T12:00:00Z" }
+                { "status": "QA", "date": "2020-02-12T12:00:00Z" },
+                { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
+                { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
-            "id": "002", "label": "Label 02", "description": "Item nr 02",
-            "status": "INBOX", "size": "M", "dueDate": "2020-08-01T12:00:00Z",
+            "id": "02", "label": "", "description": "[API] Manutenção de Parâmetros e Regras de Consignantes",
+            "status": "DOING", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
             "statusHistory": [
-                { "status": "INBOX", "date": "2020-01-01T12:00:00Z" }
+                { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
+                { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
-            "id": "003", "label": "", "description": "Item nr 03",
-            "status": "INBOX", "size": 10, "dueDate": "2020-08-01T12:00:00Z",
+            "id": "03", "label": "", "description": "[API] Manutenção de Funcionários",
+            "status": "INBOX", "size": 0, "dueDate": "2020-03-11T12:00:00Z",
             "statusHistory": [
-                { "status": "INBOX", "date": "2020-01-01T12:00:00Z" }
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
-            "id": "004", "label": "Label 03", "description": "Item nr 04",
-            "status": "INBOX", "size": 10, "dueDate": "2020-08-01T12:00:00Z",
+            "id": "04", "label": "", "description": "[API] Manutenção de Vínculos",
+            "status": "INBOX", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
             "statusHistory": [
-                { "status": "INBOX", "date": "2020-01-01T12:00:00Z" }
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
-            "id": "005", "label": "", "description": "Item nr 05",
-            "status": "TO DO", "size": 10, "dueDate": "2020-08-01T12:00:00Z",
+            "id": "05", "label": "", "description": "[API] Manutenção de Consignatários",
+            "status": "QA", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
             "statusHistory": [
-                { "status": "TO DO", "date": "2020-02-01T12:00:00Z" },
-                { "status": "INBOX", "date": "2020-01-01T12:00:00Z" }
+                { "status": "QA", "date": "2020-02-12T12:00:00Z" },
+                { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
+                { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
-            "id": "006", "label": "", "description": "Item nr 06",
-            "status": "TO DO", "size": 10, "dueDate": "2020-08-01T12:00:00Z",
+            "id": "06", "label": "", "description": "[API] Manutenção de Parâmetros de Consignatários",
+            "status": "DOING", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
             "statusHistory": [
-                { "status": "TO DO", "date": "2020-02-01T12:00:00Z" },
-                { "status": "INBOX", "date": "2020-01-01T12:00:00Z" }
+                { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
+                { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
-            "id": "007", "label": "", "description": "Item nr 07",
-            "status": "DOING", "size": 10, "dueDate": "2020-08-01T12:00:00Z",
+            "id": "07", "label": "", "description": "[API] Autorização de Consulta da Margem",
+            "status": "DOING", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
             "statusHistory": [
-                { "status": "DOING", "date": "2020-03-01T12:00:00Z" },
-                { "status": "TO DO", "date": "2020-02-01T12:00:00Z" },
-                { "status": "INBOX", "date": "2020-01-01T12:00:00Z" }
+                { "status": "DOING", "date": "2020-02-12T12:00:00Z" },
+                { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
-            "id": "008", "label": "", "description": "Item nr 08",
-            "status": "DOING", "size": 10, "dueDate": "2020-08-01T12:00:00Z",
+            "id": "08", "label": "", "description": "[WEB-Cidadão] Autorização de Consulta da Margem",
+            "status": "DOING", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
             "statusHistory": [
-                { "status": "DOING", "date": "2020-03-01T12:00:00Z" },
-                { "status": "TO DO", "date": "2020-02-01T12:00:00Z" },
-                { "status": "INBOX", "date": "2020-01-01T12:00:00Z" }
+                { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
+                { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
-            "id": "009", "label": "", "description": "Item nr 09",
-            "status": "DOING", "size": 10, "dueDate": "2020-08-01T12:00:00Z",
+            "id": "09", "label": "", "description": "[WEB-Gestão] Autorização de Consulta da Margem",
+            "status": "DOING", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
             "statusHistory": [
-                { "status": "DOING", "date": "2020-03-01T12:00:00Z" },
-                { "status": "TO DO", "date": "2020-02-01T12:00:00Z" },
-                { "status": "INBOX", "date": "2020-01-01T12:00:00Z" }
+                { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
+                { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
-            "id": "010", "label": "", "description": "Item nr 10",
-            "status": "QA", "size": 10, "dueDate": "2020-08-01T12:00:00Z",
+            "id": "10", "label": "", "description": "[API] Autorização de Empréstimo",
+            "status": "DOING", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
             "statusHistory": [
-                { "status": "QA", "date": "2020-04-01T12:00:00Z" },
-                { "status": "DOING", "date": "2020-03-01T12:00:00Z" },
-                { "status": "TO DO", "date": "2020-02-01T12:00:00Z" },
-                { "status": "INBOX", "date": "2020-01-01T12:00:00Z" }
+                { "status": "DOING", "date": "2020-02-12T12:00:00Z" },
+                { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
-            "id": "011", "label": "", "description": "Item nr 11",
-            "status": "QA", "size": 10, "dueDate": "2020-08-01T12:00:00Z",
+            "id": "11", "label": "", "description": "[WEB-Cidadão] Autorização de Empréstimo",
+            "status": "DOING", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
             "statusHistory": [
-                { "status": "QA", "date": "2020-04-01T12:00:00Z" },
-                { "status": "DOING", "date": "2020-03-01T12:00:00Z" },
-                { "status": "TO DO", "date": "2020-02-01T12:00:00Z" },
-                { "status": "INBOX", "date": "2020-01-01T12:00:00Z" }
+                { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
+                { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
-            "id": "012", "label": "", "description": "Item nr 12",
-            "status": "BLOCKED", "size": 10, "dueDate": "2020-08-01T12:00:00Z",
+            "id": "12", "label": "", "description": "[WEB-Gestão] Autorização de Empréstimo",
+            "status": "DOING", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
             "statusHistory": [
-                { "status": "BLOCKED", "date": "2020-04-01T12:00:00Z" },
-                { "status": "DOING", "date": "2020-03-01T12:00:00Z" },
-                { "status": "TO DO", "date": "2020-02-01T12:00:00Z" },
-                { "status": "INBOX", "date": "2020-01-01T12:00:00Z" }
+                { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
+                { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
-            "id": "013", "label": "", "description": "Item nr 13",
-            "status": "DONE", "size": 10, "dueDate": "2020-08-01T12:00:00Z",
+            "id": "13", "label": "", "description": "[API] Recepção dados da Folha de Pagamento (valor base)",
+            "status": "INBOX", "size": 0, "dueDate": "2020-03-11T12:00:00Z",
             "statusHistory": [
-                { "status": "DONE", "date": "2020-05-01T12:00:00Z" },
-                { "status": "QA", "date": "2020-04-01T12:00:00Z" },
-                { "status": "DOING", "date": "2020-03-01T12:00:00Z" },
-                { "status": "TO DO", "date": "2020-02-01T12:00:00Z" },
-                { "status": "INBOX", "date": "2020-01-01T12:00:00Z" }
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
-            "id": "014", "label": "", "description": "Item nr 14",
-            "status": "DONE", "size": 10, "dueDate": "2020-08-01T12:00:00Z",
+            "id": "14", "label": "", "description": "[API] Cálculo da margem consignável (valor base)",
+            "status": "INBOX", "size": 0, "dueDate": "2020-03-11T12:00:00Z",
             "statusHistory": [
-                { "status": "DONE", "date": "2020-05-01T12:00:00Z" },
-                { "status": "QA", "date": "2020-04-01T12:00:00Z" },
-                { "status": "DOING", "date": "2020-03-01T12:00:00Z" },
-                { "status": "TO DO", "date": "2020-02-01T12:00:00Z" },
-                { "status": "INBOX", "date": "2020-01-01T12:00:00Z" }
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
-            "id": "015", "label": "", "description": "Item nr 15",
-            "status": "DONE", "size": 10, "dueDate": "2020-08-01T12:00:00Z",
+            "id": "15", "label": "", "description": "[API] Consulta da Margem Calculada",
+            "status": "INBOX", "size": 0, "dueDate": "2020-03-25T12:00:00Z",
             "statusHistory": [
-                { "status": "DONE", "date": "2020-05-01T12:00:00Z" },
-                { "status": "QA", "date": "2020-04-01T12:00:00Z" },
-                { "status": "DOING", "date": "2020-03-01T12:00:00Z" },
-                { "status": "TO DO", "date": "2020-02-01T12:00:00Z" },
-                { "status": "INBOX", "date": "2020-01-01T12:00:00Z" }
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
-            "id": "016", "label": "", "description": "Item nr 16",
-            "status": "RELEASED", "size": 10, "dueDate": "2020-08-01T12:00:00Z",
+            "id": "16", "label": "", "description": "[WEB-Cidadão] Consulta da Margem Calculada",
+            "status": "INBOX", "size": 0, "dueDate": "2020-03-25T12:00:00Z",
             "statusHistory": [
-                { "status": "RELEASED", "date": "2020-06-01T12:00:00Z" },
-                { "status": "DONE", "date": "2020-05-01T12:00:00Z" },
-                { "status": "QA", "date": "2020-04-01T12:00:00Z" },
-                { "status": "DOING", "date": "2020-03-01T12:00:00Z" },
-                { "status": "TO DO", "date": "2020-02-01T12:00:00Z" },
-                { "status": "INBOX", "date": "2020-01-01T12:00:00Z" }
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
-            "id": "017", "label": "", "description": "Item nr 17",
-            "status": "RELEASED", "size": 10, "dueDate": "2020-08-01T12:00:00Z",
+            "id": "17", "label": "", "description": "[WEB-Gestão] Consulta da Margem Calculada",
+            "status": "INBOX", "size": 0, "dueDate": "2020-03-25T12:00:00Z",
             "statusHistory": [
-                { "status": "RELEASED", "date": "2020-06-01T12:00:00Z" },
-                { "status": "DONE", "date": "2020-05-01T12:00:00Z" },
-                { "status": "QA", "date": "2020-04-01T12:00:00Z" },
-                { "status": "DOING", "date": "2020-03-01T12:00:00Z" },
-                { "status": "TO DO", "date": "2020-02-01T12:00:00Z" },
-                { "status": "INBOX", "date": "2020-01-01T12:00:00Z" }
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "18", "label": "", "description": "[API] Realização da averbação de empréstimo",
+            "status": "INBOX", "size": 0, "dueDate": "2020-04-08T12:00:00Z",
+            "statusHistory": [
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "19", "label": "", "description": "[WEB-Cidadão] Realização da averbação de empréstimo",
+            "status": "INBOX", "size": 0, "dueDate": "2020-04-08T12:00:00Z",
+            "statusHistory": [
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "20", "label": "", "description": "[WEB-Gestão] Realização da averbação de empréstimo",
+            "status": "INBOX", "size": 0, "dueDate": "2020-04-08T12:00:00Z",
+            "statusHistory": [
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         }
     ]
