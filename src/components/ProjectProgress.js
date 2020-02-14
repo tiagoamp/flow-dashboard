@@ -3,7 +3,7 @@ import ProgressBar from './ProgressBar'
 import moment from 'moment'
 
 export default function ProjectProgress(props) {
-    const { statusList, milestones, items } = props;
+    const { statusList, milestones, items, actions } = props;
     if (items.length + statusList.length === 0)
         return (<div>Loading</div>);
     
@@ -11,6 +11,7 @@ export default function ProjectProgress(props) {
         <div className="progress-container">
             <div className="progress-title">Project Status</div>
             <StatusLight statusList={statusList} items={items} />
+            <ActionsLight actions={actions} />
             <MilestonesProgress milestones={milestones} statusList={statusList} items={items} />
         </div>
     )
@@ -32,6 +33,24 @@ function StatusLight(props) {
         <div className='light-box'>
             <div className="light-circle" style={{backgroundColor: bgColor}}>!</div>
             <div className="progress-item-name">{percDelayed} % dos itens de backlog em atraso</div>
+        </div>
+    )
+}
+
+function ActionsLight(props) {
+    const { actions } = props;
+    const today = new Date();
+    const actionsDelayed = actions.filter(action => today > new Date(action.dueDate));
+    //console.log("actions delayed",actionsDelayed);
+    const percDelayed = Math.ceil( (100 * actionsDelayed.length) / actions.length );
+
+    const colors = ["rgba(102, 204, 153, 0.7)", "rgba(218, 226, 130, 0.7)", "rgba(204, 102, 102, 0.7)"];
+    const bgColor = percDelayed <= 10 ? colors[0] : (percDelayed <= 30 ? colors[1] : colors[2]);
+
+    return (
+        <div className='light-box'>
+            <div className="light-circle" style={{backgroundColor: bgColor}}>!</div>
+            <div className="progress-item-name">{percDelayed} % das pendências do projeto em atraso</div>
         </div>
     )
 }

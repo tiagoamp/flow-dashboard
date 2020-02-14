@@ -40,7 +40,7 @@ class App extends Component {
               <ItensProgress statusList={[...this.state.statusList]} items={[...this.state.items]} />
             </div>
             <div className="col-container">
-              <ProjectProgress milestones={this.state.milestones} statusList={[...this.state.statusList]} items={[...this.state.items]} />
+              <ProjectProgress milestones={this.state.milestones} statusList={[...this.state.statusList]} items={[...this.state.items]} actions={this.state.actions}/>
               <CFD statusList={[...this.state.statusList]} items={[...this.state.items]} />
               <Burndown statusList={[...this.state.statusList]} items={[...this.state.items]} holidays={[...this.state.holidays]} />
             </div>

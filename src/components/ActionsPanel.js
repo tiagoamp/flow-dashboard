@@ -4,6 +4,7 @@ import 'moment/locale/pt-br';
 
 export default function ActionsPanel(props) {
     const { actions, risks } = props;
+    const today = moment(new Date());
     moment.locale('pt-br');
     return (
         <div className="panel-container">
@@ -11,16 +12,27 @@ export default function ActionsPanel(props) {
             <ul className="panel-item-text">
                 {
                     actions.map(a => {
-                        return (
+                        
+                        const delayed = today.isAfter(moment(a.dueDate));
+                        return (                            
                             <li key={a.action}><span className="panel-item-text-strong"> Solicitação: </span>{a.action}  
                                 <br/>
                                 <span className="panel-item-text-strong"> Data da Solicitação: </span> 
                                     { moment(a.requestDate).format('L') } - 
+                                <span className="panel-item-text-strong"> Necessário para: </span> 
+                                    { moment(a.dueDate).format('L') } - 
                                 <span className="panel-item-text-strong"> Data do atendimento: </span>
                                     { a.accomplishedDate ? moment(a.accomplishedDate).format('L') : 'em aberto' } - 
                                 <span className="panel-item-text-strong"> Responsável: </span> {a.accountable} - 
                                 <span className="panel-item-text-strong"> Tempo decorrido: </span> 
-                                    { Math.abs(moment(new Date()).diff(a.requestDate, 'days'))+1 } dias 
+                                    { Math.abs(moment(new Date()).diff(a.requestDate, 'days'))+1 } dias
+                                    { 
+                                        delayed ? 
+                                        (<div style={{color: "rgba(204, 102, 102, 0.7)", fontWeight: "bold"}}> 
+                                            (Pendência não atendida no tempo necessário, deve causar atraso no projeto!)
+                                        </div>) 
+                                        : '' 
+                                    } 
                             </li>
                         );
                     })                
