@@ -20,10 +20,14 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const info = service.getProjectInfo();
-    this.setState( {projName: info.project, holidays: info.holidays,   
-      statusList: info.statusList, milestones: info.milestones, items: info.items, 
-      actions: info.actions, risks: info.risks } );
+    fetch(`data.json`)
+      .then((r) => r.json())
+      .then((data) =>{
+          const info = service.getProjectInfo(data);
+          this.setState( {projName: info.project, holidays: info.holidays,   
+              statusList: info.statusList, milestones: info.milestones, items: info.items, 
+              actions: info.actions, risks: info.risks } );
+              });
   }
 
   render() {

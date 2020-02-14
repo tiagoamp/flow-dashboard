@@ -22,7 +22,7 @@ function StatusLight(props) {
     
     const today = new Date();
     const itemsDelayed = items.filter(item => item.status !== lastStatus && today > new Date(item.dueDate));
-    console.log("items delayed",itemsDelayed);
+    //console.log("items delayed",itemsDelayed);
     const percDelayed = Math.ceil( (100 * itemsDelayed.length) / items.length );
 
     const colors = ["rgba(102, 204, 153, 0.7)", "rgba(218, 226, 130, 0.7)", "rgba(204, 102, 102, 0.7)"];
@@ -46,7 +46,7 @@ function MilestonesProgress(props) {
     const projDurationUntilToday = Math.abs(today.diff(init, 'days'))+1;
     const percOfTotalDuration = Math.ceil((100 * projDurationUntilToday) / projDurationInDays);
     const accomplItems = items.filter(item => item.status === lastStatus);
-    console.log("items accompl",accomplItems);
+    //console.log("items accompl",accomplItems);
     const percOfAccomplItems = Math.ceil( (100 * accomplItems.length) / items.length );
 
     return (

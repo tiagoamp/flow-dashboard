@@ -1,8 +1,8 @@
-const data = require('../repository/data.json');
+//const data = require('../repository/data_original.json');
 
 const service = {
 
-    getProjectInfo: () => {
+    getProjectInfo: (data) => {
         return {
             project: data.project, 
             holidays: data.holidays.map(h => new Date(h)),
