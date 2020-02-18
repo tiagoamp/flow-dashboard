@@ -1,5 +1,5 @@
 {
-    "project": "Projeto CONSIGO",
+    "project": "Project DEMONSTRATION",
     "holidays": [ "2020-02-24T12:00:00Z","2020-02-25T12:00:00Z",
         "2020-04-10T12:00:00Z","2020-04-21T12:00:00Z","2020-05-01T12:00:00Z" ],
     "milestones": {
@@ -8,57 +8,20 @@
     },
     "actions": [
         {
-            "action": "Elaboração do DDA (Documento de Definição de Arquitetura) para o projeto (demanda via Clarity DTP.45456, RQS 1662628 para elaboração do DAN).", 
+            "action": "Client initial requirements and specifications.", 
             "requestDate": "2020-02-13T12:00:00Z", "dueDate": "2020-02-21T12:00:00Z", "accomplishedDate": "",
-            "accountable": "DIT/DIPD"
+            "accountable": "Business"
         },
         {
-            "action": "Formalização (abertura formal) do projeto (T.A. no ALM # 207449).", 
+            "action": "Publish Project Charter.", 
             "requestDate": "2020-02-03T12:00:00Z", "dueDate": "2020-02-03T12:00:00Z", "accomplishedDate": "",
-            "accountable": "COPS/SPD3"
-        },
-        {
-            "action": "Indicação de ponto focal na DIT para desimpedir tarefas relacionadas à infraestrutura (solicitado via videoconf do dia 07/02).", 
-            "requestDate": "2020-02-07T12:00:00Z", "dueDate": "2020-02-10T12:00:00Z", "accomplishedDate": "",
-            "accountable": "SURC"
-        },
-        {
-            "action": "Configuração do projeto nas ferramentas corporativas de trabalho. Pendentes = [Jenkins, Sonar, Kibana, UrbanCode, SDM]. Já Criados = [ALM, git, Clarity, PFácil, IBM-IDA]", 
-            "requestDate": "2020-02-03T12:00:00Z", "dueDate": "2020-02-10T12:00:00Z", "accomplishedDate": "",
-            "accountable": "DTP (diversas áreas)"
-        },
-        {
-            "action": "Disponibilização de servidor de Banco de Dados com instância configurada (dev, homolog e prod).", 
-            "requestDate": "2020-02-13T12:00:00Z", "dueDate": "2020-02-28T12:00:00Z", "accomplishedDate": "",
-            "accountable": "DIT"
-        },
-        {
-            "action": "Disponibilização de servidor de Aplicação c/ JBoss configurado (dev, homolog e prod).", 
-            "requestDate": "2020-02-13T12:00:00Z", "dueDate": "2020-02-28T12:00:00Z", "accomplishedDate": "",
-            "accountable": "DIT"
-        },
-        {
-            "action": "Integração com 'gov.br' no Serpro para autenticação do Cidadão na Web (solict. via e-mail para Serpro).", 
-            "requestDate": "2020-02-07T12:00:00Z", "dueDate": "2020-03-11T12:00:00Z", "accomplishedDate": "",
-            "accountable": "UDSC, DIAS e SERPRO"
-        },
-        {
-            "action": "Solução para disponibilização e autenticação das APIs do Consigo (provavelmente WSO2).", 
-            "requestDate": "2020-02-10T12:00:00Z", "dueDate": "2020-03-11T12:00:00Z", "accomplishedDate": "",
-            "accountable": "UDSC/Projeto e DIAS"
-        },
-        {
-            "action": "Solução para autenticação e autorização do módulo Web de Gestão do Consigo (provavelmente Gerid).", 
-            "requestDate": "2020-02-10T12:00:00Z", "dueDate": "2020-03-11T12:00:00Z", "accomplishedDate": "",
-            "accountable": "UDSC/Projeto e DIAS"
+            "accountable": "PMO"
         }
     ],
     "risks": [ 
-        "Não atingimento do prazo definido posto este ser menor que o necessário para atender o escopo previsto (detalhado no ALM: https://alm.dataprev.gov.br/ccm/web/projects/CONSIGO#action=com.ibm.team.workitem.viewWorkItem&id=207969).", 
-        "Redução da produtividade pelo uso de tecnologias do framework atual (detalhado no ALM: https://alm.dataprev.gov.br/ccm/web/projects/CONSIGO#action=com.ibm.team.workitem.viewWorkItem&id=207970)",
-        "Indefinição de regras de negócio podem trazer atrasos e retrabalho no desenvolvimento (detalhado no ALM: https://alm.dataprev.gov.br/ccm/web/projects/CONSIGO#action=com.ibm.team.workitem.viewWorkItem&id=207974)",
-        "Indisponibilidade de apoio técnico para tarefas de processo, arquitetura e implantação (detalhado no ALM: https://alm.dataprev.gov.br/ccm/web/projects/CONSIGO#action=com.ibm.team.workitem.viewWorkItem&id=207975)",
-        "Sucesso do projeto depende de ações que não estão sob a gestão do projeto (detalhado no ALM: https://alm.dataprev.gov.br/ccm/web/projects/CONSIGO#action=com.ibm.team.workitem.viewWorkItem&id=207977)"
+        "Risk number 01 description ...", 
+        "Risk number 02 description ...", 
+        "Risk number 03 description ..."
      ], 
     "statusList": [ 
         { "name": "INBOX", "color":"rgba(102, 204, 255, 0.7)"}, 
@@ -69,7 +32,7 @@
     ],
     "items": [
         {
-            "id": "01", "label": "", "description": "[API] Manutenção de Consignantes",
+            "id": "01", "label": "API", "description": "Item nr 01",
             "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
             "statusHistory": [
 		        { "status": "DONE",  "date": "2020-02-18T12:00:00Z" },
@@ -80,7 +43,7 @@
             ]
         },
         {
-            "id": "02", "label": "", "description": "[API] Manutenção de Parâmetros e Regras de Consignantes",
+            "id": "02", "label": "WEB", "description": "Item nr 02",
             "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
             "statusHistory": [
                 { "status": "DONE",  "date": "2020-02-18T12:00:00Z" },
@@ -91,21 +54,21 @@
             ]
         },
         {
-            "id": "03", "label": "", "description": "[API] Manutenção de Funcionários",
+            "id": "03", "label": "", "description": "Item nr 03",
 	    "status": "INBOX", "size": 0, "dueDate": "2020-03-11T12:00:00Z",
             "statusHistory": [
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
-            "id": "04", "label": "", "description": "[API] Manutenção de Vínculos",
+            "id": "04", "label": "", "description": "Item nr 04",
             "status": "INBOX", "size": 0, "dueDate": "2020-03-11T12:00:00Z",
             "statusHistory": [
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
-            "id": "05", "label": "", "description": "[API] Manutenção de Consignatários",
+            "id": "05", "label": "", "description": "Item nr 05",
             "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
             "statusHistory": [
                 { "status": "DONE",  "date": "2020-02-18T12:00:00Z" },
@@ -116,7 +79,7 @@
             ]
         },
         {
-            "id": "06", "label": "", "description": "[API] Manutenção de Parâmetros de Consignatários",
+            "id": "06", "label": "", "description": "Item nr 06",
             "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
             "statusHistory": [
                 { "status": "DONE",  "date": "2020-02-18T12:00:00Z" },
@@ -127,7 +90,7 @@
             ]
         },
         {
-            "id": "07", "label": "", "description": "[API] Autorização de Consulta da Margem",
+            "id": "07", "label": "", "description": "Item nr 07",
             "status": "DOING", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
             "statusHistory": [
                 { "status": "DOING", "date": "2020-02-12T12:00:00Z" },
@@ -136,7 +99,7 @@
             ]
         },
         {
-            "id": "08", "label": "", "description": "[WEB-Cidadão] Autorização de Consulta da Margem",
+            "id": "08", "label": "", "description": "Item nr 08",
             "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
             "statusHistory": [
                 { "status": "DONE",  "date": "2020-02-18T12:00:00Z" },
@@ -147,7 +110,7 @@
             ]
         },
         {
-            "id": "09", "label": "", "description": "[WEB-Gestão] Autorização de Consulta da Margem",
+            "id": "09", "label": "", "description": "Item nr 09",
             "status": "DOING", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
             "statusHistory": [
                 { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
@@ -156,7 +119,7 @@
             ]
         },
         {
-            "id": "10", "label": "", "description": "[API] Autorização de Empréstimo",
+            "id": "10", "label": "", "description": "Item nr 10",
             "status": "DOING", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
             "statusHistory": [
                 { "status": "DOING", "date": "2020-02-12T12:00:00Z" },
@@ -165,7 +128,7 @@
             ]
         },
         {
-            "id": "11", "label": "", "description": "[WEB-Cidadão] Autorização de Empréstimo",
+            "id": "11", "label": "", "description": "Item nr 11",
             "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
             "statusHistory": [
                 { "status": "DONE",  "date": "2020-02-18T12:00:00Z" },
@@ -176,7 +139,7 @@
             ]
         },
         {
-            "id": "12", "label": "", "description": "[WEB-Gestão] Autorização de Empréstimo",
+            "id": "12", "label": "", "description": "Item nr 12",
             "status": "DOING", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
             "statusHistory": [
                 { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
@@ -185,56 +148,56 @@
             ]
         },
         {
-            "id": "13", "label": "", "description": "[API] Recepção dados da Folha de Pagamento (valor base)",
+            "id": "13", "label": "", "description": "Item nr 13",
             "status": "INBOX", "size": 0, "dueDate": "2020-03-11T12:00:00Z",
             "statusHistory": [
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
-            "id": "14", "label": "", "description": "[API] Cálculo da margem consignável (valor base)",
+            "id": "14", "label": "", "description": "Item nr 14",
             "status": "INBOX", "size": 0, "dueDate": "2020-03-11T12:00:00Z",
             "statusHistory": [
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
-            "id": "15", "label": "", "description": "[API] Consulta da Margem Calculada",
+            "id": "15", "label": "", "description": "Item nr 15",
             "status": "INBOX", "size": 0, "dueDate": "2020-03-25T12:00:00Z",
             "statusHistory": [
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
-            "id": "16", "label": "", "description": "[WEB-Cidadão] Consulta da Margem Calculada",
+            "id": "16", "label": "", "description": "Item nr 16",
             "status": "INBOX", "size": 0, "dueDate": "2020-03-25T12:00:00Z",
             "statusHistory": [
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
-            "id": "17", "label": "", "description": "[WEB-Gestão] Consulta da Margem Calculada",
+            "id": "17", "label": "", "description": "Item nr 17",
             "status": "INBOX", "size": 0, "dueDate": "2020-03-25T12:00:00Z",
             "statusHistory": [
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
-            "id": "18", "label": "", "description": "[API] Realização da averbação de empréstimo",
+            "id": "18", "label": "", "description": "Item nr 18",
             "status": "INBOX", "size": 0, "dueDate": "2020-04-08T12:00:00Z",
             "statusHistory": [
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
-            "id": "19", "label": "", "description": "[WEB-Cidadão] Realização da averbação de empréstimo",
+            "id": "19", "label": "", "description": "Item nr 19",
             "status": "INBOX", "size": 0, "dueDate": "2020-04-08T12:00:00Z",
             "statusHistory": [
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
-            "id": "20", "label": "", "description": "[WEB-Gestão] Realização da averbação de empréstimo",
+            "id": "20", "label": "", "description": "Item nr 20",
             "status": "INBOX", "size": 0, "dueDate": "2020-04-08T12:00:00Z",
             "statusHistory": [
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }

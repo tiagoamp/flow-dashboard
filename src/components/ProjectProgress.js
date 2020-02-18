@@ -32,7 +32,7 @@ function StatusLight(props) {
     return (
         <div className='light-box'>
             <div className="light-circle" style={{backgroundColor: bgColor}}>!</div>
-            <div className="progress-item-name">{percDelayed} % dos itens de backlog em atraso</div>
+            <div className="progress-item-name">{percDelayed} % of delayed backlog items</div>
         </div>
     )
 }
@@ -50,7 +50,7 @@ function ActionsLight(props) {
     return (
         <div className='light-box'>
             <div className="light-circle" style={{backgroundColor: bgColor}}>!</div>
-            <div className="progress-item-name">{percDelayed} % das pendências do projeto em atraso</div>
+            <div className="progress-item-name">{percDelayed} % delayed issues</div>
         </div>
     )
 }
@@ -71,11 +71,11 @@ function MilestonesProgress(props) {
     return (
         <div className="milestones-container">
             <div key="1">
-                <span className="progress-item-name">Percentual tempo decorrido do projeto ({percOfTotalDuration}%)</span> 
+                <span className="progress-item-name">Project elapsed time ({percOfTotalDuration}%)</span> 
                 <ProgressBar percentage={percOfTotalDuration} />
             </div>
             <div key="2">
-                <span className="progress-item-name">Percentual itens concluídos ({percOfAccomplItems}%)</span> 
+                <span className="progress-item-name">% accomplished items ({percOfAccomplItems}%)</span> 
                 <ProgressBar percentage={percOfAccomplItems} />
             </div>
         </div>
