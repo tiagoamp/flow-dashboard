@@ -8,8 +8,8 @@
     },
     "actions": [
         {
-            "action": "Elaboração do DDA (Documento de Definição de Arquitetura) para o projeto (demanda via Clarity DTP.45456).", 
-            "requestDate": "2020-02-07T12:00:00Z", "dueDate": "2020-02-21T12:00:00Z", "accomplishedDate": "",
+            "action": "Elaboração do DDA (Documento de Definição de Arquitetura) para o projeto (demanda via Clarity DTP.45456, RQS 1662628 para elaboração do DAN).", 
+            "requestDate": "2020-02-13T12:00:00Z", "dueDate": "2020-02-21T12:00:00Z", "accomplishedDate": "",
             "accountable": "DIT/DIPD"
         },
         {
@@ -23,42 +23,42 @@
             "accountable": "SURC"
         },
         {
-            "action": "Configuração do projeto nas ferramentas corporativas de trabalho. Pendentes = [Jenkins, Sonar, Kibana, UrbanCode, IBM-IDA, SDM]. Já Criados = [ALM, git, Clarity, PFácil]", 
+            "action": "Configuração do projeto nas ferramentas corporativas de trabalho. Pendentes = [Jenkins, Sonar, Kibana, UrbanCode, SDM]. Já Criados = [ALM, git, Clarity, PFácil, IBM-IDA]", 
             "requestDate": "2020-02-03T12:00:00Z", "dueDate": "2020-02-10T12:00:00Z", "accomplishedDate": "",
-            "accountable": "DTP"
+            "accountable": "DTP (diversas áreas)"
         },
         {
             "action": "Disponibilização de servidor de Banco de Dados com instância configurada (dev, homolog e prod).", 
-            "requestDate": "2020-02-03T12:00:00Z", "dueDate": "2020-02-10T12:00:00Z", "accomplishedDate": "",
+            "requestDate": "2020-02-13T12:00:00Z", "dueDate": "2020-02-28T12:00:00Z", "accomplishedDate": "",
             "accountable": "DIT"
         },
         {
             "action": "Disponibilização de servidor de Aplicação c/ JBoss configurado (dev, homolog e prod).", 
-            "requestDate": "2020-02-03T12:00:00Z", "dueDate": "2020-02-10T12:00:00Z", "accomplishedDate": "",
+            "requestDate": "2020-02-13T12:00:00Z", "dueDate": "2020-02-28T12:00:00Z", "accomplishedDate": "",
             "accountable": "DIT"
         },
         {
             "action": "Integração com 'gov.br' no Serpro para autenticação do Cidadão na Web (solict. via e-mail para Serpro).", 
             "requestDate": "2020-02-07T12:00:00Z", "dueDate": "2020-03-11T12:00:00Z", "accomplishedDate": "",
-            "accountable": "UDSC e DIAS"
+            "accountable": "UDSC, DIAS e SERPRO"
         },
         {
-            "action": "Verificar solução para disponibiliação e autenticação das APIs do Consigo (provavelmente WSO2).", 
+            "action": "Solução para disponibilização e autenticação das APIs do Consigo (provavelmente WSO2).", 
             "requestDate": "2020-02-10T12:00:00Z", "dueDate": "2020-03-11T12:00:00Z", "accomplishedDate": "",
             "accountable": "UDSC/Projeto e DIAS"
         },
         {
-            "action": "Verificar solução para autenticação e autorização do módulo Web de Gestão do Consigo (provavelmente Gerid).", 
+            "action": "Solução para autenticação e autorização do módulo Web de Gestão do Consigo (provavelmente Gerid).", 
             "requestDate": "2020-02-10T12:00:00Z", "dueDate": "2020-03-11T12:00:00Z", "accomplishedDate": "",
             "accountable": "UDSC/Projeto e DIAS"
         }
     ],
     "risks": [ 
-        "Não atingimento do prazo definido posto este ser menor que o necessário para atender o escopo previsto (detalhado no ALM).", 
-        "Redução da produtividade pelo uso de tecnologias do framework atual (detalhado no ALM)",
-        "Indefinição de regras de negócio podem trazer atrasos e retrabalho no desenvolvimento (detalhado no ALM)",
-        "Indisponibilidade de apoio técnico para tarefas de processo, arquitetura e implantação (detalhado no ALM)",
-        "Sucesso do projeto depende de ações que não estão sob a gestão do projeto (detalhado no ALM)"
+        "Não atingimento do prazo definido posto este ser menor que o necessário para atender o escopo previsto (detalhado no ALM: https://alm.dataprev.gov.br/ccm/web/projects/CONSIGO#action=com.ibm.team.workitem.viewWorkItem&id=207969).", 
+        "Redução da produtividade pelo uso de tecnologias do framework atual (detalhado no ALM: https://alm.dataprev.gov.br/ccm/web/projects/CONSIGO#action=com.ibm.team.workitem.viewWorkItem&id=207970)",
+        "Indefinição de regras de negócio podem trazer atrasos e retrabalho no desenvolvimento (detalhado no ALM: https://alm.dataprev.gov.br/ccm/web/projects/CONSIGO#action=com.ibm.team.workitem.viewWorkItem&id=207974)",
+        "Indisponibilidade de apoio técnico para tarefas de processo, arquitetura e implantação (detalhado no ALM: https://alm.dataprev.gov.br/ccm/web/projects/CONSIGO#action=com.ibm.team.workitem.viewWorkItem&id=207975)",
+        "Sucesso do projeto depende de ações que não estão sob a gestão do projeto (detalhado no ALM: https://alm.dataprev.gov.br/ccm/web/projects/CONSIGO#action=com.ibm.team.workitem.viewWorkItem&id=207977)"
      ], 
     "statusList": [ 
         { "name": "INBOX", "color":"rgba(102, 204, 255, 0.7)"}, 
@@ -70,8 +70,10 @@
     "items": [
         {
             "id": "01", "label": "", "description": "[API] Manutenção de Consignantes",
-            "status": "DOING", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
+            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
             "statusHistory": [
+		        { "status": "DONE",  "date": "2020-02-18T12:00:00Z" },
+		        { "status": "TEST",  "date": "2020-02-14T12:00:00Z" },
                 { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
                 { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
@@ -79,8 +81,10 @@
         },
         {
             "id": "02", "label": "", "description": "[API] Manutenção de Parâmetros e Regras de Consignantes",
-            "status": "DOING", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
+            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
             "statusHistory": [
+                { "status": "DONE",  "date": "2020-02-18T12:00:00Z" },
+                { "status": "TEST",  "date": "2020-02-17T12:00:00Z" },
                 { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
                 { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
@@ -88,22 +92,24 @@
         },
         {
             "id": "03", "label": "", "description": "[API] Manutenção de Funcionários",
-            "status": "INBOX", "size": 0, "dueDate": "2020-03-11T12:00:00Z",
+	    "status": "INBOX", "size": 0, "dueDate": "2020-03-11T12:00:00Z",
             "statusHistory": [
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
             "id": "04", "label": "", "description": "[API] Manutenção de Vínculos",
-            "status": "INBOX", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
+            "status": "INBOX", "size": 0, "dueDate": "2020-03-11T12:00:00Z",
             "statusHistory": [
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
             "id": "05", "label": "", "description": "[API] Manutenção de Consignatários",
-            "status": "DOING", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
+            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
             "statusHistory": [
+                { "status": "DONE",  "date": "2020-02-18T12:00:00Z" },
+                { "status": "TEST",  "date": "2020-02-14T12:00:00Z" },
                 { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
                 { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
@@ -111,8 +117,10 @@
         },
         {
             "id": "06", "label": "", "description": "[API] Manutenção de Parâmetros de Consignatários",
-            "status": "DOING", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
+            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
             "statusHistory": [
+                { "status": "DONE",  "date": "2020-02-18T12:00:00Z" },
+                { "status": "TEST",  "date": "2020-02-17T12:00:00Z" },
                 { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
                 { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
@@ -129,8 +137,10 @@
         },
         {
             "id": "08", "label": "", "description": "[WEB-Cidadão] Autorização de Consulta da Margem",
-            "status": "DOING", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
+            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
             "statusHistory": [
+                { "status": "DONE",  "date": "2020-02-18T12:00:00Z" },
+                { "status": "TEST",  "date": "2020-02-17T12:00:00Z" },
                 { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
                 { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
@@ -156,8 +166,10 @@
         },
         {
             "id": "11", "label": "", "description": "[WEB-Cidadão] Autorização de Empréstimo",
-            "status": "DOING", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
+            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
             "statusHistory": [
+                { "status": "DONE",  "date": "2020-02-18T12:00:00Z" },
+                { "status": "TEST",  "date": "2020-02-17T12:00:00Z" },
                 { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
                 { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }

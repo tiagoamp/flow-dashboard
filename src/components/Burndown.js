@@ -59,15 +59,19 @@ function getDataSets(workAmount, workdays, ratio, items, lastStatus) {
 
     const historyItems = items.map(item => item.statusHistory) // flatmap by hand
         .reduce((acc, arr) => acc = acc.concat(arr), []);
+
     const dataAccomplished = workdays.reduce((acc,date,index) => {
-        const nrOfItemsCompleted = historyItems.filter(h => h.status === lastStatus.name)
-            .filter(h => new Date(h.date).getTime() === date.getTime())
-            .length;
+        const nrOfItemsCompleted = historyItems.filter(h => h.status === lastStatus.name) 
+            .filter(h => { 
+                //return new Date(h.date).getTime() <= date.getTime();
+                return moment(new Date(h.date)).startOf('day').format('L') === moment(date).startOf('day').format('L');
+                }).length;
         let val;
-        if (index === 0 && nrOfItemsCompleted === 0)
-            val = items.length;
+        if (index === 0 && nrOfItemsCompleted === 0) 
+            val = items.length;            
         else 
             val = nrOfItemsCompleted > 0 ? (acc[index-1] - nrOfItemsCompleted) : acc[index-1];
+
         return acc.concat(val);
     }, []);
     
