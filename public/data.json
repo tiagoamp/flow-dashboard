@@ -1,0 +1,207 @@
+{
+    "project": "Project DEMONSTRATION",
+    "holidays": [ "2020-02-24T12:00:00Z","2020-02-25T12:00:00Z",
+        "2020-04-10T12:00:00Z","2020-04-21T12:00:00Z","2020-05-01T12:00:00Z" ],
+    "milestones": {
+        "initDate": "2020-02-03T12:00:00Z",
+        "dueDate": "2020-04-08T12:00:00Z"
+    },
+    "actions": [
+        {
+            "action": "Client initial requirements and specifications.", 
+            "requestDate": "2020-02-13T12:00:00Z", "dueDate": "2020-02-21T12:00:00Z", "accomplishedDate": "",
+            "accountable": "Business"
+        },
+        {
+            "action": "Publish Project Charter.", 
+            "requestDate": "2020-02-03T12:00:00Z", "dueDate": "2020-02-03T12:00:00Z", "accomplishedDate": "",
+            "accountable": "PMO"
+        }
+    ],
+    "risks": [ 
+        "Risk number 01 description ...", 
+        "Risk number 02 description ...", 
+        "Risk number 03 description ..."
+     ], 
+    "statusList": [ 
+        { "name": "INBOX", "color":"rgba(102, 204, 255, 0.7)"}, 
+        { "name": "TO DO", "color":"rgba(102, 153, 204, 0.7)" },
+        { "name": "DOING", "color":"rgba(000, 153, 204, 0.7)" }, 
+        { "name": "TEST", "color":"rgba(95,158,160, 0.7)" },
+        { "name": "DONE", "color":"rgba(102, 204, 153, 0.7)" } 
+    ],
+    "items": [
+        {
+            "id": "01", "label": "API", "description": "Item nr 01",
+            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
+            "statusHistory": [
+		        { "status": "DONE",  "date": "2020-02-18T12:00:00Z" },
+		        { "status": "TEST",  "date": "2020-02-14T12:00:00Z" },
+                { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
+                { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "02", "label": "WEB", "description": "Item nr 02",
+            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
+            "statusHistory": [
+                { "status": "DONE",  "date": "2020-02-18T12:00:00Z" },
+                { "status": "TEST",  "date": "2020-02-17T12:00:00Z" },
+                { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
+                { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "03", "label": "", "description": "Item nr 03",
+	    "status": "INBOX", "size": 0, "dueDate": "2020-03-11T12:00:00Z",
+            "statusHistory": [
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "04", "label": "", "description": "Item nr 04",
+            "status": "INBOX", "size": 0, "dueDate": "2020-03-11T12:00:00Z",
+            "statusHistory": [
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "05", "label": "", "description": "Item nr 05",
+            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
+            "statusHistory": [
+                { "status": "DONE",  "date": "2020-02-18T12:00:00Z" },
+                { "status": "TEST",  "date": "2020-02-14T12:00:00Z" },
+                { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
+                { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "06", "label": "", "description": "Item nr 06",
+            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
+            "statusHistory": [
+                { "status": "DONE",  "date": "2020-02-18T12:00:00Z" },
+                { "status": "TEST",  "date": "2020-02-17T12:00:00Z" },
+                { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
+                { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "07", "label": "", "description": "Item nr 07",
+            "status": "DOING", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
+            "statusHistory": [
+                { "status": "DOING", "date": "2020-02-12T12:00:00Z" },
+                { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "08", "label": "", "description": "Item nr 08",
+            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
+            "statusHistory": [
+                { "status": "DONE",  "date": "2020-02-18T12:00:00Z" },
+                { "status": "TEST",  "date": "2020-02-17T12:00:00Z" },
+                { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
+                { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "09", "label": "", "description": "Item nr 09",
+            "status": "DOING", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
+            "statusHistory": [
+                { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
+                { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "10", "label": "", "description": "Item nr 10",
+            "status": "DOING", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
+            "statusHistory": [
+                { "status": "DOING", "date": "2020-02-12T12:00:00Z" },
+                { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "11", "label": "", "description": "Item nr 11",
+            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
+            "statusHistory": [
+                { "status": "DONE",  "date": "2020-02-18T12:00:00Z" },
+                { "status": "TEST",  "date": "2020-02-17T12:00:00Z" },
+                { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
+                { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "12", "label": "", "description": "Item nr 12",
+            "status": "DOING", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
+            "statusHistory": [
+                { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
+                { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "13", "label": "", "description": "Item nr 13",
+            "status": "INBOX", "size": 0, "dueDate": "2020-03-11T12:00:00Z",
+            "statusHistory": [
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "14", "label": "", "description": "Item nr 14",
+            "status": "INBOX", "size": 0, "dueDate": "2020-03-11T12:00:00Z",
+            "statusHistory": [
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "15", "label": "", "description": "Item nr 15",
+            "status": "INBOX", "size": 0, "dueDate": "2020-03-25T12:00:00Z",
+            "statusHistory": [
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "16", "label": "", "description": "Item nr 16",
+            "status": "INBOX", "size": 0, "dueDate": "2020-03-25T12:00:00Z",
+            "statusHistory": [
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "17", "label": "", "description": "Item nr 17",
+            "status": "INBOX", "size": 0, "dueDate": "2020-03-25T12:00:00Z",
+            "statusHistory": [
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "18", "label": "", "description": "Item nr 18",
+            "status": "INBOX", "size": 0, "dueDate": "2020-04-08T12:00:00Z",
+            "statusHistory": [
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "19", "label": "", "description": "Item nr 19",
+            "status": "INBOX", "size": 0, "dueDate": "2020-04-08T12:00:00Z",
+            "statusHistory": [
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "20", "label": "", "description": "Item nr 20",
+            "status": "INBOX", "size": 0, "dueDate": "2020-04-08T12:00:00Z",
+            "statusHistory": [
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
+            ]
+        }
+    ]
+}

@@ -3,7 +3,6 @@ import { Line } from 'react-chartjs-2'
 import service from '../service/flowservice'
 import moment from 'moment'
 
-
 function getXlabels(items) {
     const dates = service.getSortedDatesFromItems(items);
     const labels = dates.map(date => moment(date).format('L'));
@@ -25,7 +24,8 @@ function getHistoryMatrix(statusList, items) {
         for (let s=0; s<statusList.length; s++) {
             const itemsOfThisStatusInThisDate = items.filter(item => {
                 return item.statusHistory.filter(hist => hist.status === statusList[s].name)
-                    .filter(hist => new Date(hist.date).getTime() === date.getTime())
+                    //.filter(hist => new Date(hist.date).getTime() === date.getTime())
+                    .filter(hist => moment(new Date(hist.date)).startOf('day').format('L') === moment(date).startOf('day').format('L'))
                     .length > 0;
             });
             // push moved items to new status
@@ -61,7 +61,9 @@ function getHistoryValuesByStatus(statusList, historyMatrix) {
 
 function getCumulativeValues(matrixByStatus, statusList) {
     const cumulative = [];    
-    let prevValues = new Array(6).fill(0);
+    const arrlength = matrixByStatus[statusList[0].name].length;
+
+    let prevValues = new Array(arrlength).fill(0);
     for (let s=statusList.length-1; s>=0; s--) {
         const values = matrixByStatus[statusList[s].name];
         const arr = values.map((v,i) => v + prevValues[i]);
@@ -108,8 +110,8 @@ export default function CFD(props) {
         <div className='cfd-chart-container'>
             <Line
                 data={data}
-                width={150}
-                height={300}
+                width={140}
+                height={280}
                 options={
                     { 
                         maintainAspectRatio: false,

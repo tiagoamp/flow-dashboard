@@ -1,0 +1,61 @@
+.progress-container, .col-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.itens-progress-container {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.milestones-container {
+    margin: 10px 0px;
+}
+
+.progress-item-name {
+    font-size: 0.8rem;
+    color: #808080;
+}
+
+.backlog-title, .progress-title, .panel-title {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #808080;
+    margin: 10px 0px;
+}
+
+.progress-bar {
+    position: relative;
+    height: 10px;
+    width: 550px;
+    /*width: 900%;*/
+    border-radius: 50px;
+    /*border: 1px solid #333;*/
+    border: 1px solid rgba(102, 204, 153, 0.7);
+    /*display: inline-block; /* magica de deixar na mesma linha */
+}
+
+.filler {
+/*background: #1DA598;*/
+background: rgba(102, 204, 153, 0.7);
+height: 100%;
+border-radius: inherit;
+transition: width .2s ease-in;
+}
+
+.light-box {
+    display: flex;
+    flex-direction: row;
+    margin: 5px 0px;
+}
+
+.light-circle {
+    border-radius: 50%;
+    width: 30px;
+    margin: 0px 10px;
+    color: aliceblue;
+    font-weight: bold;
+    text-align: center;
+}

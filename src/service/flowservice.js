@@ -1,12 +1,15 @@
-const data = require('../repository/data.json');
+//const data = require('../repository/data_original.json');
 
 const service = {
 
-    getProjectInfo: () => {
+    getProjectInfo: (data) => {
         return {
             project: data.project, 
             holidays: data.holidays.map(h => new Date(h)),
             statusList: data.statusList,
+            milestones: data.milestones,
+            actions: data.actions,
+            risks: data.risks,
             items: data.items
         };
     },
@@ -20,7 +23,7 @@ const service = {
         const datesArr = distinctDatesStrArr.map(str => new Date(str));
         const sortedDates = datesArr.sort((a,b) => a - b);
         return sortedDates;
-    }
+    },
 
 }
 

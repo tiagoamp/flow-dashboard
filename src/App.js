@@ -5,19 +5,29 @@ import Footer from './components/Footer';
 import CFD from './components/CFD';
 import Burndown from './components/Burndown';
 import Kanban from './components/Kanban';
+import ProjectProgress from './components/ProjectProgress';
+import ItensProgress from './components/ItensProgress';
+import ActionsPanel from './components/ActionsPanel';
 import service from './service/flowservice';
+
 
 class App extends Component {
 
   constructor() {
     super();
-    this.state = { projName: '', statusList: [], items: [], holidays: [] };        
+    this.state = { projName: '', milestones: {}, statusList: [], items: [], holidays: [], 
+                    actions: [], risks: [] };        
   }
 
   componentDidMount() {
-    const info = service.getProjectInfo();
-    this.setState( {projName: info.project, holidays: info.holidays,   
-      statusList: info.statusList, items: info.items } );
+    fetch(`data.json`)
+      .then((r) => r.json())
+      .then((data) =>{
+          const info = service.getProjectInfo(data);
+          this.setState( {projName: info.project, holidays: info.holidays,   
+              statusList: info.statusList, milestones: info.milestones, items: info.items, 
+              actions: info.actions, risks: info.risks } );
+              });
   }
 
   render() {
@@ -25,14 +35,21 @@ class App extends Component {
       <div className="App">
         <Header project={this.state.projName} />
         <main className="container">
+          <div className="row00">
+            <div className="col-container">
+              <ItensProgress statusList={[...this.state.statusList]} items={[...this.state.items]} />
+            </div>
+            <div className="col-container">
+              <ProjectProgress milestones={this.state.milestones} statusList={[...this.state.statusList]} items={[...this.state.items]} actions={this.state.actions}/>
+              <CFD statusList={[...this.state.statusList]} items={[...this.state.items]} />
+              <Burndown statusList={[...this.state.statusList]} items={[...this.state.items]} holidays={[...this.state.holidays]} />
+            </div>
+          </div>
           <div className="row01">
-            <CFD statusList={[...this.state.statusList]} items={[...this.state.items]} />
-            <Burndown statusList={[...this.state.statusList]} items={[...this.state.items]} holidays={[...this.state.holidays]} />
-            { //TO DO: <div>semáforo com cor e lead time (media) etc...</div> 
-            }
+            <Kanban statusList={[...this.state.statusList]} items={[...this.state.items]} />
           </div>
           <div className="row02">
-            <Kanban statusList={[...this.state.statusList]} items={[...this.state.items]} />
+            <ActionsPanel actions={this.state.actions} risks={this.state.risks} />
           </div>
         </main>
         <Footer />
