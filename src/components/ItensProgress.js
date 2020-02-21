@@ -22,7 +22,7 @@ export default function ItensProgress(props) {
             {
                 items.map(item => {
                     const perc = item.status === lastStatus ? 100 : (statusMult[item.status] * percentPerStatus);
-                    const isDelayed = new Date(item.dueDate).getTime() < today; 
+                    const isDelayed = new Date(item.dueDate).getTime() < today.getTime() && item.status !== lastStatus; 
                     return (
                         <div key={item.id}>
                             <span className="progress-item-name">{item.description} </span>
