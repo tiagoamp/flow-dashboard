@@ -25,7 +25,8 @@ export default function ActionsPanel(props) {
                                     { a.accomplishedDate ? moment(a.accomplishedDate).format('L') : 'em aberto' } - 
                                 <span className="panel-item-text-strong"> Responsável: </span> {a.accountable} - 
                                 <span className="panel-item-text-strong"> Tempo decorrido: </span> 
-                                    { Math.abs(moment(new Date()).diff(a.requestDate, 'days'))+1 } dias
+                                    { a.accomplishedDate ? Math.abs(moment(new Date(a.accomplishedDate)).diff(a.requestDate, 'days'))+1 
+                                         : Math.abs(moment(new Date()).diff(a.requestDate, 'days'))+1 } dias
                                     { 
                                         delayed ? 
                                         (<div style={{color: "rgba(204, 102, 102, 0.7)", fontWeight: "bold"}}> 
