@@ -13,7 +13,7 @@ export default function ActionsPanel(props) {
                 {
                     actions.map(a => {
                         
-                        const delayed = today.isAfter(moment(a.dueDate));
+                        const delayed = today.isAfter(moment(a.dueDate)) && !a.accomplishedDate;
                         return (                            
                             <li key={a.action}><span className="panel-item-text-strong"> Solicitação: </span>{a.action}  
                                 <br/>

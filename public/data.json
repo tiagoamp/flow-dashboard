@@ -23,7 +23,7 @@
             "accountable": "SURC"
         },
         {
-            "action": "Configuração do projeto nas ferramentas corporativas de trabalho. Pendentes = [Jenkins, Sonar, Kibana, UrbanCode, SDM]. Já Criados = [ALM, git, Clarity, PFácil, IBM-IDA]", 
+            "action": "Configuração do projeto nas ferramentas corporativas de trabalho. Pendentes = [Sonar, Kibana, SDM]. Já Criados = [ALM, git, Clarity, PFácil, IBM-IDA, Jenkins, UrbanCode]", 
             "requestDate": "2020-02-03T12:00:00Z", "dueDate": "2020-02-10T12:00:00Z", "accomplishedDate": "",
             "accountable": "DTP (diversas áreas)"
         },
@@ -39,17 +39,17 @@
         },
         {
             "action": "Integração com 'gov.br' no Serpro para autenticação do Cidadão na Web (solict. via e-mail para Serpro).", 
-            "requestDate": "2020-02-07T12:00:00Z", "dueDate": "2020-03-11T12:00:00Z", "accomplishedDate": "",
+            "requestDate": "2020-02-07T12:00:00Z", "dueDate": "2020-02-21T12:00:00Z", "accomplishedDate": "",
             "accountable": "UDSC, DIAS e SERPRO"
         },
         {
             "action": "Solução para disponibilização e autenticação das APIs do Consigo (provavelmente WSO2).", 
-            "requestDate": "2020-02-10T12:00:00Z", "dueDate": "2020-03-11T12:00:00Z", "accomplishedDate": "",
+            "requestDate": "2020-02-10T12:00:00Z", "dueDate": "2020-02-21T12:00:00Z", "accomplishedDate": "2020-02-21T12:00:00Z",
             "accountable": "UDSC/Projeto e DIAS"
         },
         {
             "action": "Solução para autenticação e autorização do módulo Web de Gestão do Consigo (provavelmente Gerid).", 
-            "requestDate": "2020-02-10T12:00:00Z", "dueDate": "2020-03-11T12:00:00Z", "accomplishedDate": "",
+            "requestDate": "2020-02-10T12:00:00Z", "dueDate": "2020-02-21T12:00:00Z", "accomplishedDate": "2020-02-21T12:00:00Z",
             "accountable": "UDSC/Projeto e DIAS"
         }
     ],
@@ -70,10 +70,10 @@
     "items": [
         {
             "id": "01", "label": "", "description": "[API] Manutenção de Consignantes",
-            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
+            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z", "blocked": "false",
             "statusHistory": [
-		        { "status": "DONE",  "date": "2020-02-18T12:00:00Z" },
-		        { "status": "TEST",  "date": "2020-02-14T12:00:00Z" },
+		{ "status": "DONE",  "date": "2020-02-18T12:00:00Z" },
+		{ "status": "TEST",  "date": "2020-02-14T12:00:00Z" },
                 { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
                 { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
@@ -81,7 +81,7 @@
         },
         {
             "id": "02", "label": "", "description": "[API] Manutenção de Parâmetros e Regras de Consignantes",
-            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
+            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z", "blocked": "false",
             "statusHistory": [
                 { "status": "DONE",  "date": "2020-02-18T12:00:00Z" },
                 { "status": "TEST",  "date": "2020-02-17T12:00:00Z" },
@@ -92,22 +92,26 @@
         },
         {
             "id": "03", "label": "", "description": "[API] Manutenção de Funcionários",
-	    "status": "INBOX", "size": 0, "dueDate": "2020-03-11T12:00:00Z",
+	    "status": "DOING", "size": 0, "dueDate": "2020-03-11T12:00:00Z", "blocked": "false",
             "statusHistory": [
+		{ "status": "DOING", "date": "2020-02-27T12:00:00Z" },
+		{ "status": "TO DO", "date": "2020-02-26T12:00:00Z" },
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
             "id": "04", "label": "", "description": "[API] Manutenção de Vínculos",
-            "status": "INBOX", "size": 0, "dueDate": "2020-03-11T12:00:00Z",
+            "status": "DOING", "size": 0, "dueDate": "2020-03-11T12:00:00Z", "blocked": "false",
             "statusHistory": [
+                { "status": "DOING", "date": "2020-02-27T12:00:00Z" },
+		{ "status": "TO DO", "date": "2020-02-26T12:00:00Z" },
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
             "id": "05", "label": "", "description": "[API] Manutenção de Consignatários",
-            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
-            "statusHistory": [
+            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z", "blocked": "false",
+	    "statusHistory": [
                 { "status": "DONE",  "date": "2020-02-18T12:00:00Z" },
                 { "status": "TEST",  "date": "2020-02-14T12:00:00Z" },
                 { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
@@ -117,7 +121,7 @@
         },
         {
             "id": "06", "label": "", "description": "[API] Manutenção de Parâmetros de Consignatários",
-            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
+            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z", "blocked": "false",
             "statusHistory": [
                 { "status": "DONE",  "date": "2020-02-18T12:00:00Z" },
                 { "status": "TEST",  "date": "2020-02-17T12:00:00Z" },
@@ -128,8 +132,10 @@
         },
         {
             "id": "07", "label": "", "description": "[API] Autorização de Consulta da Margem",
-            "status": "DOING", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
+            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z", "blocked": "false",
             "statusHistory": [
+		{ "status": "DONE",  "date": "2020-02-20T12:00:00Z" },
+		{ "status": "TEST",  "date": "2020-02-18T12:00:00Z" },
                 { "status": "DOING", "date": "2020-02-12T12:00:00Z" },
                 { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
@@ -137,7 +143,7 @@
         },
         {
             "id": "08", "label": "", "description": "[WEB-Cidadão] Autorização de Consulta da Margem",
-            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
+            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z", "blocked": "false",
             "statusHistory": [
                 { "status": "DONE",  "date": "2020-02-18T12:00:00Z" },
                 { "status": "TEST",  "date": "2020-02-17T12:00:00Z" },
@@ -148,8 +154,10 @@
         },
         {
             "id": "09", "label": "", "description": "[WEB-Gestão] Autorização de Consulta da Margem",
-            "status": "DOING", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
+            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z", "blocked": "false",
             "statusHistory": [
+		{ "status": "DONE",  "date": "2020-02-21T12:00:00Z" },
+		{ "status": "TEST",  "date": "2020-02-20T12:00:00Z" },
                 { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
                 { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
@@ -157,8 +165,10 @@
         },
         {
             "id": "10", "label": "", "description": "[API] Autorização de Empréstimo",
-            "status": "DOING", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
+            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z", "blocked": "false",
             "statusHistory": [
+		{ "status": "DONE",  "date": "2020-02-20T12:00:00Z" },
+		{ "status": "TEST",  "date": "2020-02-18T12:00:00Z" },
                 { "status": "DOING", "date": "2020-02-12T12:00:00Z" },
                 { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
@@ -166,7 +176,7 @@
         },
         {
             "id": "11", "label": "", "description": "[WEB-Cidadão] Autorização de Empréstimo",
-            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
+            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z", "blocked": "false", 
             "statusHistory": [
                 { "status": "DONE",  "date": "2020-02-18T12:00:00Z" },
                 { "status": "TEST",  "date": "2020-02-17T12:00:00Z" },
@@ -177,8 +187,10 @@
         },
         {
             "id": "12", "label": "", "description": "[WEB-Gestão] Autorização de Empréstimo",
-            "status": "DOING", "size": 0, "dueDate": "2020-02-21T12:00:00Z",
+            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z", "blocked": "false",
             "statusHistory": [
+                { "status": "DONE",  "date": "2020-02-21T12:00:00Z" },
+		{ "status": "TEST",  "date": "2020-02-20T12:00:00Z" },
                 { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
                 { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
@@ -186,58 +198,90 @@
         },
         {
             "id": "13", "label": "", "description": "[API] Recepção dados da Folha de Pagamento (valor base)",
-            "status": "INBOX", "size": 0, "dueDate": "2020-03-11T12:00:00Z",
+            "status": "DOING", "size": 0, "dueDate": "2020-03-11T12:00:00Z", "blocked": "false",
             "statusHistory": [
+                { "status": "DOING", "date": "2020-02-27T12:00:00Z" },
+                { "status": "TO DO", "date": "2020-02-26T12:00:00Z" },
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
-            "id": "14", "label": "", "description": "[API] Cálculo da margem consignável (valor base)",
-            "status": "INBOX", "size": 0, "dueDate": "2020-03-11T12:00:00Z",
+            "id": "14", "label": "", "description": "[API] Cálculo da margem consignável (sobre valor base)",
+            "status": "TO DO", "size": 0, "dueDate": "2020-03-11T12:00:00Z", "blocked": "false", 
             "statusHistory": [
+                { "status": "TO DO", "date": "2020-02-26T12:00:00Z" },
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
             "id": "15", "label": "", "description": "[API] Consulta da Margem Calculada",
-            "status": "INBOX", "size": 0, "dueDate": "2020-03-25T12:00:00Z",
+            "status": "TO DO", "size": 0, "dueDate": "2020-03-25T12:00:00Z", "blocked": "false",
             "statusHistory": [
+                { "status": "TO DO", "date": "2020-02-26T12:00:00Z" },
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
             "id": "16", "label": "", "description": "[WEB-Cidadão] Consulta da Margem Calculada",
-            "status": "INBOX", "size": 0, "dueDate": "2020-03-25T12:00:00Z",
-            "statusHistory": [
+            "status": "TO DO", "size": 0, "dueDate": "2020-03-25T12:00:00Z", "blocked": "false",
+            "statusHistory": [		    
+                { "status": "TO DO", "date": "2020-02-26T12:00:00Z" },
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
             "id": "17", "label": "", "description": "[WEB-Gestão] Consulta da Margem Calculada",
-            "status": "INBOX", "size": 0, "dueDate": "2020-03-25T12:00:00Z",
+            "status": "TO DO", "size": 0, "dueDate": "2020-03-25T12:00:00Z", "blocked": "false", 
             "statusHistory": [
+                { "status": "TO DO", "date": "2020-02-26T12:00:00Z" },
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
             "id": "18", "label": "", "description": "[API] Realização da averbação de empréstimo",
-            "status": "INBOX", "size": 0, "dueDate": "2020-04-08T12:00:00Z",
+            "status": "INBOX", "size": 0, "dueDate": "2020-04-08T12:00:00Z", "blocked": "false",
             "statusHistory": [
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
             "id": "19", "label": "", "description": "[WEB-Cidadão] Realização da averbação de empréstimo",
-            "status": "INBOX", "size": 0, "dueDate": "2020-04-08T12:00:00Z",
+            "status": "INBOX", "size": 0, "dueDate": "2020-04-08T12:00:00Z", "blocked": "false",
             "statusHistory": [
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
             "id": "20", "label": "", "description": "[WEB-Gestão] Realização da averbação de empréstimo",
-            "status": "INBOX", "size": 0, "dueDate": "2020-04-08T12:00:00Z",
+            "status": "INBOX", "size": 0, "dueDate": "2020-04-08T12:00:00Z", "blocked": "false",
             "statusHistory": [
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "21", "label": "", "description": "[Integração] Integrar com solução de autenticação para Consigo-Gestão (Gerid)",
+            "status": "DOING", "size": 0, "dueDate": "2020-03-11T12:00:00Z", "blocked": "false",
+            "statusHistory": [
+                { "status": "DOING", "date": "2020-02-27T12:00:00Z" },
+                { "status": "TO DO", "date": "2020-02-26T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-02-20T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "22", "label": "", "description": "[Integração] Integrar com solução de autenticação para Consigo-Cidadão (gov.br)",
+            "status": "DOING", "size": 0, "dueDate": "2020-03-11T12:00:00Z", "blocked": "false",
+            "statusHistory": [ 
+                { "status": "DOING", "date": "2020-02-27T12:00:00Z" },
+		{ "status": "TO DO", "date": "2020-02-26T12:00:00Z" },    
+                { "status": "INBOX", "date": "2020-02-20T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "23", "label": "", "description": "[Integração] Integrar com solução de autenticação para Consigo-API (candidato = wso2?)",
+            "status": "TO DO", "size": 0, "dueDate": "2020-03-11T12:00:00Z", "blocked": "false",
+            "statusHistory": [
+                { "status": "TO DO", "date": "2020-02-26T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-02-20T12:00:00Z" }
             ]
         }
     ]
