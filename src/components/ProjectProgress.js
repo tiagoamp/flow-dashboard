@@ -23,7 +23,6 @@ function StatusLight(props) {
     
     const today = new Date();
     const itemsDelayed = items.filter(item => item.status !== lastStatus && today > new Date(item.dueDate));
-    //console.log("items delayed",itemsDelayed);
     const percDelayed = Math.ceil( (100 * itemsDelayed.length) / items.length );
 
     const colors = ["rgba(102, 204, 153, 0.7)", "rgba(218, 226, 130, 0.7)", "rgba(204, 102, 102, 0.7)"];
@@ -40,8 +39,10 @@ function StatusLight(props) {
 function ActionsLight(props) {
     const { actions } = props;
     const today = new Date();
-    const actionsDelayed = actions.filter(action => today > new Date(action.dueDate));
-    //console.log("actions delayed",actionsDelayed);
+    const actionsDelayed = actions.filter( action => (!action.accomplishedDate && today > new Date(action.dueDate)) 
+        || (action.accomplishedDate && action.accomplishedDate < new Date(action.dueDate)) )  ;
+    console.log("actions delayed",actionsDelayed);
+    console.log("actions",actionsDelayed);
     const percDelayed = Math.ceil( (100 * actionsDelayed.length) / actions.length );
 
     const colors = ["rgba(102, 204, 153, 0.7)", "rgba(218, 226, 130, 0.7)", "rgba(204, 102, 102, 0.7)"];
