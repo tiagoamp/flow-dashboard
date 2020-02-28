@@ -260,7 +260,7 @@
         },
         {
             "id": "21", "label": "", "description": "[Integração] Integrar com solução de autenticação para Consigo-Gestão (Gerid)",
-            "status": "DOING", "size": 0, "dueDate": "2020-03-11T12:00:00Z", "blocked": "false",
+            "status": "DOING", "size": 0, "dueDate": "2020-03-11T12:00:00Z", "blocked": "true",
             "statusHistory": [
                 { "status": "DOING", "date": "2020-02-27T12:00:00Z" },
                 { "status": "TO DO", "date": "2020-02-26T12:00:00Z" },

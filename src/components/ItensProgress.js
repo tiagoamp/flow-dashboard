@@ -23,11 +23,17 @@ export default function ItensProgress(props) {
                 items.map(item => {
                     const perc = item.status === lastStatus ? 100 : (statusMult[item.status] * percentPerStatus);
                     const isDelayed = new Date(item.dueDate).getTime() < today.getTime() && item.status !== lastStatus; 
+                    const isBlocked = item.blocked === "true";
                     return (
                         <div key={item.id}>
-                            <span className="progress-item-name">{item.description} </span>
+                            { isBlocked ? (<span className="progress-item-name" style={{color: "rgba(204, 102, 102, 0.7)"}}>{item.description}</span>) 
+                                : (<span className="progress-item-name">{item.description} </span>) 
+                            }
                             { isDelayed ? 
                                 (<span className="progress-item-name" style={{color: "rgba(204, 102, 102, 0.7)"}}>(atrasado)</span>) 
+                                : ''}
+                            { isBlocked ? 
+                                (<span className="progress-item-name" style={{color: "rgba(204, 102, 102, 0.7)", fontWeight: "bold"}}>(blocked)</span>) 
                                 : ''} 
                             <ProgressBar percentage={perc} />
                         </div>

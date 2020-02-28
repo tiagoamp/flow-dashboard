@@ -28,11 +28,13 @@ function List(props) {
             </div>
             { 
                 props.items.map( item => {
+                    const isBlocked = item.blocked === "true";
                     return (
                         <div className='kanban-item-card' key={item.id}>
                             { item.label ? (<span>{`[ ${item.label} ]`}</span>) : null }
-                            <span>{item.description}</span>
+                            { isBlocked ? (<span style={{color: "rgba(204, 102, 102, 0.7)"}}>{item.description}</span>) : (<span>{item.description}</span>) }
                             { item.size ? (<div className='badge-wrapper'><span className='badge'>{`${item.size}`}</span></div>) : null }
+                            { isBlocked ? (<span style={{color: "rgba(204, 102, 102, 0.7)", fontWeight: "bold"}}>(BLOCKED)</span>) : null }
                         </div>
                     );
                 })    
