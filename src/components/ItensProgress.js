@@ -30,7 +30,7 @@ export default function ItensProgress(props) {
                                 : (<span className="progress-item-name">{item.description} </span>) 
                             }
                             { isDelayed ? 
-                                (<span className="progress-item-name" style={{color: "rgba(204, 102, 102, 0.7)"}}>(atrasado)</span>) 
+                                (<span className="progress-item-name" style={{color: "rgba(204, 102, 102, 0.7)"}}>(atrasou)</span>) 
                                 : ''}
                             { isBlocked ? 
                                 (<span className="progress-item-name" style={{color: "rgba(204, 102, 102, 0.7)", fontWeight: "bold"}}>(blocked)</span>) 

@@ -39,12 +39,12 @@
         },
         {
             "action": "Integração com 'gov.br' no Serpro para autenticação do Cidadão na Web (solict. via e-mail para Serpro).", 
-            "requestDate": "2020-02-07T12:00:00Z", "dueDate": "2020-02-21T12:00:00Z", "accomplishedDate": "",
+            "requestDate": "2020-02-07T12:00:00Z", "dueDate": "2020-02-21T12:00:00Z", "accomplishedDate": "2020-02-21T12:00:00Z",
             "accountable": "UDSC, DIAS e SERPRO"
         },
         {
             "action": "Solução para disponibilização e autenticação das APIs do Consigo (provavelmente WSO2).", 
-            "requestDate": "2020-02-10T12:00:00Z", "dueDate": "2020-02-21T12:00:00Z", "accomplishedDate": "2020-02-21T12:00:00Z",
+            "requestDate": "2020-02-10T12:00:00Z", "dueDate": "2020-02-28T12:00:00Z", "accomplishedDate": "",
             "accountable": "UDSC/Projeto e DIAS"
         },
         {
@@ -245,7 +245,7 @@
             ]
         },
         {
-            "id": "19", "label": "", "description": "[WEB-Cidadão] Realização da averbação de empréstimo",
+            "id": "19", "label": "", "description": "[WEB-Cidadão] Consulta averbação de empréstimo",
             "status": "INBOX", "size": 0, "dueDate": "2020-04-08T12:00:00Z", "blocked": "false",
             "statusHistory": [
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
