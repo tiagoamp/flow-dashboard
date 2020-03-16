@@ -22,7 +22,18 @@ function StatusLight(props) {
     const lastStatus = statusList[statusList.length-1].name;
     
     const today = new Date();
-    const itemsDelayed = items.filter(item => item.status !== lastStatus && today > new Date(item.dueDate));
+    today.setHours(0,0,0);
+
+
+    //const itemsDelayed = items.filter(item => item.status !== lastStatus && today > new Date(item.dueDate));
+    
+    const itemsDelayed = items.filter(item => {
+            const isDone = item.status === lastStatus;
+            const doneDate = isDone ? item.statusHistory.filter(h => h.status === lastStatus)[0].date : null;
+            const isDelayed = isDone ? (new Date(doneDate).getTime() > new Date(item.dueDate).getTime()) : (new Date(item.dueDate).getTime() < today.getTime());
+            return isDelayed;
+        });
+    
     const percDelayed = Math.ceil( (100 * itemsDelayed.length) / items.length );
 
     const colors = ["rgba(102, 204, 153, 0.7)", "rgba(218, 226, 130, 0.7)", "rgba(204, 102, 102, 0.7)"];
@@ -41,8 +52,8 @@ function ActionsLight(props) {
     const today = new Date();
     const actionsDelayed = actions.filter( action => (!action.accomplishedDate && today > new Date(action.dueDate)) 
         || (action.accomplishedDate && action.accomplishedDate < new Date(action.dueDate)) )  ;
-    console.log("actions delayed",actionsDelayed);
-    console.log("actions",actionsDelayed);
+ //   console.log("actions delayed",actionsDelayed);
+ //   console.log("actions",actionsDelayed);
     const percDelayed = Math.ceil( (100 * actionsDelayed.length) / actions.length );
 
     const colors = ["rgba(102, 204, 153, 0.7)", "rgba(218, 226, 130, 0.7)", "rgba(204, 102, 102, 0.7)"];

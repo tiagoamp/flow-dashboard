@@ -15,6 +15,7 @@ export default function ItensProgress(props) {
     });
     const lastStatus = statusList[statusList.length-1].name;
     const today = new Date();
+    today.setHours(0,0,0);
 
     return (
         <div className="itens-progress-container">
@@ -22,7 +23,9 @@ export default function ItensProgress(props) {
             {
                 items.map(item => {
                     const perc = item.status === lastStatus ? 100 : (statusMult[item.status] * percentPerStatus);
-                    const isDelayed = new Date(item.dueDate).getTime() < today.getTime() && item.status !== lastStatus; 
+                    const isDone = item.status === lastStatus;
+                    const doneDate = isDone ? item.statusHistory.filter(h => h.status === lastStatus)[0].date : null;
+                    const isDelayed = isDone ? (new Date(doneDate).getTime() > new Date(item.dueDate).getTime()) : (new Date(item.dueDate).getTime() < today.getTime());
                     const isBlocked = item.blocked === "true";
                     return (
                         <div key={item.id}>
