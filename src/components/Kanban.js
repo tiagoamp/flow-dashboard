@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import './Kanban.css';
 
 export default function Kanban(props) {
@@ -20,6 +21,7 @@ export default function Kanban(props) {
 }
 
 function List(props) {
+    const { t } = useTranslation();
     const bgColor = props.status.color || '#D3D3D3';
     return (
         <div className='kanban-list'>
@@ -28,11 +30,13 @@ function List(props) {
             </div>
             { 
                 props.items.map( item => {
+                    const isBlocked = item.blocked === "true";
                     return (
                         <div className='kanban-item-card' key={item.id}>
                             { item.label ? (<span>{`[ ${item.label} ]`}</span>) : null }
-                            <span>{item.description}</span>
+                            { isBlocked ? (<span style={{color: "rgba(204, 102, 102, 0.7)"}}>{item.description}</span>) : (<span>{item.description}</span>) }
                             { item.size ? (<div className='badge-wrapper'><span className='badge'>{`${item.size}`}</span></div>) : null }
+                            { isBlocked ? (<span style={{color: "rgba(204, 102, 102, 0.7)", fontWeight: "bold"}}>({t('BLOCKED')})</span>) : null }
                         </div>
                     );
                 })    
