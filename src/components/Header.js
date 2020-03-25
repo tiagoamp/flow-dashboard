@@ -1,7 +1,9 @@
 import React from 'react'
+import { useTranslation } from 'react-i18next';
 import './Header.css'
 
 export default function Header(props) {
+    const { t } = useTranslation();
     const projectName = props.project;
     const timestamp = new Date().toLocaleString('pt-BR'); // if necessary: 'pt-BR' locale available 
     return (
@@ -10,8 +12,8 @@ export default function Header(props) {
                 Dashboard { projectName ? `(${projectName})` : null }
             </div>
             <div className='header-info'>
-                <span>Gerado as: { timestamp }</span> <br/>
-                <span className='header-copyright'>por tiago.albuquerque (@tiagoamp)</span>
+                <span>{t('timestamp')}: { timestamp }</span> <br/>
+                <span className='header-copyright'>{t('by')} tiago.albuquerque (@tiagoamp)</span>
             </div>            
         </div>
     )
