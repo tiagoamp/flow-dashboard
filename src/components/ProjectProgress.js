@@ -1,6 +1,7 @@
-import React from 'react'
-import ProgressBar from './ProgressBar'
-import moment from 'moment'
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import ProgressBar from './ProgressBar';
+import moment from 'moment';
 
 export default function ProjectProgress(props) {
     const { statusList, milestones, items, actions } = props;
@@ -18,44 +19,52 @@ export default function ProjectProgress(props) {
 }
 
 function StatusLight(props) {
+    const { t } = useTranslation();
     const { statusList, items } = props;
     const lastStatus = statusList[statusList.length-1].name;
     
     const today = new Date();
-    const itemsDelayed = items.filter(item => item.status !== lastStatus && today > new Date(item.dueDate));
-    //console.log("items delayed",itemsDelayed);
-    const percDelayed = Math.ceil( (100 * itemsDelayed.length) / items.length );
+    today.setHours(0,0,0);
 
+    const itemsDelayed = items.filter(item => {
+            const isDone = item.status === lastStatus;
+            const doneDate = isDone ? item.statusHistory.filter(h => h.status === lastStatus)[0].date : null;
+            const isDelayed = isDone ? (new Date(doneDate).getTime() > new Date(item.dueDate).getTime()) : (new Date(item.dueDate).getTime() < today.getTime());
+            return isDelayed;
+        });
+    
+    const percDelayed = Math.ceil( (100 * itemsDelayed.length) / items.length );
     const colors = ["rgba(102, 204, 153, 0.7)", "rgba(218, 226, 130, 0.7)", "rgba(204, 102, 102, 0.7)"];
     const bgColor = percDelayed <= 10 ? colors[0] : (percDelayed <= 30 ? colors[1] : colors[2]);
 
     return (
         <div className='light-box'>
             <div className="light-circle" style={{backgroundColor: bgColor}}>!</div>
-            <div className="progress-item-name">{percDelayed} % of delayed backlog items</div>
+            <div className="progress-item-name">{percDelayed} % {t('projstatus-backlog-delayed')} </div>
         </div>
     )
 }
 
 function ActionsLight(props) {
+    const { t } = useTranslation();
     const { actions } = props;
     const today = new Date();
-    const actionsDelayed = actions.filter(action => today > new Date(action.dueDate));
-    //console.log("actions delayed",actionsDelayed);
+    const actionsDelayed = actions.filter( action => (!action.accomplishedDate && today > new Date(action.dueDate)) 
+        || (action.accomplishedDate && action.accomplishedDate < new Date(action.dueDate)) )  ;
     const percDelayed = Math.ceil( (100 * actionsDelayed.length) / actions.length );
-
     const colors = ["rgba(102, 204, 153, 0.7)", "rgba(218, 226, 130, 0.7)", "rgba(204, 102, 102, 0.7)"];
     const bgColor = percDelayed <= 10 ? colors[0] : (percDelayed <= 30 ? colors[1] : colors[2]);
 
     return (
         <div className='light-box'>
             <div className="light-circle" style={{backgroundColor: bgColor}}>!</div>
-            <div className="progress-item-name">{percDelayed} % delayed issues</div>
+            <div className="progress-item-name">{percDelayed} % {t('projstatus-issues-delayed')} </div>
         </div>
     )
 }
 
 function MilestonesProgress(props) {
+    const { t } = useTranslation();
     const { milestones, statusList, items } = props;
     const lastStatus = statusList[statusList.length-1].name;
     
@@ -71,11 +80,11 @@ function MilestonesProgress(props) {
     return (
         <div className="milestones-container">
             <div key="1">
-                <span className="progress-item-name">Project elapsed time ({percOfTotalDuration}%)</span> 
+                <span className="progress-item-name">{t('project-elapsed-time')} ({percOfTotalDuration}%)</span> 
                 <ProgressBar percentage={percOfTotalDuration} />
             </div>
             <div key="2">
-                <span className="progress-item-name">% accomplished items ({percOfAccomplItems}%)</span> 
+                <span className="progress-item-name">{t('perc-accomplished-items')} ({percOfAccomplItems}%)</span> 
                 <ProgressBar percentage={percOfAccomplItems} />
             </div>
         </div>
