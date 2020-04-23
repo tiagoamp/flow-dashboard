@@ -48,3 +48,12 @@
 .panel-item-text span {
   font-weight: bold;
 }
+
+.danger {
+  color: rgba(204, 102, 102, 0.7) !important;
+}
+
+.danger-bold {
+  color: rgba(204, 102, 102, 0.7) !important;
+  font-weight: bold;
+}

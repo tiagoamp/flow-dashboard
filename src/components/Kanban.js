@@ -31,12 +31,20 @@ function List(props) {
             { 
                 props.items.map( item => {
                     const isBlocked = item.blocked === "true";
+                    const classForDescription = isBlocked ? 'danger' : '';
+                    const labelSpan = item.label ? (<span>{`[${item.label}]`}</span>) : null;
+                    const categorySpan = item.category ? (<span>{`[${item.category}]`}</span>) : null;
+                    const classForRowLabelAndCategory = (labelSpan && categorySpan) ? 'inline-container' : 'align-right';
+                    const rowLabelAndCategoryDiv = (<div className={classForRowLabelAndCategory}>{labelSpan} {categorySpan}</div>);
+                    const blockedSpan = isBlocked ? (<div className='danger-bold'>({t('BLOCKED')})</div>) : null;
+                    const sizeDiv = item.size ? (<div className='badge-wrapper'><span className='badge'>{`${item.size}`}</span></div>) : null;
+                    const classForBlockedAndSize = (blockedSpan && sizeDiv) ? 'inline-container' : 'align-right';
+                    const rowBlockedAndSizeDiv = (<div className={classForBlockedAndSize}>{blockedSpan} {sizeDiv}</div>);
                     return (
                         <div className='kanban-item-card' key={item.id}>
-                            { item.label ? (<span>{`[ ${item.label} ]`}</span>) : null }
-                            { isBlocked ? (<span style={{color: "rgba(204, 102, 102, 0.7)"}}>{item.description}</span>) : (<span>{item.description}</span>) }
-                            { item.size ? (<div className='badge-wrapper'><span className='badge'>{`${item.size}`}</span></div>) : null }
-                            { isBlocked ? (<span style={{color: "rgba(204, 102, 102, 0.7)", fontWeight: "bold"}}>({t('BLOCKED')})</span>) : null }
+                            { item.label || item.category ? rowLabelAndCategoryDiv : null }
+                            <span className={classForDescription}>{item.description}</span>
+                            { isBlocked || item.size ? rowBlockedAndSizeDiv : null }
                         </div>
                     );
                 })    

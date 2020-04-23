@@ -35,17 +35,19 @@ export default function ItensProgress(props) {
                         const finalDate = isDone ? new Date(doneDate) : today;
                         daysDelayed = (finalDate.getTime() - new Date(item.dueDate).getTime()) / (1000 * 3600 * 24);
                     }
-                    
+                    const classForDescription = isBlocked ? 'progress-item-name danger' : 'progress-item-name';
+
                     return (
                         <div key={item.id}>
-                            { isBlocked ? (<span className="progress-item-name" style={{color: "rgba(204, 102, 102, 0.7)"}}>{item.description}</span>) 
-                                : (<span className="progress-item-name">{item.description} </span>) 
-                            }
+                            <span className={classForDescription}>
+                                    {item.label ? `[${item.label}]` : null}&nbsp; 
+                                    {item.description}
+                            </span> 
                             { isDelayed ? 
-                                (<span className="progress-item-name" style={{color: "rgba(204, 102, 102, 0.7)"}}>({isDone ? (`${t('delayed-for')} ${daysDelayed} ${t('days')}`) : `${t('delayed')}`})</span>) 
+                                (<span className="progress-item-name danger">({isDone ? (`${t('delayed-for')} ${daysDelayed} ${t('days')}`) : `${t('delayed')}`})</span>) 
                                 : ''}
                             { isBlocked ? 
-                                (<span className="progress-item-name" style={{color: "rgba(204, 102, 102, 0.7)", fontWeight: "bold"}}>({t('blocked')})</span>) 
+                                (<span className="progress-item-name danger-bold">({t('blocked')})</span>) 
                                 : ''} 
                             <ProgressBar percentage={perc} />
                         </div>
