@@ -16,7 +16,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = { projName: '', milestones: {}, statusList: [], items: [], holidays: [], 
-                    actions: [], risks: [] };        
+                    actions: [], risks: [], categories: [] };        
   }
 
   componentDidMount() {
@@ -31,6 +31,7 @@ class App extends Component {
   }
 
   render() {
+    const categories = service.getCategoryList();
     return (
       <div className="App">
         <Header project={this.state.projName} />
@@ -46,7 +47,7 @@ class App extends Component {
             </div>
           </div>
           <div className="row01">
-            <Kanban statusList={[...this.state.statusList]} items={[...this.state.items]} />
+            <Kanban statusList={[...this.state.statusList]} items={[...this.state.items]} categories={[...categories]} />
           </div>
           <div className="row02">
             <ActionsPanel actions={this.state.actions} risks={this.state.risks} />

@@ -1,6 +1,13 @@
-//const data = require('../repository/data_original.json');
-
 const service = {
+
+    getCategoryList: () => {
+        return [
+            { "name": "BACKLOG_ITEM"},
+            { "name": "TASK"},
+            { "name": "BUG"},
+            { "name": "ACTION"}
+        ]
+    },
 
     getProjectInfo: (data) => {
         return {
