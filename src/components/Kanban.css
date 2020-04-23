@@ -37,7 +37,18 @@
     margin: 5px;    
 }
 
-.kanban-item-card span {
+.kanban-item-card-not-feature {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    box-shadow: 2px 2px #888888;
+    background-color: #fefefe;
+    font-size: 0.8rem;
+    color: #808080;
+    margin: 5px;    
+}
+
+.kanban-item-card span, .kanban-item-card-not-feature span {
     margin: 3px 0px;
 }
 

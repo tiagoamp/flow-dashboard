@@ -36,15 +36,16 @@ function List(props) {
                     const classForDescription = isBlocked ? 'danger' : '';
                     const labelSpan = item.label ? (<span>{`[${item.label}]`}</span>) : null;
                     const categoryIconTag = getIconTagFor(item);
-                    const categorySpan = item.category ? (<span>{categoryIconTag}</span>) : null;
+                    const categorySpan = item.category ? (<span style={{"margin":"5px"}}>{categoryIconTag}</span>) : null;
                     const classForRowLabelAndCategory = (labelSpan && categorySpan) ? 'inline-container' : 'align-right';
                     const rowLabelAndCategoryDiv = (<div className={classForRowLabelAndCategory}>{labelSpan} {categorySpan}</div>);
                     const blockedSpan = isBlocked ? (<div className='danger-bold'>({t('BLOCKED')})</div>) : null;
                     const sizeDiv = item.size ? (<div className='badge-wrapper'><span className='badge'>{`${item.size}`}</span></div>) : null;
                     const classForBlockedAndSize = (blockedSpan && sizeDiv) ? 'inline-container' : 'align-right';
                     const rowBlockedAndSizeDiv = (<div className={classForBlockedAndSize}>{blockedSpan} {sizeDiv}</div>);
+                    const kanbanCardClass = !item.category || item.category === 'BACKLOG_ITEM' ? 'kanban-item-card' : 'kanban-item-card-not-feature';
                     return (
-                        <div className='kanban-item-card' key={item.id}>
+                        <div className={kanbanCardClass} key={item.id}>
                             { item.label || item.category ? rowLabelAndCategoryDiv : null }
                             <span className={classForDescription}>{item.description}</span>
                             { isBlocked || item.size ? rowBlockedAndSizeDiv : null }
