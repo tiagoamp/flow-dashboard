@@ -1,10 +1,10 @@
 {
-    "project": "Project DEMONSTRATION",
+    "project": "Projeto CONSIGO",
     "holidays": [ "2020-02-24T12:00:00Z","2020-02-25T12:00:00Z","2020-03-23T12:00:00Z",
         "2020-04-10T12:00:00Z","2020-04-21T12:00:00Z","2020-05-01T12:00:00Z" ],
     "milestones": {
         "initDate": "2020-02-03T12:00:00Z",
-        "dueDate": "2020-04-08T12:00:00Z"
+        "dueDate": "2020-08-31T12:00:00Z"
     },
     "statusList": [ 
         { "name": "INBOX", "color":"rgba(102, 204, 255, 0.7)"}, 
@@ -13,37 +13,63 @@
         { "name": "TEST", "color":"rgba(95,158,160, 0.7)" },
         { "name": "DONE", "color":"rgba(102, 204, 153, 0.7)" } 
     ],
-    "categoryList": [
-        { "name": "BACKLOG_ITEM"},
-        { "name": "TASK"},
-        { "name": "BUG"},
-        { "name": "ACTION"}
-    ],
     "actions": [
         {
-            "action": "Action statement number 01.", 
+            "action": "Elaboração do DDA (Documento de Definição de Arquitetura) para o projeto (demanda via Clarity DTP.45456, RQS 1662628 para elaboração do DAN).", 
             "requestDate": "2020-02-13T12:00:00Z", "dueDate": "2020-02-21T12:00:00Z", "accomplishedDate": "2020-03-12T12:00:00Z",
-            "accountable": "DEPT X"
+            "accountable": "DIT/DIPD"
         },
         {
-            "action": "Action statement number 02.", 
+            "action": "Formalização (abertura formal) do projeto (T.A. no ALM # 207449).", 
             "requestDate": "2020-02-03T12:00:00Z", "dueDate": "2020-02-03T12:00:00Z", "accomplishedDate": "",
-            "accountable": "DEPT Y"
+            "accountable": "COPS/SPD3"
         },
         {
-            "action": "Action statement number 03.", 
+            "action": "[CANCELADO] Indicação de ponto focal na DIT para desimpedir tarefas relacionadas à infraestrutura (solicitado via videoconf do dia 07/02).", 
+            "requestDate": "2020-02-07T12:00:00Z", "dueDate": "2020-02-10T12:00:00Z", "accomplishedDate": "2020-02-07T12:00:00Z",
+            "accountable": "SURC"
+        },
+        {
+            "action": "Configuração do projeto nas ferramentas corporativas de trabalho. Já Criados = [ALM, git, Clarity, PFácil, IBM-IDA, Jenkins, Sonar, UrbanCode, Kibana, SDM]", 
+            "requestDate": "2020-02-03T12:00:00Z", "dueDate": "2020-02-10T12:00:00Z", "accomplishedDate": "2020-06-18T12:00:00Z",
+            "accountable": "DTP (diversas áreas)"
+        },
+        {
+            "action": "[Data replanejada] Disponibilização de servidor de Banco de Dados com instância configurada (dev, homolog e prod).", 
+            "requestDate": "2020-02-13T12:00:00Z", "dueDate": "2020-04-13T12:00:00Z", "accomplishedDate": "2020-06-18T12:00:00Z",
+            "accountable": "DIT"
+        },
+        {
+            "action": "[Data replanejada] Disponibilização de servidor de Aplicação c/ JBoss configurado (dev, homolog e prod).", 
+            "requestDate": "2020-02-13T12:00:00Z", "dueDate": "2020-04-13T12:00:00Z", "accomplishedDate": "2020-06-18T12:00:00Z",
+            "accountable": "DIT"
+        },
+        {
+            "action": "Integração com 'gov.br' no Serpro para autenticação do Cidadão na Web (solict. via e-mail para Serpro).", 
             "requestDate": "2020-02-07T12:00:00Z", "dueDate": "2020-02-21T12:00:00Z", "accomplishedDate": "2020-02-21T12:00:00Z",
-            "accountable": "DEPT Z"
+            "accountable": "UDSC, DIAS e SERPRO"
+        },
+        {
+            "action": "Solução para disponibilização e autenticação das APIs do Consigo (provavelmente WSO2).", 
+            "requestDate": "2020-02-10T12:00:00Z", "dueDate": "2020-02-28T12:00:00Z", "accomplishedDate": "2020-05-04T12:00:00Z",
+            "accountable": "UDSC/Projeto e DIAS"
+        },
+        {
+            "action": "Solução para autenticação e autorização do módulo Web de Gestão do Consigo (provavelmente Gerid).", 
+            "requestDate": "2020-02-10T12:00:00Z", "dueDate": "2020-02-21T12:00:00Z", "accomplishedDate": "2020-02-21T12:00:00Z",
+            "accountable": "UDSC/Projeto e DIAS"
         }
     ],
     "risks": [ 
-        "Risk statement number 01.", 
-        "Risk statement number 02.",
-        "Risk statement number 03."
+        "Não atingimento do prazo definido posto este ser menor que o necessário para atender o escopo previsto (detalhado no ALM: https://alm.dataprev.gov.br/ccm/web/projects/CONSIGO#action=com.ibm.team.workitem.viewWorkItem&id=207969).", 
+        "Redução da produtividade pelo uso de tecnologias do framework atual (detalhado no ALM: https://alm.dataprev.gov.br/ccm/web/projects/CONSIGO#action=com.ibm.team.workitem.viewWorkItem&id=207970)",
+        "Indefinição de regras de negócio podem trazer atrasos e retrabalho no desenvolvimento (detalhado no ALM: https://alm.dataprev.gov.br/ccm/web/projects/CONSIGO#action=com.ibm.team.workitem.viewWorkItem&id=207974)",
+        "Indisponibilidade de apoio técnico para tarefas de processo, arquitetura e implantação (detalhado no ALM: https://alm.dataprev.gov.br/ccm/web/projects/CONSIGO#action=com.ibm.team.workitem.viewWorkItem&id=207975)",
+        "Sucesso do projeto depende de ações que não estão sob a gestão do projeto (detalhado no ALM: https://alm.dataprev.gov.br/ccm/web/projects/CONSIGO#action=com.ibm.team.workitem.viewWorkItem&id=207977)"
      ], 
     "items": [
         {
-            "id": "01", "label": "", "description": "Item numberr 01", "category": "BACKLOG_ITEM",
+            "id": "IB01", "label": "API", "description": "Serviço de Manutenção de Consignantes", "category": "BACKLOG_ITEM",
             "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z", "blocked": "false",
             "statusHistory": [
 		        { "status": "DONE",  "date": "2020-02-18T12:00:00Z" },
@@ -54,7 +80,7 @@
             ]
         },
         {
-            "id": "02", "label": "", "description": "Item number 02", "category": "BACKLOG_ITEM",
+            "id": "IB02", "label": "API", "description": "Serviço de Manutenção de Parâmetros de Consignantes", "category": "BACKLOG_ITEM",
             "status": "DONE", "size": 0, "dueDate": "2020-03-11T12:00:00Z", "blocked": "false",
             "statusHistory": [
                 { "status": "DONE",  "date": "2020-03-10T12:00:00Z" },
@@ -65,10 +91,10 @@
             ]
         },
         {
-            "id": "03", "label": "", "description": "Item number 03", "category": "BACKLOG_ITEM",
+            "id": "IB03", "label": "API", "description": "Serviço de Manutenção de Convênios", "category": "BACKLOG_ITEM",
 	    "status": "DONE", "size": 0, "dueDate": "2020-03-11T12:00:00Z", "blocked": "false",
             "statusHistory": [
-		        { "status": "DONE",  "date": "2020-03-16T12:00:00Z" },
+		        { "status": "DONE",  "date": "2020-03-11T12:00:00Z" },
 		        { "status": "TEST",  "date": "2020-03-06T12:00:00Z" },
 		        { "status": "DOING", "date": "2020-02-27T12:00:00Z" },
 		        { "status": "TO DO", "date": "2020-02-26T12:00:00Z" },
@@ -76,7 +102,7 @@
             ]
         },
         {
-            "id": "04", "label": "", "description": "Item number 04", "category": "BACKLOG_ITEM",
+            "id": "IB04", "label": "API", "description": "Serviço de Manutenção de Vínculos", "category": "BACKLOG_ITEM",
             "status": "DONE", "size": 0, "dueDate": "2020-03-11T12:00:00Z", "blocked": "false",
             "statusHistory": [
                 { "status": "DONE",  "date": "2020-03-16T12:00:00Z" },
@@ -87,106 +113,7 @@
             ]
         },
         {
-            "id": "05", "label": "", "description": "Item number 05", "category": "BACKLOG_ITEM",
-            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z", "blocked": "false",
-	    "statusHistory": [
-                { "status": "DONE",  "date": "2020-02-18T12:00:00Z" },
-                { "status": "TEST",  "date": "2020-02-14T12:00:00Z" },
-                { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
-                { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
-                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
-            ]
-        },
-        {
-            "id": "06", "label": "", "description": "Item number 06", "category": "BACKLOG_ITEM",
-            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z", "blocked": "false",
-            "statusHistory": [
-                { "status": "DONE",  "date": "2020-02-18T12:00:00Z" },
-                { "status": "TEST",  "date": "2020-02-17T12:00:00Z" },
-                { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
-                { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
-                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
-            ]
-        },
-        {
-            "id": "07", "label": "", "description": "Item number 07", "category": "BACKLOG_ITEM",
-            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z", "blocked": "false",
-            "statusHistory": [
-		{ "status": "DONE",  "date": "2020-02-20T12:00:00Z" },
-		{ "status": "TEST",  "date": "2020-02-18T12:00:00Z" },
-                { "status": "DOING", "date": "2020-02-12T12:00:00Z" },
-                { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
-                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
-            ]
-        },
-        {
-            "id": "08", "label": "", "description": "Item number 08", "category": "BACKLOG_ITEM",
-            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z", "blocked": "false",
-            "statusHistory": [
-                { "status": "DONE",  "date": "2020-02-18T12:00:00Z" },
-                { "status": "TEST",  "date": "2020-02-17T12:00:00Z" },
-                { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
-                { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
-                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
-            ]
-        },
-        {
-            "id": "09", "label": "", "description": "Item number 09", "category": "BACKLOG_ITEM",
-            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z", "blocked": "false",
-            "statusHistory": [
-		        { "status": "DONE",  "date": "2020-02-21T12:00:00Z" },
-		        { "status": "TEST",  "date": "2020-02-20T12:00:00Z" },
-                { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
-                { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
-                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
-            ]
-        },
-        {
-            "id": "10", "label": "", "description": "Item number 10", "category": "BACKLOG_ITEM",
-            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z", "blocked": "false",
-            "statusHistory": [
-		        { "status": "DONE",  "date": "2020-02-20T12:00:00Z" },
-		        { "status": "TEST",  "date": "2020-02-18T12:00:00Z" },
-                { "status": "DOING", "date": "2020-02-12T12:00:00Z" },
-                { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
-                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
-            ]
-        },
-        {
-            "id": "11", "label": "", "description": "Item number 11", "category": "BACKLOG_ITEM",
-            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z", "blocked": "false", 
-            "statusHistory": [
-                { "status": "DONE",  "date": "2020-02-18T12:00:00Z" },
-                { "status": "TEST",  "date": "2020-02-17T12:00:00Z" },
-                { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
-                { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
-                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
-            ]
-        },
-        {
-            "id": "12", "label": "", "description": "Item number 12", "category": "BACKLOG_ITEM",
-            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z", "blocked": "false",
-            "statusHistory": [
-                { "status": "DONE",  "date": "2020-02-21T12:00:00Z" },
-		        { "status": "TEST",  "date": "2020-02-20T12:00:00Z" },
-                { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
-                { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
-                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
-            ]
-        },
-        {
-            "id": "13", "label": "", "description": "Item number 13", "category": "BACKLOG_ITEM",
-            "status": "DONE", "size": 0, "dueDate": "2020-03-11T12:00:00Z", "blocked": "false",
-            "statusHistory": [
-                { "status": "DONE",  "date": "2020-03-16T12:00:00Z" },
-		        { "status": "TEST",  "date": "2020-03-06T12:00:00Z" },
-                { "status": "DOING", "date": "2020-02-27T12:00:00Z" },
-                { "status": "TO DO", "date": "2020-02-26T12:00:00Z" },
-                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
-            ]
-        },
-        {
-            "id": "14", "label": "", "description": "Item number 14", "category": "BACKLOG_ITEM",
+            "id": "IB06", "label": "API", "description": "Serviço de Manutenção de Valor Base e Margem consignável disponível", "category": "BACKLOG_ITEM",
             "status": "DONE", "size": 0, "dueDate": "2020-03-11T12:00:00Z", "blocked": "false", 
             "statusHistory": [
                 { "status": "DONE",  "date": "2020-03-16T12:00:00Z" },
@@ -197,29 +124,106 @@
             ]
         },
         {
-            "id": "15", "label": "", "description": "Item number 15", "category": "BACKLOG_ITEM",
-            "status": "DONE", "size": 0, "dueDate": "2020-03-11T12:00:00Z", "blocked": "false",
-            "statusHistory": [
-                { "status": "DONE",  "date": "2020-03-16T12:00:00Z" },
-		        { "status": "TEST",  "date": "2020-03-04T12:00:00Z" },
-		        { "status": "DOING", "date": "2020-03-03T12:00:00Z" },
-                { "status": "TO DO", "date": "2020-02-26T12:00:00Z" },
+            "id": "IB07", "label": "API", "description": "Serviço de Manutenção de Consignatários", "category": "BACKLOG_ITEM",
+            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z", "blocked": "false",
+	    "statusHistory": [
+                { "status": "DONE",  "date": "2020-02-18T12:00:00Z" },
+                { "status": "TEST",  "date": "2020-02-14T12:00:00Z" },
+                { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
+                { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
-            "id": "16", "label": "", "description": "Item number 16", "category": "BACKLOG_ITEM",
-            "status": "DONE", "size": 0, "dueDate": "2020-03-11T12:00:00Z", "blocked": "false",
+            "id": "IB09", "label": "API", "description": "Serviço de Autorização/Desautorização de Consulta da Margem", "category": "BACKLOG_ITEM",
+            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z", "blocked": "false",
             "statusHistory": [
-		        { "status": "DONE",  "date": "2020-03-10T12:00:00Z" },
-		        { "status": "TEST",  "date": "2020-03-10T12:00:00Z" },
-                { "status": "DOING", "date": "2020-03-09T12:00:00Z" },		    
-                { "status": "TO DO", "date": "2020-02-26T12:00:00Z" },
+		        { "status": "DONE",  "date": "2020-02-20T12:00:00Z" },
+		        { "status": "TEST",  "date": "2020-02-18T12:00:00Z" },
+                { "status": "DOING", "date": "2020-02-12T12:00:00Z" },
+                { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
-            "id": "17", "label": "", "description": "Item number 17", "category": "BACKLOG_ITEM",
+            "id": "IB10", "label": "API", "description": "Serviço de Autorização/Desautorização de Empréstimo", "category": "BACKLOG_ITEM",
+            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z", "blocked": "false",
+            "statusHistory": [
+		        { "status": "DONE",  "date": "2020-02-20T12:00:00Z" },
+		        { "status": "TEST",  "date": "2020-02-18T12:00:00Z" },
+                { "status": "DOING", "date": "2020-02-12T12:00:00Z" },
+                { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "IB11", "label": "API", "description": "Serviço de Averbação de empréstimo", "category": "BACKLOG_ITEM",
+            "status": "DONE", "size": 0, "dueDate": "2020-03-25T12:00:00Z", "blocked": "false",
+            "statusHistory": [
+                { "status": "DONE",  "date": "2020-04-13T12:00:00Z" },
+		        { "status": "TEST",  "date": "2020-03-25T12:00:00Z" },
+		        { "status": "DOING", "date": "2020-03-13T12:00:00Z" },
+		        { "status": "TO DO", "date": "2020-03-12T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "IB12", "label": "API", "description": "Serviço de Consulta de empréstimo averbado", "category": "BACKLOG_ITEM",
+            "status": "DONE", "size": 0, "dueDate": "2020-03-25T12:00:00Z", "blocked": "false",
+            "statusHistory": [
+                { "status": "DONE",  "date": "2020-04-13T12:00:00Z" },
+		        { "status": "TEST",  "date": "2020-03-25T12:00:00Z" },
+		        { "status": "DOING", "date": "2020-03-13T12:00:00Z" },
+		        { "status": "TO DO", "date": "2020-03-12T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "IB13", "label": "API", "description": "Geração de Log de Auditoria", "category": "BACKLOG_ITEM",
+            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z", "blocked": "false",
+	    "statusHistory": [
+                { "status": "DONE",  "date": "2020-02-18T12:00:00Z" },
+                { "status": "TEST",  "date": "2020-02-14T12:00:00Z" },
+                { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
+                { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "IB14", "label": "API", "description": "Autenticação/Autorização de acesso à API", "category": "BACKLOG_ITEM",
+            "status": "DONE", "size": 0, "dueDate": "2020-03-11T12:00:00Z", "blocked": "false",
+            "statusHistory": [
+                { "status": "DONE",  "date": "2020-06-18T12:00:00Z" },
+                { "status": "TEST",  "date": "2020-06-03T12:00:00Z" },
+                { "status": "DOING", "date": "2020-02-28T12:00:00Z" },
+		        { "status": "TO DO", "date": "2020-02-26T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-02-20T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "IB22", "label": "WEB-Gestão", "description": "Interface de Autorização/Desautorização de Consulta da Margem", "category": "BACKLOG_ITEM",
+            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z", "blocked": "false",
+            "statusHistory": [
+		        { "status": "DONE",  "date": "2020-02-21T12:00:00Z" },
+		        { "status": "TEST",  "date": "2020-02-20T12:00:00Z" },
+                { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
+                { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "IB23", "label": "WEB-Gestão", "description": "Interface de Autorização/Desautorização de Empréstimo", "category": "BACKLOG_ITEM",
+            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z", "blocked": "false",
+            "statusHistory": [
+                { "status": "DONE",  "date": "2020-02-21T12:00:00Z" },
+		        { "status": "TEST",  "date": "2020-02-20T12:00:00Z" },
+                { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
+                { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "IB24", "label": "WEB-Gestão", "description": "Interface de Consulta de Margens consignável", "category": "BACKLOG_ITEM",
             "status": "DONE", "size": 0, "dueDate": "2020-03-11T12:00:00Z", "blocked": "false", 
             "statusHistory": [
                 { "status": "DONE",  "date": "2020-03-10T12:00:00Z" },
@@ -230,56 +234,186 @@
             ]
         },
         {
-            "id": "18", "label": "", "description": "Item number 18", "category": "BACKLOG_ITEM",
-            "status": "TEST", "size": 0, "dueDate": "2020-03-25T12:00:00Z", "blocked": "false",
+            "id": "IB25", "label": "WEB-Gestão", "description": "Interface de Averbação de empréstimo", "category": "BACKLOG_ITEM",
+            "status": "DONE", "size": 0, "dueDate": "2020-03-25T12:00:00Z", "blocked": "false",
             "statusHistory": [
-                { "status": "TEST",  "date": "2020-03-25T12:00:00Z" },
-		        { "status": "DOING", "date": "2020-03-13T12:00:00Z" },
+                { "status": "DONE",  "date": "2020-05-19T12:00:00Z" },
+		        { "status": "TEST",  "date": "2020-05-18T12:00:00Z" },
+                { "status": "DOING", "date": "2020-03-13T12:00:00Z" },
 		        { "status": "TO DO", "date": "2020-03-12T12:00:00Z" },
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
-            "id": "19", "label": "", "description": "Item number 19", "category": "BACKLOG_ITEM",
-            "status": "TO DO", "size": 0, "dueDate": "2020-03-25T12:00:00Z", "blocked": "false",
+            "id": "IB26", "label": "WEB-Gestão", "description": "Interface de Consulta de empréstimo averbado", "category": "BACKLOG_ITEM",
+            "status": "DONE", "size": 0, "dueDate": "2020-03-25T12:00:00Z", "blocked": "false",
             "statusHistory": [
-                { "status": "TO DO", "date": "2020-03-12T12:00:00Z" },
-	            { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
-            ]
-        },
-        {
-            "id": "20", "label": "", "description": "Item number 20", "category": "BACKLOG_ITEM",
-            "status": "DOING", "size": 0, "dueDate": "2020-03-25T12:00:00Z", "blocked": "false",
-            "statusHistory": [
-		        { "status": "DOING", "date": "2020-03-13T12:00:00Z" },
+                { "status": "DONE",  "date": "2020-05-19T12:00:00Z" },
+		        { "status": "TEST",  "date": "2020-05-18T12:00:00Z" },
+                { "status": "DOING", "date": "2020-03-13T12:00:00Z" },
 		        { "status": "TO DO", "date": "2020-03-12T12:00:00Z" },
                 { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
             ]
         },
         {
-            "id": "21", "label": "", "description": "[Integração] Integrar com GERID para autenticação do Consigo-Gestão (front e back-end)", "category": "BACKLOG_ITEM",
-            "status": "DOING", "size": 0, "dueDate": "2020-03-11T12:00:00Z", "blocked": "false",
+            "id": "IB27", "label": "WEB-Gestão", "description": "Integração para Autenticação/Autorização do módulo Web(SPA) ", "category": "BACKLOG_ITEM",
+            "status": "DONE", "size": 0, "dueDate": "2020-03-11T12:00:00Z", "blocked": "false",
             "statusHistory": [
+                { "status": "DONE",  "date": "2020-05-04T12:00:00Z" },
+                { "status": "TEST",  "date": "2020-04-24T12:00:00Z" },
                 { "status": "DOING", "date": "2020-02-27T12:00:00Z" },
                 { "status": "TO DO", "date": "2020-02-26T12:00:00Z" },
                 { "status": "INBOX", "date": "2020-02-20T12:00:00Z" }
             ]
         },
         {
-            "id": "22", "label": "", "description": "[Integração] Integrar com GOV.Br para autenticação do Consigo-Cidadão (front e back-end)", "category": "BACKLOG_ITEM",
-            "status": "DOING", "size": 0, "dueDate": "2020-03-11T12:00:00Z", "blocked": "false",
-            "statusHistory": [ 
+            "id": "IB29", "label": "WEB-Cidadão", "description": "Interface de Autorização/Desautorização de Consulta da Margem ", "category": "BACKLOG_ITEM",
+            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z", "blocked": "false",
+            "statusHistory": [
+                { "status": "DONE",  "date": "2020-02-18T12:00:00Z" },
+                { "status": "TEST",  "date": "2020-02-17T12:00:00Z" },
+                { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
+                { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "IB30", "label": "WEB-Cidadão", "description": "Interface de Autorização/Desautorização de Empréstimo", "category": "BACKLOG_ITEM",
+            "status": "DONE", "size": 0, "dueDate": "2020-02-21T12:00:00Z", "blocked": "false", 
+            "statusHistory": [
+                { "status": "DONE",  "date": "2020-02-18T12:00:00Z" },
+                { "status": "TEST",  "date": "2020-02-17T12:00:00Z" },
+                { "status": "DOING", "date": "2020-02-11T12:00:00Z" },
+                { "status": "TO DO", "date": "2020-02-10T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "IB31", "label": "WEB-Cidadão", "description": "Interface de Consulta de Margens consignável", "category": "BACKLOG_ITEM",
+            "status": "DONE", "size": 0, "dueDate": "2020-03-11T12:00:00Z", "blocked": "false",
+            "statusHistory": [
+		        { "status": "DONE",  "date": "2020-03-10T12:00:00Z" },
+		        { "status": "TEST",  "date": "2020-03-10T12:00:00Z" },
+                { "status": "DOING", "date": "2020-03-09T12:00:00Z" },		    
+                { "status": "TO DO", "date": "2020-02-26T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "IB32", "label": "WEB-Cidadão", "description": "Interface de Consulta de empréstimo averbado", "category": "BACKLOG_ITEM",
+            "status": "DONE", "size": 0, "dueDate": "2020-03-25T12:00:00Z", "blocked": "false",
+            "statusHistory": [
+                { "status": "DONE",  "date": "2020-05-19T12:00:00Z" },
+		        { "status": "TEST",  "date": "2020-05-18T12:00:00Z" },
+                { "status": "DOING", "date": "2020-04-01T12:00:00Z" },
+                { "status": "TO DO", "date": "2020-03-12T12:00:00Z" },
+	            { "status": "INBOX", "date": "2020-02-03T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "IB33", "label": "WEB-Cidadão", "description": "Integração para Autenticação do módulo Web(SPA)", "category": "BACKLOG_ITEM",
+            "status": "DONE", "size": 0, "dueDate": "2020-03-11T12:00:00Z", "blocked": "false",
+            "statusHistory": [
+                { "status": "DONE",  "date": "2020-05-04T12:00:00Z" }, 
+                { "status": "TEST",  "date": "2020-04-24T12:00:00Z" },
                 { "status": "DOING", "date": "2020-02-27T12:00:00Z" },
 		        { "status": "TO DO", "date": "2020-02-26T12:00:00Z" },    
                 { "status": "INBOX", "date": "2020-02-20T12:00:00Z" }
             ]
         },
         {
-            "id": "23", "label": "", "description": "[Integração] Integrar com WSO2 para autenticação do Consigo-API (front e back-end)", "category": "BACKLOG_ITEM",
-            "status": "TO DO", "size": 0, "dueDate": "2020-03-11T12:00:00Z", "blocked": "false",
+            "id": "24", "label": "Homologacao", "description": "Elaborar roteiro de homologação", "category": "TASK",
+            "status": "DONE", "size": 0, "dueDate": "2020-05-15T12:00:00Z", "blocked": "false",
             "statusHistory": [
-                { "status": "TO DO", "date": "2020-02-26T12:00:00Z" },
-                { "status": "INBOX", "date": "2020-02-20T12:00:00Z" }
+                { "status": "DONE",  "date": "2020-04-26T12:00:00Z" },
+                { "status": "TEST",  "date": "2020-04-21T12:00:00Z" },
+                { "status": "DOING", "date": "2020-05-19T12:00:00Z" },
+		        { "status": "TO DO", "date": "2020-05-18T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-04-23T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "25", "label": "Implantação", "description": "Elaborar roteiro de implantação", "category": "TASK",
+            "status": "INBOX", "size": 0, "dueDate": "2020-05-15T12:00:00Z", "blocked": "false",
+            "statusHistory": [
+                { "status": "INBOX", "date": "2020-04-23T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "26", "label": "Testes", "description": "Ajustar testes funcionais com tokens e papéis (SoapUI e proj-testes)", "category": "TASK",
+            "status": "DONE", "size": 0, "dueDate": "2020-05-15T12:00:00Z", "blocked": "false",
+            "statusHistory": [
+                { "status": "DONE",  "date": "2020-06-04T12:00:00Z" },
+                { "status": "TEST",  "date": "2020-06-03T12:00:00Z" },
+                { "status": "DOING", "date": "2020-06-02T12:00:00Z" },
+                { "status": "TO DO", "date": "2020-06-01T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-04-23T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "27", "label": "Dev", "description": "Revisar API: doc Swagger e dados req/resp", "category": "TASK",
+            "status": "DONE", "size": 0, "dueDate": "2020-05-15T12:00:00Z", "blocked": "false",
+            "statusHistory": [
+                { "status": "DONE",  "date": "2020-05-20T12:00:00Z" },
+                { "status": "TEST",  "date": "2020-05-07T12:00:00Z" },
+                { "status": "DOING", "date": "2020-04-28T12:00:00Z" },
+                { "status": "TO DO", "date": "2020-04-27T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-04-23T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "28", "label": "Dev", "description": "Especificar/documentar API e Web no ALM", "category": "TASK",
+            "status": "DONE", "size": 0, "dueDate": "2020-05-15T12:00:00Z", "blocked": "false",
+            "statusHistory": [
+                { "status": "DONE",  "date": "2020-06-24T12:00:00Z" },
+                { "status": "TEST",  "date": "2020-06-22T12:00:00Z" },
+                { "status": "DOING", "date": "2020-04-28T12:00:00Z" },
+                { "status": "TO DO", "date": "2020-04-27T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-04-23T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "30", "label": "Dev/bug", "description": "Nova regra: Qdo inativar consignante, inativar os convênios (impl e document)", "category": "BUG",
+            "status": "DONE", "size": 0, "dueDate": "2020-05-15T12:00:00Z", "blocked": "false",
+            "statusHistory": [
+                { "status": "DONE",  "date": "2020-04-24T12:00:00Z" },
+		        { "status": "TEST",  "date": "2020-04-24T12:00:00Z" },
+		        { "status": "DOING", "date": "2020-04-24T12:00:00Z" },
+                { "status": "TO DO", "date": "2020-04-24T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-04-23T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "31", "label": "Dev/bug", "description": "Nova regra: Na request de Emprest Consignado, adicionar campos de cpf e nome do consignado para validar (impl e document)", "category": "BUG",
+            "status": "DONE", "size": 0, "dueDate": "2020-05-15T12:00:00Z", "blocked": "false",
+            "statusHistory": [
+                { "status": "DONE",  "date": "2020-04-24T12:00:00Z" },
+		        { "status": "TEST",  "date": "2020-04-24T12:00:00Z" },
+		        { "status": "DOING", "date": "2020-04-23T12:00:00Z" },
+                { "status": "TO DO", "date": "2020-04-23T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-04-23T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "32", "label": "Dev/bug", "description": "Corrigir problema de conversão de CNPJ e CPF com zeros a esquerda", "category": "BUG",
+            "status": "DONE", "size": 0, "dueDate": "2020-05-25T12:00:00Z", "blocked": "false",
+            "statusHistory": [
+                { "status": "DONE",  "date": "2020-04-19T12:00:00Z" },
+		        { "status": "TEST",  "date": "2020-04-18T12:00:00Z" },
+		        { "status": "DOING", "date": "2020-05-12T12:00:00Z" },
+                { "status": "TO DO", "date": "2020-05-11T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-05-11T12:00:00Z" }
+            ]
+        },
+        {
+            "id": "33", "label": "Dev/bug", "description": "Separar DTOs de request e response em todas as APIs", "category": "TASK",
+            "status": "DONE", "size": 0, "dueDate": "2020-05-25T12:00:00Z", "blocked": "false",
+            "statusHistory": [
+                { "status": "DONE",  "date": "2020-04-19T12:00:00Z" },
+		        { "status": "TEST",  "date": "2020-04-18T12:00:00Z" },
+		        { "status": "DOING", "date": "2020-05-12T12:00:00Z" },
+                { "status": "TO DO", "date": "2020-05-11T12:00:00Z" },
+                { "status": "INBOX", "date": "2020-05-11T12:00:00Z" }
             ]
         }
     ]
