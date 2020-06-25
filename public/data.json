@@ -338,6 +338,7 @@
             "statusHistory": [
                 { "status": "INBOX", "date": "2020-04-23T12:00:00Z" }
             ]
+<<<<<<< HEAD
         },
         {
             "id": "26", "label": "Testes", "description": "Ajustar testes funcionais com tokens e papéis (SoapUI e proj-testes)", "category": "TASK",
@@ -415,6 +416,8 @@
                 { "status": "TO DO", "date": "2020-05-11T12:00:00Z" },
                 { "status": "INBOX", "date": "2020-05-11T12:00:00Z" }
             ]
+=======
+>>>>>>> development
         }
     ]
 }

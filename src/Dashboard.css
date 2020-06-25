@@ -1,7 +1,44 @@
-.App {
-  background-color: white;
+.wrapper {
+  background-color: #fff;
   color: #282c34;
+  padding: 0px 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.25 1fr 1fr 1fr 0.25;
+  gap: 5px;
+  grid-template-areas: 
+    'header header'
+    'backlog status'
+    'kanban kanban'
+    'risks risks'
+    'footer footer';
 }
+
+.panel-header {
+  grid-area: header;
+}
+
+.panel-backlog {
+  grid-area: backlog;
+}
+
+.panel-status {
+  grid-area: status;
+}
+
+.panel-kanban {
+  grid-area: kanban;
+}
+
+.panel-risks {
+  grid-area: risks;
+}
+
+.panel-footer {
+  grid-area: footer;
+}
+
+
 
 .container {
   margin: 20px;
