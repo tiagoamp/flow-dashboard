@@ -1,0 +1,96 @@
+.wrapper {
+  background-color: #fff;
+  color: #282c34;
+  padding: 0px 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.25 1fr 1fr 1fr 0.25;
+  gap: 5px;
+  grid-template-areas: 
+    'header header'
+    'backlog status'
+    'kanban kanban'
+    'risks risks'
+    'footer footer';
+}
+
+.panel-header {
+  grid-area: header;
+}
+
+.panel-backlog {
+  grid-area: backlog;
+}
+
+.panel-status {
+  grid-area: status;
+}
+
+.panel-kanban {
+  grid-area: kanban;
+}
+
+.panel-risks {
+  grid-area: risks;
+}
+
+.panel-footer {
+  grid-area: footer;
+}
+
+
+
+.container {
+  margin: 20px;
+}
+
+.row00 {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.row01, .row02 {
+  margin: 20px 0px;
+}
+
+.cfd-chart-container {
+  flex: 2;
+}
+
+.burndown-chart-container {
+  flex: 1;
+}
+
+.panel-container {
+  margin: 10px 0px 0px 0px;
+}
+
+.panel-item-text {
+  font-size: 0.9rem;
+  color: #808080;
+}
+
+.panel-item-text span{
+  font-size: 0.9rem;
+  color: #808080;
+}
+
+.panel-item-text li {
+  margin: 10px 0px;
+}
+
+.panel-item-text span {
+  font-weight: bold;
+}
+
+.danger {
+  color: rgba(204, 102, 102, 0.7) !important;
+}
+
+.danger-bold {
+  color: rgba(204, 102, 102, 0.7) !important;
+  font-weight: bold;
+}
