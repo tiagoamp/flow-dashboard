@@ -16,7 +16,7 @@ class App extends Component {
   constructor() {
     super();
     this.state = { projName: '', milestones: {}, statusList: [], items: [], holidays: [], 
-                    actions: [], risks: [] };        
+                    actions: [], risks: [], categories: [] };        
   }
 
   componentDidMount() {
@@ -31,18 +31,20 @@ class App extends Component {
   }
 
   render() {
+    //const categories = service.getCategoryList();
+    const itemsFeatures = this.state.items.filter(item => !item.category || item.category === 'BACKLOG_ITEM');
     return (
       <div className="App">
         <Header project={this.state.projName} />
         <main className="container">
           <div className="row00">
             <div className="col-container">
-              <ItensProgress statusList={[...this.state.statusList]} items={[...this.state.items]} />
+              <ItensProgress statusList={[...this.state.statusList]} items={[...itemsFeatures]} />
             </div>
             <div className="col-container">
-              <ProjectProgress milestones={this.state.milestones} statusList={[...this.state.statusList]} items={[...this.state.items]} actions={this.state.actions}/>
-              <CFD statusList={[...this.state.statusList]} items={[...this.state.items]} />
-              <Burndown statusList={[...this.state.statusList]} items={[...this.state.items]} holidays={[...this.state.holidays]} />
+              <ProjectProgress milestones={this.state.milestones} statusList={[...this.state.statusList]} items={[...itemsFeatures]} actions={this.state.actions}/>
+              <CFD statusList={[...this.state.statusList]} items={[...itemsFeatures]} />
+              <Burndown statusList={[...this.state.statusList]} items={[...itemsFeatures]} holidays={[...this.state.holidays]} />
             </div>
           </div>
           <div className="row01">
