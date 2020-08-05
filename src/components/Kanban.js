@@ -35,6 +35,7 @@ function List(props) {
                     const isBlocked = item.blocked === "true";
                     const classForDescription = isBlocked ? 'danger' : '';
                     const labelSpan = item.label ? (<span>{`[${item.label}]`}</span>) : null;
+                    const idSpan = (<span>{`[${item.id}]`}</span>);
                     const categoryIconTag = getIconTagFor(item);
                     const categorySpan = item.category ? (<span style={{"margin":"5px"}}>{categoryIconTag}</span>) : null;
                     const classForRowLabelAndCategory = (labelSpan && categorySpan) ? 'inline-container' : 'align-right';
@@ -47,7 +48,7 @@ function List(props) {
                     return (
                         <div className={kanbanCardClass} key={item.id}>
                             { item.label || item.category ? rowLabelAndCategoryDiv : null }
-                            <span className={classForDescription}>{item.description}</span>
+                            <span className={classForDescription}> ({item.id}) {item.description}</span>
                             { isBlocked || item.size ? rowBlockedAndSizeDiv : null }
                         </div>
                     );

@@ -41,6 +41,7 @@ export default function ItensProgress(props) {
                         <div key={item.id}>
                             <span className={classForDescription}>
                                     {item.label ? `[${item.label}]` : null}&nbsp; 
+                                    {item.id}- 
                                     {item.description}
                             </span> 
                             { isDelayed ? 
