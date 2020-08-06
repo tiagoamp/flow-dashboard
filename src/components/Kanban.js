@@ -35,7 +35,6 @@ function List(props) {
                     const isBlocked = item.blocked === "true";
                     const classForDescription = isBlocked ? 'danger' : '';
                     const labelSpan = item.label ? (<span>{`[${item.label}]`}</span>) : null;
-                    const idSpan = (<span>{`[${item.id}]`}</span>);
                     const categoryIconTag = getIconTagFor(item);
                     const categorySpan = item.category ? (<span style={{"margin":"5px"}}>{categoryIconTag}</span>) : null;
                     const classForRowLabelAndCategory = (labelSpan && categorySpan) ? 'inline-container' : 'align-right';
