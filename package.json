@@ -19,7 +19,7 @@
     "react-i18next": "^11.3.4",
     "react-moment": "^0.9.7",
     "react-scripts": "5.0.1",
-    "serve": "^11.3.0"
+    "serve": "^14.2.0"
   },
   "scripts": {
     "start": "react-scripts start",
